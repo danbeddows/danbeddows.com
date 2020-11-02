@@ -178,9 +178,9 @@ const Nav = (props) => {
 
   const navItems = [
     { href: "/", title: "Home", description: "Go to the homepage" },
-    { href: "/about", title: "About", description: "What I do and why" },
+    /*{ href: "/about", title: "About", description: "What I do and why" },
     { href: "/work", title: "Projects", description: "Latest completed work" },
-    { href: "/contact", title: "Contact", description: "Say hello" },
+    { href: "/contact", title: "Contact", description: "Say hello" },*/
   ];
 
   return (
