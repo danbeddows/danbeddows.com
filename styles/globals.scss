@@ -1,0 +1,170 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 2.4rem;
+  line-height: 1.15;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.1rem;
+  color: #000;
+}
+
+h2 {
+  margin: 3.5rem 0 0.5rem;
+  line-height: 1;
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: -0.05rem;
+  color: #2e2e2e;
+}
+
+h3 {
+  margin: 1.8rem 0 0.5rem;
+  line-height: 1;
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+  color: #2e2e2e;
+}
+
+p {
+  margin: 1rem 0;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.42;
+  letter-spacing: 0rem;
+  max-width: 700px;
+}
+
+strong {
+  font-weight: 500;
+}
+
+input {
+  padding: 0 1.15rem;
+  height: 49px;
+}
+
+textarea {
+  padding: 1rem 1.3rem;
+  resize: none;
+}
+
+input,
+textarea {
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.42;
+  letter-spacing: -0.03rem;
+  font-family: "Montserrat", Segoe UI, Roboto, Oxygen;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 0px;
+  border-color: rgba(50, 50, 93, 0.25);
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  &::placeholder {
+    color: #999;
+  }
+
+  &:focus {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  }
+}
+
+button {
+  height: 49px;
+  padding: 0.7rem 1.4rem;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.42;
+  letter-spacing: -0.03rem;
+  font-family: "Montserrat", Segoe UI, Roboto, Oxygen;
+  background: #293462;
+  border-style: solid;
+  border-width: 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 25px;
+  transition: background 0.3s;
+  outline: none;
+  cursor: pointer;
+
+  &[type="submit"] {
+    background: #293462;
+    border-color: #293462;
+    color: #fff;
+    font-weight: 400;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    &:hover {
+      background: lighten(#293462, 20%);
+      border-color: #293462;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
+}
+
+/* Mobile page layout */
+@media screen and (max-width: 768px) {
+  .page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-sidebar {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  .page-content {
+  }
+}
+
+/* Desktop page layout */
+@media screen and (min-width: 769px) {
+  .page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .page-sidebar {
+    min-width: 300px;
+    flex: 0 0 25vw;
+    background: #293462;
+  }
+
+  .page-content {
+    flex: 1;
+  }
+}

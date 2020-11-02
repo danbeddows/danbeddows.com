@@ -1,0 +1,28 @@
+.formInputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.formInputLabel {
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 17px;
+  margin-bottom: 4px;
+  cursor: default;
+}
+
+.formSubmitButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem 0.7rem 1.4rem;
+}
+
+.formSubmitButton i,
+.formSubmitButton svg {
+  margin-left: 27px;
+  font-size: 0.85em;
+  opacity: 0.5;
+}
