@@ -17,7 +17,7 @@ export default function Home() {
         Good food, good coffee and hiking 🍕 ☕️ 🥾 make up the most of what I
         enjoy doing with my time away from work.
       </p>
-      <p>Also, I have an shameless insatiable passion for donuts 🍩.</p>
+      <p>Also, I have an shameless, insatiable passion for donuts 🍩.</p>
     </div>
   );
 }
