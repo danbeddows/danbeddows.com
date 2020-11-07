@@ -28,9 +28,9 @@ const handleContactForm = async (req, res) => {
   errors = undefined;
   let status = "failed";
 
-  const emailAddress = req.query.email;
-  const name = req.query.name;
-  const message = req.query.message;
+  const emailAddress = req.body.email;
+  const name = req.body.name;
+  const message = req.body.message;
 
   const emailRegex = new RegExp(/^[^s@]+@([^s@.,]+.)+[^s@.,]{2,}$/);
 
