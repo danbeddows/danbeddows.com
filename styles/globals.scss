@@ -124,8 +124,17 @@ button {
     &:hover {
       background: lighten(#293462, 20%);
       border-color: #293462;
-      color: #fff;
-      font-weight: 400;
+    }
+
+    &:disabled {
+      cursor: default;
+      border-color: lighten(#293462, 50%);
+      background: lighten(#293462, 50%);
+
+      &:hover {
+        background: lighten(#293462, 50%);
+        border-color: lighten(#293462, 50%);
+      }
     }
   }
 }

@@ -36,7 +36,7 @@ const FormInput = (props) => {
           className={props.className}
           onChange={onInputChange}
           value={inputValue}
-          disabled={props.isFormSubmitting}
+          disabled={props.isFormSubmitting || props.disabled}
         />
       )}
 
@@ -48,7 +48,7 @@ const FormInput = (props) => {
           className={props.className}
           onChange={onInputChange}
           value={inputValue}
-          disabled={props.isFormSubmitting}
+          disabled={props.isFormSubmitting || props.disabled}
         />
       )}
 
@@ -57,7 +57,7 @@ const FormInput = (props) => {
         <FormInputSubmit
           label={props.label}
           isLoading={props.isFormSubmitting}
-          disabled={props.isFormSubmitting}
+          disabled={props.isFormSubmitting || props.disabled}
         />
       )}
 

@@ -74,7 +74,7 @@ const handleContactForm = async (req, res) => {
           Data: "New Contact Form Submission",
         },
       },
-      Source: process.env.ADMIN_EMAIL,
+      Source: process.env.ADMIN_EMAIL_FROM,
     };
 
     await new AWS.SES({ apiVersion: "2010-12-01" })
@@ -90,6 +90,10 @@ const handleContactForm = async (req, res) => {
         });
         status = "failed";
       });
+
+    // Add arbitary thread pause, so the request doesn't
+    // seem broken
+    await sleep(2000);
   }
 
   res.json({
@@ -109,6 +113,12 @@ const formatMessage = (name, email, message) => {
     message +
     "</p></body></html>"
   );
+};
+
+const sleep = (ms) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 };
 
 module.exports = handleContactForm;

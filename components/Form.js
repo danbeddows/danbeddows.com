@@ -33,6 +33,10 @@ const Form = (props) => {
     return formSubmitting;
   };
 
+  const isFormDisabled = () => {
+    return props.disabled;
+  };
+
   // If a child prop changes, or the form is submitting, rerender children
   useEffect(() => {
     // Get all Form children as array
@@ -44,6 +48,7 @@ const Form = (props) => {
       // Add a isFormSubmitting prop - to keep up to date with submit promises
       let extraProps = {
         isFormSubmitting: isFormSubmitting(),
+        disabled: isFormDisabled(),
       };
 
       // If the child is an input field, add an onChange handler, storing updated value

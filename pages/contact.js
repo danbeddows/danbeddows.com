@@ -5,6 +5,7 @@ import styles from "../styles/Contact.module.css";
 
 export default function Contact() {
   const [errors, setErrors] = useState({});
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const submitForm = (data) => {
     let submissionErrors = {};
@@ -42,7 +43,7 @@ export default function Contact() {
         .then((response) => response.json())
         .then((response) => {
           if (response.status == "success") {
-            console.log("success");
+            setFormSubmitted(true);
           } else if (response.status == "failed") {
             let errors = response.errors;
             let responseErrors = {};
@@ -64,7 +65,7 @@ export default function Contact() {
   return (
     <div className={styles.page}>
       <h1>Say hello</h1>
-      <Form onSubmit={submitForm}>
+      <Form onSubmit={submitForm} disabled={formSubmitted}>
         <FormInput
           type="text"
           placeholder="Enter name"
@@ -94,6 +95,12 @@ export default function Contact() {
         />
         <FormInput type="submit" label="Send" error={errors.internal} />
       </Form>
+      {formSubmitted && (
+        <div className={styles.success}>
+          <h3>Thanks!</h3>I've received your message and will get back to you
+          shortly.
+        </div>
+      )}
     </div>
   );
 }
