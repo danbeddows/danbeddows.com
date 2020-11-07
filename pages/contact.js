@@ -92,7 +92,7 @@ export default function Contact() {
           className={styles.textarea}
           error={errors.message}
         />
-        <FormInput type="submit" label="Send" />
+        <FormInput type="submit" label="Send" error={errors.internal} />
       </Form>
     </div>
   );

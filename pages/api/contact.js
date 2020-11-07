@@ -56,7 +56,7 @@ const handleContactForm = async (req, res) => {
 
     const emailParams = {
       Destination: {
-        ToAddresses: ["dan@cloudmix.net"],
+        ToAddresses: [process.env.ADMIN_EMAIL],
       },
       Message: {
         Body: {
@@ -74,7 +74,7 @@ const handleContactForm = async (req, res) => {
           Data: "New Contact Form Submission",
         },
       },
-      Source: "contact@danbeddows.com",
+      Source: process.env.ADMIN_EMAIL,
     };
 
     await new AWS.SES({ apiVersion: "2010-12-01" })
@@ -84,7 +84,11 @@ const handleContactForm = async (req, res) => {
         // success
       })
       .catch(function (err) {
-        addError({ field: "internal", error: "An unknown error occured." });
+        addError({
+          field: "internal",
+          error: "An unknown error occured. Please try again later.",
+        });
+        status = "failed";
       });
   }
 
@@ -96,14 +100,14 @@ const handleContactForm = async (req, res) => {
 
 const formatMessage = (name, email, message) => {
   return (
-    "<h1>New Contact Form Submission</h1><h2>Name</h2><p>" +
+    "<html><body><h1>New Contact Form Submission</h1><h2>Name</h2><p>" +
     name +
     "</p>" +
     "<h2>Email</h2><p>" +
     email +
-    "</p><h2>Message</h2>" +
+    "</p><h2>Message</h2><p>" +
     message +
-    "</p>"
+    "</p></body></html>"
   );
 };
 

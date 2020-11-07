@@ -57,6 +57,7 @@ const FormInput = (props) => {
         <FormInputSubmit
           label={props.label}
           isLoading={props.isFormSubmitting}
+          disabled={props.isFormSubmitting}
         />
       )}
 
@@ -113,7 +114,11 @@ const FormInputTextarea = (props) => {
 
 const FormInputSubmit = (props) => {
   return (
-    <button type="submit" className={styles.formSubmitButton}>
+    <button
+      type="submit"
+      className={styles.formSubmitButton}
+      disabled={props.disabled}
+    >
       {props.label}{" "}
       {!props.isLoading ? (
         <FontAwesomeIcon icon={faChevronRight} fixedWidth />
