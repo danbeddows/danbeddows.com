@@ -4,7 +4,7 @@ import {
 } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import styles from "./FormInput.module.css";
+import styles from "./FormInput.module.scss";
 
 const FormInput = (props) => {
   const unique = "form-" + Math.random(1, 9999999);
@@ -116,7 +116,9 @@ const FormInputSubmit = (props) => {
   return (
     <button
       type="submit"
-      className={styles.formSubmitButton}
+      className={
+        styles.formSubmitButton + " " + (props.isLoading ? styles.loading : "")
+      }
       disabled={props.disabled}
     >
       {props.label}{" "}

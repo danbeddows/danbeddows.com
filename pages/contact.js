@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Form from "../components/Form";
 import FormInput from "../components/FormInput";
 import styles from "../styles/Contact.module.css";
@@ -6,6 +6,8 @@ import styles from "../styles/Contact.module.css";
 export default function Contact() {
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const successRef = useRef(null);
 
   const submitForm = (data) => {
     let submissionErrors = {};
@@ -43,6 +45,7 @@ export default function Contact() {
         .then((response) => response.json())
         .then((response) => {
           if (response.status == "success") {
+            // Show message + trigger scroll
             setFormSubmitted(true);
           } else if (response.status == "failed") {
             let errors = response.errors;
@@ -57,10 +60,17 @@ export default function Contact() {
         })
         .catch((error) => {
           console.log(error);
-          alert("An unknown error occurred, please try again later.");
         });
     }
   };
+
+  // When form is submitted, and success message is shown
+  // scroll down (so the message is actually visible)
+  useEffect(() => {
+    if (formSubmitted) {
+      successRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [formSubmitted]);
 
   return (
     <div className={styles.page}>
@@ -96,7 +106,7 @@ export default function Contact() {
         <FormInput type="submit" label="Send" error={errors.internal} />
       </Form>
       {formSubmitted && (
-        <div className={styles.success}>
+        <div className={styles.success} ref={successRef}>
           <h3>Thanks!</h3>I've received your message and will get back to you
           shortly.
         </div>

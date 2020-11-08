@@ -1,7 +1,7 @@
 import {
   faGithub,
   faLinkedin,
-  faTwitter
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
@@ -58,25 +58,27 @@ const Sidebar = () => {
   );
 };
 
-const MobileButton = props => {
+const MobileButton = (props) => {
   const buttonVariants = {
     open: (height = 1000) => ({
       clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
+      pointerEvents: "none",
       transition: {
         type: "spring",
         stiffness: 20,
-        restDelta: 2
-      }
+        restDelta: 2,
+      },
     }),
     closed: {
       clipPath: "circle(36px at calc(100% - 65px) 65px)",
+      pointerEvents: "auto",
       transition: {
         delay: 0.3,
         type: "spring",
         stiffness: 400,
-        damping: 40
-      }
-    }
+        damping: 40,
+      },
+    },
   };
 
   return (
@@ -108,28 +110,28 @@ const MobileButton = props => {
   );
 };
 
-const Header = props => {
+const Header = (props) => {
   let headerVariants = {
     open: { display: "flex" },
     closed: {
       transition: { delay: 1 },
-      display: "none"
-    }
+      display: "none",
+    },
   };
 
   const headerIntroVariants = {
     open: {
       opacity: 1,
       transition: {
-        delay: 0.2
-      }
+        delay: 0.2,
+      },
     },
     closed: {
       opacity: 0,
       transition: {
-        delay: 0.2
-      }
-    }
+        delay: 0.2,
+      },
+    },
   };
 
   const closeIfMobile = () => {
@@ -166,19 +168,19 @@ const Header = props => {
   );
 };
 
-const Nav = props => {
+const Nav = (props) => {
   const navVariants = {
     open: {
-      transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
     },
     closed: {
-      transition: { staggerChildren: 0.05, staggerDirection: -1 }
-    }
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
   };
 
   const navItems = [
     { href: "/", title: "Home", description: "Go to the homepage" },
-    { href: "/contact", title: "Contact", description: "Say hello" }
+    { href: "/contact", title: "Contact", description: "Say hello" },
   ];
 
   return (
@@ -199,22 +201,22 @@ const Nav = props => {
   );
 };
 
-const NavItem = props => {
+const NavItem = (props) => {
   const fadeVariants = {
     open: {
       y: 0,
       opacity: 1,
       transition: {
-        y: { stiffness: 1000, velocity: -100 }
-      }
+        y: { stiffness: 1000, velocity: -100 },
+      },
     },
     closed: {
       y: 50,
       opacity: 0,
       transition: {
-        y: { stiffness: 1000 }
-      }
-    }
+        y: { stiffness: 1000 },
+      },
+    },
   };
 
   const closeIfMobile = () => {
@@ -242,9 +244,9 @@ const Footer = () => {
     { href: "https://twitter.com/danbeddows", icon: faTwitter },
     {
       href: "https://www.linkedin.com/in/danbeddows/",
-      icon: faLinkedin
+      icon: faLinkedin,
     },
-    { href: "https://github.com/danbeddows/", icon: faGithub }
+    { href: "https://github.com/danbeddows/", icon: faGithub },
   ];
 
   return (
@@ -256,16 +258,16 @@ const Footer = () => {
           y: 0,
           transition: {
             delay: 0.45,
-            y: { stiffness: 1000, velocity: -100 }
-          }
+            y: { stiffness: 1000, velocity: -100 },
+          },
         },
         closed: {
           y: 50,
           opacity: 0,
           transition: {
-            y: { stiffness: 1000 }
-          }
-        }
+            y: { stiffness: 1000 },
+          },
+        },
       }}
     >
       <div className={styles.footerSocials}>
@@ -278,7 +280,7 @@ const Footer = () => {
   );
 };
 
-const FooterSocial = props => {
+const FooterSocial = (props) => {
   return (
     <a href={props.href} target="_blank">
       <FontAwesomeIcon icon={props.icon} />
