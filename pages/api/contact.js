@@ -52,8 +52,6 @@ const handleContactForm = async (req, res) => {
   }
 
   if (!errors) {
-    status = "success";
-
     const emailParams = {
       Destination: {
         ToAddresses: [process.env.ADMIN_EMAIL],
@@ -81,14 +79,13 @@ const handleContactForm = async (req, res) => {
       .sendEmail(emailParams)
       .promise()
       .then(function (data) {
-        // success
+        status = "success";
       })
       .catch(function (err) {
         addError({
           field: "internal",
           error: "An unknown error occured. Please try again later.",
         });
-        status = "failed";
       });
 
     // Add arbitary thread pause, so the request doesn't
