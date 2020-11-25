@@ -7,6 +7,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Dan Beddows</title>
+        <meta
+          name="description"
+          content="I'm Dan Beddows, a web developer based in Manchester, UK ☔️"
+        />
         <link rel="icon" href="/favicon.svg" />
         <link
           href="https://fonts.googleapis.com/css?family=Montserrat:200,300400,500,600,700,800,900&display=swap"

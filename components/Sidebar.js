@@ -89,6 +89,7 @@ const MobileButton = (props) => {
       ></motion.div>
       <div className={styles.mobileButton}>
         <button
+          aria-label="Main Menu Button"
           className={
             styles.hamburger +
             " " +
@@ -180,11 +181,16 @@ const Nav = (props) => {
 
   const navItems = [
     { href: "/", title: "Home", description: "Go to the homepage" },
+    { href: "/about", title: "About", description: "What I do and why" },
     { href: "/contact", title: "Contact", description: "Say hello" },
   ];
 
   return (
-    <motion.nav className={styles.nav} variants={navVariants}>
+    <motion.nav
+      className={styles.nav}
+      variants={navVariants}
+      aria-label="Main Menu"
+    >
       {navItems.map((navItem, index) => {
         return (
           <NavItem
@@ -282,7 +288,7 @@ const Footer = () => {
 
 const FooterSocial = (props) => {
   return (
-    <a href={props.href} target="_blank">
+    <a href={props.href} target="_blank" rel="noreferrer">
       <FontAwesomeIcon icon={props.icon} />
     </a>
   );
