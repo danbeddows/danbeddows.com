@@ -74,7 +74,8 @@ export default function Contact() {
 
   return (
     <div className={styles.page}>
-      <h1>Say hello</h1>
+      <h1>Contact</h1>
+      <h2 style={{ marginBottom: 30 }}>Say hello</h2>
       <Form onSubmit={submitForm} disabled={formSubmitted}>
         <FormInput
           type="text"

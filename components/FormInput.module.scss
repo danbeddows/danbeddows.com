@@ -29,7 +29,7 @@
     opacity: 0;
   }
 
-  &:hover,
+  &:hover:enabled,
   &.loading {
     i,
     svg {

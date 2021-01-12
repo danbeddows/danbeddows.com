@@ -4,6 +4,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <h1>Hello, World 👋🏻</h1>
+      <h2>Introduction</h2>
       <p>I'm Dan Beddows, a web developer based in Manchester, UK ☔️.</p>
       <p>
         I spend most of my time looking after all things tech at INHAUS, a
@@ -17,7 +18,7 @@ export default function Home() {
         Good food, good coffee and hiking 🍕 ☕️ 🥾 make up the most of what I
         enjoy doing with my time away from work.
       </p>
-      <p>I have an shameless passion for donuts 🍩.</p>
+      <p>I also have an shameless passion for donuts 🍩.</p>
     </div>
   );
 }
