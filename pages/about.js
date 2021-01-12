@@ -23,7 +23,7 @@ const About = (props) => {
             <span className={styles.highlight}>Frontend</span>
           </h3>
           <p>
-            Over the past few years frontend frameworks like React and Angular
+            Over the past few years, frontend frameworks like React and Angular
             have began dominating the web. And rightfully so — they've brought a
             huge paradigm shift in how to build web applications for the better.
           </p>
@@ -31,8 +31,8 @@ const About = (props) => {
             As a result, I'm finding myself increasingly focused on the
             frontend, especially UX. I have an eye for transforming large
             amounts of complexity into interfaces that any user would find{" "}
-            delightful. I've also grown hyperaware of accessiblity concerns
-            around the web and how to build in an accessible manner.
+            delightful. I also understand accessiblity concerns and how to build
+            in an accessible manner.
           </p>
         </div>
         <div>
@@ -40,9 +40,9 @@ const About = (props) => {
             <span className={styles.highlight}>Backend</span>
           </h3>
           <p>
-            For most of the past 15 years I've primarily written in PHP, with
-            the occasional sprinkle of Java and C#. More recently, especially
-            due to serverless, I've been building in TypeScript or JavaScript.
+            For the past 15 years I've primarily written in PHP, with the
+            occasional sprinkle of Java and C#. More recently, especially due to
+            serverless, I've been building in TypeScript or JavaScript.
           </p>
           <p>
             I've built API's for a handful of reasons, like fetching financial

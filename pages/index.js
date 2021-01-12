@@ -15,8 +15,8 @@ export default function Home() {
         software.
       </p>
       <p>
-        Good food, good coffee and hiking 🍕 ☕️ 🥾 make up the most of what I
-        enjoy doing with my time away from work.
+        Good food, good coffee and hiking make up the most of what I enjoy doing
+        with my time away from work 🍕 ☕️ 🥾.
       </p>
       <p>I also have an shameless passion for donuts 🍩.</p>
     </div>
