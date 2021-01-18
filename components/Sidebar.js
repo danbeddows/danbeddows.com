@@ -4,7 +4,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -13,6 +13,7 @@ import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
   const [isDisplayMobile, setIsDisplayMobile] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,14 +53,22 @@ const Sidebar = () => {
       animate={menuOpen ? "open" : "closed"}
       className={styles.headerContainer}
     >
-      <MobileButton toggleMenu={toggleMenu} menuOpen={menuOpen} />
-      <Header closeMenu={closeMobileMenu} isMobile={isDisplayMobile} />
+      <MobileButton
+        toggleMenu={toggleMenu}
+        menuOpen={menuOpen}
+        reduceMotion={shouldReduceMotion}
+      />
+      <Header
+        closeMenu={closeMobileMenu}
+        isMobile={isDisplayMobile}
+        reduceMotion={shouldReduceMotion}
+      />
     </motion.div>
   );
 };
 
 const MobileButton = (props) => {
-  const buttonVariants = {
+  const buttonVariantsMotion = {
     open: (height = 1000) => ({
       clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
       pointerEvents: "none",
@@ -81,10 +90,32 @@ const MobileButton = (props) => {
     },
   };
 
+  const buttonVariantsNoMotion = {
+    open: (height = 1000) => ({
+      clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
+      pointerEvents: "none",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    }),
+    closed: (height = 1000) => ({
+      clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
+      pointerEvents: "auto",
+      opacity: 0,
+      transition: {
+        delay: 0.2,
+        duration: 0.3,
+      },
+    }),
+  };
+
   return (
     <div className={styles.mobileButtonContainer}>
       <motion.div
-        variants={buttonVariants}
+        variants={
+          !props.reduceMotion ? buttonVariantsMotion : buttonVariantsNoMotion
+        }
         className={styles.mobileButtonBg}
       ></motion.div>
       <div className={styles.mobileButton}>
@@ -120,7 +151,7 @@ const Header = (props) => {
     },
   };
 
-  const headerIntroVariants = {
+  const headerIntroVariantsMotion = {
     open: {
       opacity: 1,
       transition: {
@@ -135,6 +166,22 @@ const Header = (props) => {
     },
   };
 
+  const headerIntroVariantsNoMotion = {
+    open: {
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.2,
+      },
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   const closeIfMobile = () => {
     if (props.isMobile) {
       props.closeMenu();
@@ -143,7 +190,14 @@ const Header = (props) => {
 
   return (
     <motion.header className={styles.header} variants={headerVariants}>
-      <motion.div className={styles.headerIntro} variants={headerIntroVariants}>
+      <motion.div
+        className={styles.headerIntro}
+        variants={
+          !props.reduceMotion
+            ? headerIntroVariantsMotion
+            : headerIntroVariantsNoMotion
+        }
+      >
         <Link href="/">
           <a className={styles.imgContainer} onClick={closeIfMobile}>
             <Image
@@ -162,9 +216,13 @@ const Header = (props) => {
         </Link>
       </motion.div>
 
-      <Nav closeMenu={props.closeMenu} isMobile={props.isMobile} />
+      <Nav
+        closeMenu={props.closeMenu}
+        isMobile={props.isMobile}
+        reduceMotion={props.reduceMotion}
+      />
 
-      <Footer />
+      <Footer reduceMotion={props.reduceMotion} />
     </motion.header>
   );
 };
@@ -200,6 +258,7 @@ const Nav = (props) => {
             closeMenu={props.closeMenu}
             isMobile={props.isMobile}
             key={index}
+            reduceMotion={props.reduceMotion}
           />
         );
       })}
@@ -208,7 +267,7 @@ const Nav = (props) => {
 };
 
 const NavItem = (props) => {
-  const fadeVariants = {
+  const fadeVariantsMotion = {
     open: {
       y: 0,
       opacity: 1,
@@ -225,6 +284,17 @@ const NavItem = (props) => {
     },
   };
 
+  const fadeVariantsNoMotion = {
+    open: {
+      opacity: 1,
+      transition: { delay: 0.2, duration: 0.2 },
+    },
+    closed: {
+      opacity: 0,
+      transition: { duration: 0.2 },
+    },
+  };
+
   const closeIfMobile = () => {
     if (props.isMobile) {
       props.closeMenu();
@@ -236,7 +306,9 @@ const NavItem = (props) => {
       <motion.a
         className={styles.navItem}
         onClick={closeIfMobile}
-        variants={fadeVariants}
+        variants={
+          !props.reduceMotion ? fadeVariantsMotion : fadeVariantsNoMotion
+        }
       >
         <div className={styles.navItemTitle}>{props.title}</div>
         <div className={styles.navItemDescription}>{props.description}</div>
@@ -245,7 +317,38 @@ const NavItem = (props) => {
   );
 };
 
-const Footer = () => {
+const Footer = (props) => {
+  const variantsMotion = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.45,
+        y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  };
+
+  const variantsNoMotion = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 0.2, duration: 0.2 },
+    },
+    closed: {
+      y: 0,
+      opacity: 0,
+      transition: { duration: 0.2 },
+    },
+  };
+
   const socials = [
     { href: "https://twitter.com/danbeddows", icon: faTwitter },
     {
@@ -258,23 +361,7 @@ const Footer = () => {
   return (
     <motion.footer
       className={styles.footer}
-      variants={{
-        open: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 0.45,
-            y: { stiffness: 1000, velocity: -100 },
-          },
-        },
-        closed: {
-          y: 50,
-          opacity: 0,
-          transition: {
-            y: { stiffness: 1000 },
-          },
-        },
-      }}
+      variants={!props.reduceMotion ? variantsMotion : variantsNoMotion}
     >
       <div className={styles.footerSocials}>
         {socials.map((social, index) => (
