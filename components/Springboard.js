@@ -1,9 +1,20 @@
 import { motion, useReducedMotion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import useWindowDimensions from "../util/hooks/useWindowDimensions.js";
-import styles from "./Sidebar.module.css";
 import ContentWrapper from "./Springboard/ContentWrapper";
 import MobileButton from "./Springboard/MobileButton";
+
+const Container = styled(motion.aside)`
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (max-width: 768px) {
+    pointer-events: none;
+  }
+`;
 
 const Springboard = () => {
   const [isDisplayMobile, setIsDisplayMobile] = useState(true);
@@ -42,11 +53,7 @@ const Springboard = () => {
   }, [windowDimensions]);
 
   return (
-    <motion.div
-      initial={false}
-      animate={menuOpen ? "open" : "closed"}
-      className={styles.headerContainer}
-    >
+    <Container initial={false} animate={menuOpen ? "open" : "closed"}>
       <MobileButton
         toggleMenu={toggleMenu}
         menuOpen={menuOpen}
@@ -57,7 +64,7 @@ const Springboard = () => {
         isMobile={isDisplayMobile}
         reduceMotion={shouldReduceMotion}
       />
-    </motion.div>
+    </Container>
   );
 };
 

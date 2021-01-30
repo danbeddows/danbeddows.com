@@ -35,7 +35,12 @@ const StyledNav = styled(motion.nav)`
 
 const Nav = (props) => {
   return (
-    <StyledNav variants={motionVariants} aria-label="Main Menu">
+    <StyledNav
+      variants={motionVariants}
+      aria-label="Main Menu"
+      aria-labelledby="primary-navigation"
+      role="navigation"
+    >
       {navData.map((navItem, index) => {
         return (
           <Item

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import styles from "../Sidebar.module.css";
 
 const motionVariants = (prefersReducedMotion, height = 1000) =>
   !prefersReducedMotion
@@ -80,8 +79,6 @@ const ButtonContainer = styled.div`
   height: 72px;
   padding: 20px;
   pointer-events: auto;
-  background: #293462;
-  border-radius: 35px;
 `;
 
 const MobileButton = (props) => {
@@ -90,21 +87,18 @@ const MobileButton = (props) => {
       <Background variants={motionVariants(props.reduceMotion)} />
       <ButtonContainer>
         <button
-          aria-label="Main Menu Button"
+          aria-label="Toggle Main Menu"
+          aria-expanded={props.menuOpen}
           className={
-            styles.hamburger +
-            " " +
-            styles.hamburgerElastic +
-            " " +
-            (props.menuOpen ? styles.isActive : "")
+            "hamburger hamburgerElastic " + (props.menuOpen ? "isActive" : "")
           }
           type="button"
           onClick={() => {
             props.toggleMenu();
           }}
         >
-          <span className={styles.hamburgerBox}>
-            <span className={styles.hamburgerInner}></span>
+          <span className="hamburgerBox">
+            <span className="hamburgerInner"></span>
           </span>
         </button>
       </ButtonContainer>
