@@ -6,7 +6,6 @@ import Title from "components/content/Title";
 import Page from "components/layout/Page";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import styles from "../styles/Contact.module.css";
 
 const StyledInput = styled(FormInput)`
   @media screen and (max-width: 768px) {
@@ -28,6 +27,20 @@ const StyledTextarea = styled(FormInput)`
     width: 550px;
     height: 300px;
   }
+`;
+
+const SuccessContainer = styled.div`
+  margin-top: 30px;
+`;
+
+const SuccessTitle = styled.div`
+  font-size: 1.17rem;
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+`;
+
+const SuccessBody = styled.div`
+  font-size: 1rem;
 `;
 
 export default function Contact() {
@@ -135,10 +148,12 @@ export default function Contact() {
         </Form>
 
         {formSubmitted && (
-          <div className={styles.success} ref={successRef}>
-            <h3>Thanks!</h3>I've received your message and will get back to you
-            shortly.
-          </div>
+          <SuccessContainer ref={successRef}>
+            <SuccessTitle>Thanks!</SuccessTitle>
+            <SuccessBody>
+              I've received your message and will get back to you shortly.
+            </SuccessBody>
+          </SuccessContainer>
         )}
       </Section>
     </Page>
