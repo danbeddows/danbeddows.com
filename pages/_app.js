@@ -1,8 +1,19 @@
 import Head from "next/head";
-import Springboard from "../components/Springboard";
+import { useEffect } from "react";
+import Springboard from "../components/global/Springboard";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    const setupBrushstroke = async () => {
+      if (CSS && CSS.paintWorklet) {
+        await CSS.paintWorklet.addModule("/brushstroke.js");
+      }
+    };
+
+    setupBrushstroke();
+  }, []);
+
   return (
     <>
       <Head>

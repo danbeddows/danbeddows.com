@@ -1,3 +1,7 @@
+import PageTitle from "components/content/PageTitle";
+import Section from "components/content/Section";
+import Title from "components/content/Title";
+import Page from "components/layout/Page";
 import { useEffect, useRef, useState } from "react";
 import Form from "../components/Form";
 import FormInput from "../components/FormInput";
@@ -73,45 +77,50 @@ export default function Contact() {
   }, [formSubmitted]);
 
   return (
-    <div className={styles.page}>
-      <h1>Contact</h1>
-      <h2 style={{ marginBottom: 30 }}>Say hello</h2>
-      <Form onSubmit={submitForm} disabled={formSubmitted}>
-        <FormInput
-          type="text"
-          placeholder="Enter name"
-          label="Name"
-          containerStyle={{ marginBottom: 30 }}
-          id="name"
-          className={styles.input}
-          error={errors.name}
-        />
-        <FormInput
-          type="text"
-          placeholder="Enter email address"
-          label="Email Address"
-          containerStyle={{ marginBottom: 30 }}
-          id="email"
-          className={styles.input}
-          error={errors.email}
-        />
-        <FormInput
-          type="textarea"
-          placeholder="Enter message"
-          label="Message"
-          containerStyle={{ marginBottom: 30 }}
-          id="message"
-          className={styles.textarea}
-          error={errors.message}
-        />
-        <FormInput type="submit" label="Send" error={errors.internal} />
-      </Form>
-      {formSubmitted && (
-        <div className={styles.success} ref={successRef}>
-          <h3>Thanks!</h3>I've received your message and will get back to you
-          shortly.
-        </div>
-      )}
-    </div>
+    <Page>
+      <PageTitle>Contact</PageTitle>
+
+      <Section>
+        <Title>Say hello</Title>
+
+        <Form onSubmit={submitForm} disabled={formSubmitted}>
+          <FormInput
+            type="text"
+            placeholder="Enter name"
+            label="Name"
+            containerStyle={{ marginBottom: 30 }}
+            id="name"
+            className={styles.input}
+            error={errors.name}
+          />
+          <FormInput
+            type="text"
+            placeholder="Enter email address"
+            label="Email Address"
+            containerStyle={{ marginBottom: 30 }}
+            id="email"
+            className={styles.input}
+            error={errors.email}
+          />
+          <FormInput
+            type="textarea"
+            placeholder="Enter message"
+            label="Message"
+            containerStyle={{ marginBottom: 30 }}
+            id="message"
+            className={styles.textarea}
+            error={errors.message}
+          />
+          <FormInput type="submit" label="Send" error={errors.internal} />
+        </Form>
+
+        {formSubmitted && (
+          <div className={styles.success} ref={successRef}>
+            <h3>Thanks!</h3>I've received your message and will get back to you
+            shortly.
+          </div>
+        )}
+      </Section>
+    </Page>
   );
 }

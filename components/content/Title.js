@@ -1,0 +1,16 @@
+import styled from "styled-components";
+
+const StyledTitle = styled.h2`
+  margin-bottom: 1.3rem;
+  line-height: 1;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.07rem;
+  color: #ff5757;
+`;
+
+const Title = ({ props, children }) => {
+  return <StyledTitle>{children}</StyledTitle>;
+};
+
+export default Title;
