@@ -1,7 +1,22 @@
 import Head from "next/head";
 import { useEffect } from "react";
+import { createGlobalStyle } from "styled-components";
 import Springboard from "../components/global/Springboard";
 import "../styles/globals.scss";
+
+const GlobalStyles = createGlobalStyle`
+  body {
+		padding: 0;
+		margin: 0;
+		font-family: "Montserrat", Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+			Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+		text-rendering: optimizeLegibility;
+	}
+	
+	* {
+		box-sizing: border-box;
+	}
+`;
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -28,6 +43,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
+      <GlobalStyles />
       <div className="page-container">
         <div className="page-sidebar">
           <Springboard />

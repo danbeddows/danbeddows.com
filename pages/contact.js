@@ -1,11 +1,34 @@
+import Form from "components/content/Form";
+import FormInput from "components/content/Form/FormInput";
 import PageTitle from "components/content/PageTitle";
 import Section from "components/content/Section";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
 import { useEffect, useRef, useState } from "react";
-import Form from "../components/Form";
-import FormInput from "../components/FormInput";
+import styled from "styled-components";
 import styles from "../styles/Contact.module.css";
+
+const StyledInput = styled(FormInput)`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 769px) {
+    width: 300px;
+  }
+`;
+
+const StyledTextarea = styled(FormInput)`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 250px;
+  }
+
+  @media screen and (min-width: 769px) {
+    width: 550px;
+    height: 300px;
+  }
+`;
 
 export default function Contact() {
   const [errors, setErrors] = useState({});
@@ -84,31 +107,28 @@ export default function Contact() {
         <Title>Say hello</Title>
 
         <Form onSubmit={submitForm} disabled={formSubmitted}>
-          <FormInput
+          <StyledInput
             type="text"
             placeholder="Enter name"
             label="Name"
             containerStyle={{ marginBottom: 30 }}
             id="name"
-            className={styles.input}
             error={errors.name}
           />
-          <FormInput
+          <StyledInput
             type="text"
             placeholder="Enter email address"
             label="Email Address"
             containerStyle={{ marginBottom: 30 }}
             id="email"
-            className={styles.input}
             error={errors.email}
           />
-          <FormInput
+          <StyledTextarea
             type="textarea"
             placeholder="Enter message"
             label="Message"
             containerStyle={{ marginBottom: 30 }}
             id="message"
-            className={styles.textarea}
             error={errors.message}
           />
           <FormInput type="submit" label="Send" error={errors.internal} />

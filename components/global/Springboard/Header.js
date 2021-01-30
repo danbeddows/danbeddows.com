@@ -3,12 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-const closeIfMobile = () => {
-  if (props.isMobile) {
-    props.closeMenu();
-  }
-};
-
 const motionVariants = (prefersReducedMotion) =>
   !prefersReducedMotion
     ? {
@@ -59,6 +53,8 @@ const StyledHeader = styled(motion.header)`
 `;
 
 const StyledImageLink = styled.a`
+  cursor: pointer;
+
   @media screen and (max-width: 768px) {
     max-width: 80px;
     margin-right: 11px;
@@ -79,10 +75,15 @@ const StyledImage = styled(Image)`
   background: #fff;
 `;
 
+const StyledBodyLink = styled.a`
+  text-decoration: none;
+`;
+
 const Title = styled.div`
   color: #fff;
   font-weight: 700;
   text-align: center;
+  text-decoration: none;
 
   @media screen and (max-width: 768px) {
     font-size: 23px;
@@ -110,6 +111,12 @@ const Subtitle = styled.div`
 `;
 
 const Header = (props) => {
+  const closeIfMobile = () => {
+    if (props.isMobile) {
+      props.closeMenu();
+    }
+  };
+
   return (
     <StyledHeader variants={motionVariants(props.reduceMotion)}>
       <Link href="/">
@@ -118,10 +125,10 @@ const Header = (props) => {
         </StyledImageLink>
       </Link>
       <Link href="/">
-        <a onClick={closeIfMobile}>
+        <StyledBodyLink onClick={closeIfMobile}>
           <Title>Dan Beddows</Title>
           <Subtitle>Full Stack Web Developer</Subtitle>
-        </a>
+        </StyledBodyLink>
       </Link>
     </StyledHeader>
   );
