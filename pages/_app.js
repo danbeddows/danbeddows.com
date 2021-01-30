@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Sidebar from "../components/Sidebar";
+import Springboard from "../components/Springboard";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div className="page-container">
         <div className="page-sidebar">
-          <Sidebar />
+          <Springboard />
         </div>
         <div className="page-content">
           <Component {...pageProps} />
