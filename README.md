@@ -1,6 +1,6 @@
-# Dan Beddows - Personal Portfolio
+# Dan Beddows - Personal Website
 
-This repository holds my personal portfolio that is hosted at [danbeddows.com](https://danbeddows.com).
+This repository holds my personal website that is hosted at [danbeddows.com](https://danbeddows.com).
 
 ## Installation
 
