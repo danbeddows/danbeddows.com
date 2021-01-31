@@ -69,9 +69,7 @@ const StyledImageLink = styled.a`
 const StyledImage = styled(Image)`
   border-radius: 50%;
   overflow: hidden;
-  border-style: solid;
-  border-color: #fff;
-  border-width: 2px;
+  border: 2px #fff solid !important;
   background: #fff;
 `;
 
