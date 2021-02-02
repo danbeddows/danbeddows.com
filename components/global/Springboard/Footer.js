@@ -71,6 +71,9 @@ const FooterSocials = styled.div`
 const Copyright = styled.div`
   color: #fff;
   font-size: 12px;
+  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-weight: 400;
 `;
 
 const Footer = (props) => {

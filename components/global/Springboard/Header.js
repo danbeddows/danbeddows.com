@@ -82,6 +82,8 @@ const Title = styled.div`
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
 
   @media screen and (max-width: 768px) {
     font-size: 23px;
@@ -95,8 +97,10 @@ const Title = styled.div`
 
 const Subtitle = styled.div`
   margin-top: 2px;
-
+  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
   color: #fff;
+  font-weight: 400;
   text-align: center;
 
   @media screen and (max-width: 768px) {

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledTitle = styled.h2`
+  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
   margin-bottom: 1.3rem;
   line-height: 1;
   font-size: 2rem;

@@ -5,11 +5,19 @@ import Springboard from "../components/global/Springboard";
 import "../styles/globals.scss";
 
 const GlobalStyles = createGlobalStyle`
+@font-face {
+  font-family: "silka";
+  src: url("/font/silka/silka-regular-webfont.woff2") format("woff2"),
+    url("/font/silka/silka-regular-webfont.woff") format("woff"),
+    url("/font/silka/silka-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
   body {
 		padding: 0;
 		margin: 0;
-		font-family: "Montserrat", Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-			Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+		
 		text-rendering: optimizeLegibility;
 	}
 	
@@ -39,7 +47,7 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.svg" />
         <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:200,300400,500,600,700,800,900&display=swap"
+          href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap"
           rel="stylesheet"
         />
       </Head>

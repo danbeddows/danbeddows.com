@@ -1,4 +1,6 @@
+import StyledInput from "components/content/Input";
 import React, { useEffect, useState } from "react";
+
 const TextInput = (props) => {
   const [inputValue, setInputValue] = useState(props.value ? props.value : "");
 
@@ -7,7 +9,7 @@ const TextInput = (props) => {
   }, [props.value]);
 
   return (
-    <input
+    <StyledInput
       type="text"
       placeholder={props.placeholder}
       id={props.id}

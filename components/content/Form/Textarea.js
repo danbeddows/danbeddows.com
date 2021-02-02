@@ -1,3 +1,4 @@
+import StyledTextarea from "components/content/Textarea";
 import React, { useEffect, useState } from "react";
 
 const Textarea = (props) => {
@@ -8,7 +9,7 @@ const Textarea = (props) => {
   }, [props.value]);
 
   return (
-    <textarea
+    <StyledTextarea
       placeholder={props.placeholder}
       id={props.id}
       className={props.className}
@@ -17,7 +18,7 @@ const Textarea = (props) => {
         props.onChange(e.target.value);
       }}
       disabled={props.disabled}
-    ></textarea>
+    ></StyledTextarea>
   );
 };
 
