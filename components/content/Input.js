@@ -3,8 +3,8 @@ import styled from "styled-components";
 const StyledInput = styled.input`
   padding: 0 1.15rem;
   height: 49px;
-  font-size: 1em;
-  font-weight: 300;
+  font-size: 0.95em;
+  font-weight: 400;
   line-height: 1.42;
   letter-spacing: -0.03rem;
   font-family: "Montserrat", Segoe UI, Roboto, Oxygen;

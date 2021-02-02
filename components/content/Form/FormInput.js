@@ -15,9 +15,11 @@ const Label = styled.label`
   font-size: 14px;
   margin-left: 17px;
   margin-bottom: 7px;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 0.9rem;
   cursor: default;
+  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
 `;
 
 const Error = styled.div`
