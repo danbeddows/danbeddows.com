@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }) {
         <title>Dan Beddows</title>
         <meta
           name="description"
-          content="I'm Dan Beddows, a web developer based in Manchester, UK ☔️"
+          content="I'm Dan Beddows, a web developer based in Manchester, UK. I like donuts."
         />
         <link rel="icon" href="/favicon.svg" />
         <link
