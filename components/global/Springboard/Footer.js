@@ -84,7 +84,7 @@ const Footer = (props) => {
           <SocialLink href={social.href} icon={social.icon} key={index} />
         ))}
       </FooterSocials>
-      <Copyright>&copy; Daniel Beddows 2020</Copyright>
+      <Copyright>&copy; Daniel Beddows {new Date().getFullYear()}</Copyright>
     </Container>
   );
 };
