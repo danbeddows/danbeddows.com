@@ -8,11 +8,13 @@ import MobileButton from "./Springboard/MobileButton";
 const Container = styled(motion.aside)`
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   @media screen and (max-width: 768px) {
     pointer-events: none;
+    min-height: 0;
   }
 `;
 
