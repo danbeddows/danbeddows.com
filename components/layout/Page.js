@@ -10,8 +10,8 @@ const StyledPage = styled.div`
   }
 `;
 
-const Page = ({ props, children }) => {
-  return <StyledPage>{children}</StyledPage>;
+const Page = (props) => {
+  return <StyledPage>{props.children}</StyledPage>;
 };
 
 export default Page;

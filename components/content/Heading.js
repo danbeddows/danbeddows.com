@@ -19,10 +19,10 @@ const Highlight = styled.span`
   --brush-color: #ffd969;
 `;
 
-const Heading = ({ props, children }) => {
+const Heading = (props) => {
   return (
     <StyledHeading>
-      <Highlight>{children}</Highlight>
+      <Highlight>{props.children}</Highlight>
     </StyledHeading>
   );
 };

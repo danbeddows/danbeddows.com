@@ -11,8 +11,8 @@ const StyledTitle = styled.h2`
   color: #ff5757;
 `;
 
-const Title = ({ props, children }) => {
-  return <StyledTitle>{children}</StyledTitle>;
+const Title = (props) => {
+  return <StyledTitle>{props.children}</StyledTitle>;
 };
 
 export default Title;

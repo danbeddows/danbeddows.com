@@ -19,8 +19,8 @@ const Title = styled.h1`
   }
 `;
 
-const PageTitle = ({ props, children }) => {
-  return <Title>{children}</Title>;
+const PageTitle = (props) => {
+  return <Title>{props.children}</Title>;
 };
 
 export default PageTitle;
