@@ -1,3 +1,4 @@
+import { dom as fontAwesomeDom } from "@fortawesome/fontawesome-svg-core";
 import Head from "next/head";
 import { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
@@ -86,6 +87,7 @@ function MyApp({ Component, pageProps }) {
           content="I'm Dan Beddows, a web developer based in Manchester, UK. I like donuts."
         />
         <link rel="icon" href="/favicon.svg" />
+        <style type="text/css">{fontAwesomeDom.css()}</style>
         <link
           href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap"
           rel="stylesheet"
