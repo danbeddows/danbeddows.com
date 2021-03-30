@@ -1,6 +1,7 @@
 import {
   faGithub,
   faLinkedin,
+  faStackOverflow,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
@@ -44,6 +45,10 @@ const socialData = [
   {
     href: "https://www.linkedin.com/in/danbeddows/",
     icon: faLinkedin,
+  },
+  {
+    href: "https://stackoverflow.com/users/1658795/daniel-beddows",
+    icon: faStackOverflow,
   },
   { href: "https://github.com/danbeddows/", icon: faGithub },
 ];
