@@ -86,6 +86,8 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="I'm Dan Beddows, a web developer based in Manchester, UK. I like donuts."
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.svg" />
         <style type="text/css">{fontAwesomeDom.css()}</style>
         <link
