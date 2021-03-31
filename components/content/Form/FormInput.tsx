@@ -28,56 +28,80 @@ const Error = styled.div`
   color: #d43f3a;
 `;
 
-const FormInput = (props) => {
+interface FormInputProps {
+  onChange: (value: string) => void;
+  type: string;
+  id: string;
+  containerStyle: {};
+  label: string;
+  placeholder: string;
+  isFormSubmitting: boolean;
+  disabled: boolean;
+  className: string;
+  error: string;
+}
+
+const FormInput = ({
+  onChange,
+  type,
+  id,
+  containerStyle,
+  label,
+  placeholder,
+  isFormSubmitting,
+  disabled,
+  className,
+  error,
+}: FormInputProps) => {
   const [inputValue, setInputValue] = useState("");
 
-  const onInputChange = (val) => {
+  const onInputChange = (val: string) => {
     setInputValue(val);
-    props.onChange(val);
+    onChange(val);
   };
 
   return (
-    <Container style={props.containerStyle ? props.containerStyle : {}}>
+    <Container style={containerStyle ? containerStyle : {}}>
       {/* form input label - only display for type 'text' or textarea */}
-      {(props.type == "text" || props.type == "textarea") && (
-        <Label htmlFor={props.id}>{props.label}</Label>
+      {(type == "text" || type == "textarea") && (
+        <Label htmlFor={id}>{label}</Label>
       )}
 
       {/* text input */}
-      {props.type == "text" && (
+      {type == "text" && (
         <TextInput
-          placeholder={props.placeholder}
-          id={props.id}
-          className={props.className}
+          placeholder={placeholder}
+          id={id}
+          className={className}
           onChange={onInputChange}
           value={inputValue}
-          disabled={props.isFormSubmitting || props.disabled}
+          disabled={isFormSubmitting || disabled}
         />
       )}
 
       {/* textarea input */}
-      {props.type == "textarea" && (
+      {type == "textarea" && (
         <Textarea
-          placeholder={props.placeholder}
-          id={props.id}
-          className={props.className}
+          placeholder={placeholder}
+          id={id}
+          className={className}
           onChange={onInputChange}
           value={inputValue}
-          disabled={props.isFormSubmitting || props.disabled}
+          disabled={isFormSubmitting || disabled}
         />
       )}
 
       {/* submit button */}
-      {props.type == "submit" && (
+      {type == "submit" && (
         <Submit
-          label={props.label}
-          isLoading={props.isFormSubmitting}
-          disabled={props.isFormSubmitting || props.disabled}
+          label={label}
+          isLoading={isFormSubmitting}
+          disabled={isFormSubmitting || disabled}
         />
       )}
 
       {/* show any error */}
-      {props.error && <Error>{props.error}</Error>}
+      {error && <Error>{error}</Error>}
     </Container>
   );
 };
