@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import useWindowDimensions from "util/hooks/useWindowDimensions.js";
+import useWindowDimensions from "util/hooks/useWindowDimensions";
 import ContentWrapper from "./Springboard/ContentWrapper";
 import MobileButton from "./Springboard/MobileButton";
 

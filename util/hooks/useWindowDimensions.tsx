@@ -8,10 +8,15 @@ function getWindowDimensions() {
   };
 }
 
+interface DimensionState {
+  width: number;
+  height: number;
+}
+
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState({
-    innerWidth: 0,
-    innerHeight: 0,
+  const [windowDimensions, setWindowDimensions] = useState<DimensionState>({
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
