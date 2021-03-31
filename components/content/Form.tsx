@@ -1,26 +1,41 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, {
+  FunctionComponent,
+  ReactNode,
+  Reducer,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 
-const formReducer = (state, data) => {
+const formReducer: Reducer<any, any> = (state, data) => {
   return {
     ...state,
     [data.id]: data.value,
   };
 };
 
-const Form = (props) => {
-  const [children, setChildren] = useState([]);
+interface FormProps {
+  disabled: boolean;
+  onSubmit: (payload: any) => Promise<void>;
+}
+
+const Form: FunctionComponent<FormProps> = ({
+  children,
+  onSubmit,
+  disabled,
+}) => {
+  const [childrenObjs, setChildrenObjs] = useState<ReactNode[]>([]);
   const [formData, setFormData] = useReducer(formReducer, {});
   const [formSubmitting, setFormSubmitting] = useState(false);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: any) => {
     // prevent default form submission
     e.preventDefault();
 
     // Submit form
-    let submitPromise = props.onSubmit(formData);
+    let submitPromise = onSubmit(formData);
 
     if (submitPromise && submitPromise !== null) {
-      console.log("started promise");
       setFormSubmitting(true);
 
       submitPromise.then(() => {
@@ -34,19 +49,25 @@ const Form = (props) => {
   };
 
   const isFormDisabled = () => {
-    return props.disabled;
+    return disabled;
   };
 
   // If a child prop changes, or the form is submitting, rerender children
   useEffect(() => {
     // Get all Form children as array
-    let children = React.Children.toArray(props.children);
+    let childrenArray = React.Children.toArray(children) as ReactNode[];
 
-    children = children.map((child) => {
+    childrenArray = childrenArray.map((child: any) => {
       let childType = child.props.type;
 
       // Add a isFormSubmitting prop - to keep up to date with submit promises
-      let extraProps = {
+      interface extraPropsInterface {
+        isFormSubmitting: boolean;
+        disabled: boolean;
+        onChange?: (value: any) => void;
+      }
+
+      let extraProps: extraPropsInterface = {
         isFormSubmitting: isFormSubmitting(),
         disabled: isFormDisabled(),
       };
@@ -69,17 +90,17 @@ const Form = (props) => {
       return child;
     });
 
-    setChildren(children);
-  }, [props.children, formSubmitting]);
+    setChildrenObjs(childrenArray);
+  }, [children, formSubmitting]);
 
   // Set initial empty data for children
   useEffect(() => {
     // Get all Form children as array
-    let children = React.Children.toArray(props.children);
+    let childrenArray = React.Children.toArray(children);
 
     // Run through children
-    children = children.map((child) => {
-      let childType = child.props.type;
+    childrenArray.map((child: any) => {
+      let childType = child.type;
 
       if (childType == "text" || childType == "textarea") {
         // Set empty value for input
@@ -94,7 +115,7 @@ const Form = (props) => {
         handleFormSubmit(e);
       }}
     >
-      {children.map((child) => {
+      {childrenObjs.map((child) => {
         return child;
       })}
     </form>

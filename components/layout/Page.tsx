@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledPage = styled.div`
@@ -10,8 +11,8 @@ const StyledPage = styled.div`
   }
 `;
 
-const Page = (props) => {
-  return <StyledPage>{props.children}</StyledPage>;
+const Page: FunctionComponent = ({ children }) => {
+  return <StyledPage>{children}</StyledPage>;
 };
 
 export default Page;
