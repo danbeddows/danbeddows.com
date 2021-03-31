@@ -43,14 +43,32 @@ const SuccessBody = styled.div`
   font-size: 1rem;
 `;
 
+interface subErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+  internal?: string;
+}
+
+interface submissionData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface responseError {
+  field: string;
+  error: string;
+}
+
 export default function Contact() {
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<subErrors>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const successRef = useRef(null);
+  const successRef = useRef<null | HTMLDivElement>(null);
 
-  const submitForm = (data) => {
-    let submissionErrors = {};
+  const submitForm = (data: submissionData) => {
+    let submissionErrors: subErrors = {};
 
     const emailRegex = new RegExp(/^[^s@]+@([^s@.,]+.)+[^s@.,]{2,}$/);
 
@@ -91,7 +109,7 @@ export default function Contact() {
             let errors = response.errors;
             let responseErrors = {};
 
-            errors.forEach((error) => {
+            errors.forEach((error: responseError) => {
               responseErrors = { responseErrors, [error.field]: error.error };
             });
 
@@ -108,7 +126,7 @@ export default function Contact() {
   // scroll down (so the message is actually visible)
   useEffect(() => {
     if (formSubmitted) {
-      successRef.current.scrollIntoView({ behavior: "smooth" });
+      successRef.current!.scrollIntoView({ behavior: "smooth" });
     }
   }, [formSubmitted]);
 

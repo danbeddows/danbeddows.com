@@ -1,7 +1,15 @@
 import { lighten } from "polished";
+import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 
-const Btn = ({
+interface BtnProps {
+  className?: string;
+  type: "button" | "submit" | "reset";
+  loading: boolean;
+  disabled: boolean;
+}
+
+const Btn: FunctionComponent<BtnProps> = ({
   className,
   children,
   type = "button",
@@ -12,6 +20,13 @@ const Btn = ({
     {children}
   </button>
 );
+
+interface StyledButtonProps {
+  type: "button" | "submit" | "reset";
+  loading: boolean;
+  disabled: boolean;
+  className: string;
+}
 
 const StyledButton = styled(Btn)`
   height: 49px;
@@ -65,7 +80,7 @@ const StyledButton = styled(Btn)`
         opacity: 0.5;
       }
     `}
-}
+	}
 
   ${(props) =>
     props.type &&
@@ -96,7 +111,13 @@ const StyledButton = styled(Btn)`
     `}
 `;
 
-const Button = ({
+interface ButtonProps {
+  type: "button" | "submit" | "reset";
+  loading: boolean;
+  disabled: boolean;
+}
+
+const Button: FunctionComponent<ButtonProps> = ({
   children,
   type = "button",
   loading = false,

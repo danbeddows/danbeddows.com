@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledInput = styled.input`
@@ -30,7 +31,17 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({
+interface InputProps {
+  className: string;
+  id: string;
+  value: string;
+  placeholder: string;
+  onChange: () => void;
+  disabled: boolean;
+  type: string;
+}
+
+const Input: FunctionComponent<InputProps> = ({
   children,
   className,
   id,

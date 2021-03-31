@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledTitle = styled.h2`
@@ -11,8 +12,8 @@ const StyledTitle = styled.h2`
   color: #ff5757;
 `;
 
-const Title = (props) => {
-  return <StyledTitle>{props.children}</StyledTitle>;
+const Title: FunctionComponent = ({ children }) => {
+  return <StyledTitle>{children}</StyledTitle>;
 };
 
 export default Title;

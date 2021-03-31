@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledHeading = styled.h3`
@@ -19,10 +20,10 @@ const Highlight = styled.span`
   --brush-color: #ffd969;
 `;
 
-const Heading = (props) => {
+const Heading: FunctionComponent = ({ children }) => {
   return (
     <StyledHeading>
-      <Highlight>{props.children}</Highlight>
+      <Highlight>{children}</Highlight>
     </StyledHeading>
   );
 };

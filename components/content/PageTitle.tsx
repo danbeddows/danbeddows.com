@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -19,8 +20,8 @@ const Title = styled.h1`
   }
 `;
 
-const PageTitle = (props) => {
-  return <Title>{props.children}</Title>;
+const PageTitle: FunctionComponent = ({ children }) => {
+  return <Title>{children}</Title>;
 };
 
 export default PageTitle;
