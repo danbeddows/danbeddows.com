@@ -1,3 +1,5 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+
 /*
  * Config AWS
  */
@@ -8,11 +10,16 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_APP_SECRET_ACCESS_KEY,
 });
 
+interface IError {
+  field: string;
+  error: string;
+}
+
 /*
  * Error var helper
  */
-let errors = undefined;
-const addError = (error) => {
+let errors: IError[] | undefined = undefined;
+const addError = (error: { field: string; error: string }) => {
   if (!errors) {
     errors = [];
   }
@@ -24,7 +31,7 @@ const addError = (error) => {
  * Validate request data, and use AWS SDK to send email
  * via AWS SES
  */
-const handleContactForm = async (req, res) => {
+const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
   errors = undefined;
   let status = "failed";
 
@@ -78,10 +85,10 @@ const handleContactForm = async (req, res) => {
     await new AWS.SES({ apiVersion: "2010-12-01" })
       .sendEmail(emailParams)
       .promise()
-      .then(function (data) {
+      .then(function (data: any) {
         status = "success";
       })
-      .catch(function (err) {
+      .catch(function (err: any) {
         addError({
           field: "internal",
           error: "An unknown error occured. Please try again later.",
@@ -99,7 +106,7 @@ const handleContactForm = async (req, res) => {
   });
 };
 
-const formatMessage = (name, email, message) => {
+const formatMessage = (name: string, email: string, message: string) => {
   return (
     "<html><body><h1>New Contact Form Submission</h1><h2>Name</h2><p>" +
     name +
@@ -112,10 +119,10 @@ const formatMessage = (name, email, message) => {
   );
 };
 
-const sleep = (ms) => {
+const sleep = (ms: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 };
 
-module.exports = handleContactForm;
+export default handleContactForm;
