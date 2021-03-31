@@ -36,7 +36,7 @@ interface TextareaProps {
   id: string;
   value: string;
   placeholder: string;
-  onChange: () => void;
+  onChange: (event: any) => void;
   disabled: boolean;
 }
 

@@ -5,11 +5,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "components/content/Button";
 
-const Submit = (props) => {
+interface SubmitProps {
+  isLoading: boolean;
+  disabled: boolean;
+  label: string;
+}
+
+const Submit = ({ isLoading, disabled, label }: SubmitProps) => {
   return (
-    <Button type="submit" loading={props.isLoading} disabled={props.disabled}>
-      {props.label}{" "}
-      {!props.isLoading ? (
+    <Button type="submit" loading={isLoading} disabled={disabled}>
+      {label}{" "}
+      {!isLoading ? (
         <FontAwesomeIcon icon={faChevronRight} fixedWidth />
       ) : (
         <FontAwesomeIcon icon={faSpinnerThird} spin fixedWidth />
