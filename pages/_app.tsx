@@ -20,13 +20,13 @@ const GlobalStyles = createGlobalStyle`
 		text-rendering: optimizeLegibility;
 		background: #fff;
 	}
-	
+
 	* {
 		box-sizing: border-box;
 	}
 
 
-	/* Hamburger icon 
+	/* Hamburger icon
 	* @author Jonathan Suh @jonsuh
 	* @site https://jonsuh.com/hamburgers
 	* @link https://github.com/jonsuh/hamburgers
