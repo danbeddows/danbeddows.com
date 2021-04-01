@@ -29,16 +29,16 @@ const Error = styled.div`
 `;
 
 interface FormInputProps {
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void | undefined;
   type: string;
   id: string;
-  containerStyle: {};
+  containerStyle?: {};
   label: string;
-  placeholder: string;
-  isFormSubmitting: boolean;
-  disabled: boolean;
-  className: string;
-  error: string;
+  placeholder?: string | undefined;
+  isFormSubmitting?: boolean;
+  disabled?: boolean;
+  className?: string;
+  error: string | undefined;
 }
 
 const FormInput = ({
@@ -57,7 +57,10 @@ const FormInput = ({
 
   const onInputChange = (val: string) => {
     setInputValue(val);
-    onChange(val);
+
+    if (onChange) {
+      onChange(val);
+    }
   };
 
   return (
@@ -70,24 +73,24 @@ const FormInput = ({
       {/* text input */}
       {type == "text" && (
         <TextInput
-          placeholder={placeholder}
+          placeholder={placeholder!}
           id={id}
-          className={className}
+          className={className!}
           onChange={onInputChange}
           value={inputValue}
-          disabled={isFormSubmitting || disabled}
+          disabled={(isFormSubmitting || disabled)!}
         />
       )}
 
       {/* textarea input */}
       {type == "textarea" && (
         <Textarea
-          placeholder={placeholder}
+          placeholder={placeholder!}
           id={id}
-          className={className}
+          className={className!}
           onChange={onInputChange}
           value={inputValue}
-          disabled={isFormSubmitting || disabled}
+          disabled={(isFormSubmitting || disabled)!}
         />
       )}
 
@@ -95,8 +98,8 @@ const FormInput = ({
       {type == "submit" && (
         <Submit
           label={label}
-          isLoading={isFormSubmitting}
-          disabled={isFormSubmitting || disabled}
+          isLoading={isFormSubmitting!}
+          disabled={(isFormSubmitting || disabled)!}
         />
       )}
 

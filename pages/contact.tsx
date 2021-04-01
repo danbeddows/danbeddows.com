@@ -120,6 +120,8 @@ export default function Contact() {
           console.log(error);
         });
     }
+
+    return Promise.resolve();
   };
 
   // When form is submitted, and success message is shown
@@ -162,7 +164,7 @@ export default function Contact() {
             id="message"
             error={errors.message}
           />
-          <FormInput type="submit" label="Send" error={errors.internal} />
+          <FormInput id="submit" type="submit" label="Send" error={errors.internal} />
         </Form>
 
         {formSubmitted && (
