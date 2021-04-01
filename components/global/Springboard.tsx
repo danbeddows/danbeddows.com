@@ -20,7 +20,7 @@ const Container = styled(motion.aside)`
 
 const Springboard = () => {
   const [isDisplayMobile, setIsDisplayMobile] = useState(true);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion() as boolean;
 
   const [menuOpen, setMenuOpen] = useState(false);
 

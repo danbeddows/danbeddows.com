@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const motionVariants = (prefersReducedMotion, height = 1000) =>
+const motionVariants = (prefersReducedMotion: boolean, height = 1000) =>
   !prefersReducedMotion
     ? {
         open: {
@@ -56,7 +57,11 @@ const Container = styled.div`
   }
 `;
 
-const Background = styled(motion.div)`
+interface BackgroundProps {
+  variants: any;
+}
+
+const Background = styled(motion.div)<BackgroundProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -81,20 +86,30 @@ const ButtonContainer = styled.div`
   pointer-events: auto;
 `;
 
-const MobileButton = (props) => {
+interface MobileButtonProps {
+  reduceMotion: boolean;
+  menuOpen: boolean;
+  toggleMenu: () => void;
+}
+
+const MobileButton: FunctionComponent<MobileButtonProps> = ({
+  reduceMotion,
+  menuOpen,
+  toggleMenu,
+}) => {
   return (
     <Container>
-      <Background variants={motionVariants(props.reduceMotion)} />
+      <Background variants={motionVariants(reduceMotion)} />
       <ButtonContainer>
         <button
           aria-label="Toggle Main Menu"
-          aria-expanded={props.menuOpen}
+          aria-expanded={menuOpen}
           className={
-            "hamburger hamburgerElastic " + (props.menuOpen ? "isActive" : "")
+            "hamburger hamburgerElastic " + (menuOpen ? "isActive" : "")
           }
           type="button"
           onClick={() => {
-            props.toggleMenu();
+            toggleMenu();
           }}
         >
           <span className="hamburgerBox">

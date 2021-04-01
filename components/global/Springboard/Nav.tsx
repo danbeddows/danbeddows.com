@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 import Item from "./Nav/Item";
 
@@ -33,7 +34,17 @@ const StyledNav = styled(motion.nav)`
   }
 `;
 
-const Nav = (props) => {
+interface NavProps {
+  reduceMotion: boolean;
+  closeMenu: () => void;
+  isMobile: boolean;
+}
+
+const Nav: FunctionComponent<NavProps> = ({
+  reduceMotion,
+  closeMenu,
+  isMobile,
+}) => {
   return (
     <StyledNav
       variants={motionVariants}
@@ -47,10 +58,10 @@ const Nav = (props) => {
             href={navItem.href}
             title={navItem.title}
             description={navItem.description}
-            closeMenu={props.closeMenu}
-            isMobile={props.isMobile}
+            closeMenu={closeMenu}
+            isMobile={isMobile}
             key={index}
-            reduceMotion={props.reduceMotion}
+            reduceMotion={reduceMotion}
           />
         );
       })}

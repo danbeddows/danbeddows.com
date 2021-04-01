@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -40,22 +41,32 @@ const Wrapper = styled(motion.div)`
   }
 `;
 
-const ContentWrapper = (props) => {
+interface ContentWrapperProps {
+  closeMenu: () => void;
+  isMobile: boolean;
+  reduceMotion: boolean;
+}
+
+const ContentWrapper: FunctionComponent<ContentWrapperProps> = ({
+  closeMenu,
+  isMobile,
+  reduceMotion,
+}) => {
   return (
     <Wrapper variants={motionVariants}>
       <Header
-        closeMenu={props.closeMenu}
-        isMobile={props.isMobile}
-        reduceMotion={props.reduceMotion}
+        closeMenu={closeMenu}
+        isMobile={isMobile}
+        reduceMotion={reduceMotion}
       />
 
       <Nav
-        closeMenu={props.closeMenu}
-        isMobile={props.isMobile}
-        reduceMotion={props.reduceMotion}
+        closeMenu={closeMenu}
+        isMobile={isMobile}
+        reduceMotion={reduceMotion}
       />
 
-      <Footer reduceMotion={props.reduceMotion} />
+      <Footer reduceMotion={reduceMotion} />
     </Wrapper>
   );
 };

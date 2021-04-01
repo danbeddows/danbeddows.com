@@ -5,10 +5,11 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 import SocialLink from "./Footer/SocialLink";
 
-const motionVariants = (prefersReducedMotion) =>
+const motionVariants = (prefersReducedMotion: boolean) =>
   !prefersReducedMotion
     ? {
         open: {
@@ -81,9 +82,13 @@ const Copyright = styled.div`
   font-weight: 400;
 `;
 
-const Footer = (props) => {
+interface FooterProps {
+  reduceMotion: boolean;
+}
+
+const Footer: FunctionComponent<FooterProps> = ({ reduceMotion }) => {
   return (
-    <Container variants={motionVariants(props.reduceMotion)}>
+    <Container variants={motionVariants(reduceMotion)}>
       <FooterSocials>
         {socialData.map((social, index) => (
           <SocialLink href={social.href} icon={social.icon} key={index} />

@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const motionVariants = (prefersReducedMotion) =>
+const motionVariants = (prefersReducedMotion: boolean) =>
   !prefersReducedMotion
     ? {
         open: {
@@ -112,15 +113,25 @@ const Subtitle = styled.div`
   }
 `;
 
-const Header = (props) => {
+interface HeaderProps {
+  closeMenu: () => void;
+  isMobile: boolean;
+  reduceMotion: boolean;
+}
+
+const Header: FunctionComponent<HeaderProps> = ({
+  closeMenu,
+  isMobile,
+  reduceMotion,
+}) => {
   const closeIfMobile = () => {
-    if (props.isMobile) {
-      props.closeMenu();
+    if (isMobile) {
+      closeMenu();
     }
   };
 
   return (
-    <StyledHeader variants={motionVariants(props.reduceMotion)}>
+    <StyledHeader variants={motionVariants(reduceMotion)}>
       <Link href="/">
         <StyledImageLink onClick={closeIfMobile}>
           <StyledImage src={"/danbeddows.jpg"} width="140" height="140" />

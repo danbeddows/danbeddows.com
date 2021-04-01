@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const motionVariants = (prefersReducedMotion) =>
+const motionVariants = (prefersReducedMotion: boolean) =>
   !prefersReducedMotion
     ? {
         open: {
@@ -77,21 +78,37 @@ const Label = styled.div`
   }
 `;
 
-const Item = (props) => {
+interface ItemProps {
+  href: string;
+  title: string;
+  description: string;
+  isMobile: boolean;
+  reduceMotion: boolean;
+  closeMenu: () => void;
+}
+
+const Item: FunctionComponent<ItemProps> = ({
+  isMobile,
+  closeMenu,
+  href,
+  title,
+  description,
+  reduceMotion,
+}) => {
   const closeIfMobile = () => {
-    if (props.isMobile) {
-      props.closeMenu();
+    if (isMobile) {
+      closeMenu();
     }
   };
 
   return (
-    <Link href={props.href}>
+    <Link href={href}>
       <StyledLink
         onClick={closeIfMobile}
-        variants={motionVariants(props.reduceMotion)}
+        variants={motionVariants(reduceMotion)}
       >
-        <Title>{props.title}</Title>
-        <Label>{props.description}</Label>
+        <Title>{title}</Title>
+        <Label>{description}</Label>
       </StyledLink>
     </Link>
   );
