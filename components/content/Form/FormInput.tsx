@@ -23,9 +23,11 @@ const Label = styled.label`
 `;
 
 const Error = styled.div`
-  font-size: 14px;
-  margin: 5px 0 5px 17px;
+  font-size: 12px;
+  margin: 10px 0 5px 17px;
   color: #d43f3a;
+  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
 `;
 
 interface FormInputProps {
@@ -59,7 +61,7 @@ const FormInput = ({
     setInputValue(val);
 
     if (onChange) {
-      onChange(val);
+      onChange(val as string);
     }
   };
 

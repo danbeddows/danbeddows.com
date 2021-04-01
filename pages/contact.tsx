@@ -34,13 +34,17 @@ const SuccessContainer = styled.div`
 `;
 
 const SuccessTitle = styled.div`
-  font-size: 1.17rem;
+  font-size: 1.3rem;
   margin: 1rem 0 0.5rem;
   font-weight: 600;
+  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
 `;
 
 const SuccessBody = styled.div`
   font-size: 1rem;
+  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
+    sans-serif;
 `;
 
 interface subErrors {
@@ -164,14 +168,19 @@ export default function Contact() {
             id="message"
             error={errors.message}
           />
-          <FormInput id="submit" type="submit" label="Send" error={errors.internal} />
+          <FormInput
+            id="submit"
+            type="submit"
+            label="Send"
+            error={errors.internal}
+          />
         </Form>
 
         {formSubmitted && (
           <SuccessContainer ref={successRef}>
             <SuccessTitle>Thanks!</SuccessTitle>
             <SuccessBody>
-              I've received your message and will get back to you shortly.
+              I've received your message and I'll get back to you shortly.
             </SuccessBody>
           </SuccessContainer>
         )}
