@@ -1,6 +1,8 @@
+import { Lottie } from "@crello/react-lottie";
 import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
+import burgerData from "./MobileButton/BurgerLottieJson";
 
 const motionVariants = (prefersReducedMotion: boolean, height = 1000) =>
   !prefersReducedMotion
@@ -86,6 +88,15 @@ const ButtonContainer = styled.div`
   pointer-events: auto;
 `;
 
+const Button = styled.button`
+  background: transparent;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+`;
+
 interface MobileButtonProps {
   reduceMotion: boolean;
   menuOpen: boolean;
@@ -101,21 +112,21 @@ const MobileButton: FunctionComponent<MobileButtonProps> = ({
     <Container>
       <Background variants={motionVariants(reduceMotion)} />
       <ButtonContainer>
-        <button
+        <Button
           aria-label="Toggle Main Menu"
           aria-expanded={menuOpen}
-          className={
-            "hamburger hamburgerElastic " + (menuOpen ? "isActive" : "")
-          }
           type="button"
           onClick={() => {
             toggleMenu();
           }}
         >
-          <span className="hamburgerBox">
-            <span className="hamburgerInner"></span>
-          </span>
-        </button>
+          <Lottie
+            config={{ animationData: burgerData }}
+            playingState={"playing"}
+            direction={menuOpen ? 1 : -1}
+            speed={2}
+          />
+        </Button>
       </ButtonContainer>
     </Container>
   );
