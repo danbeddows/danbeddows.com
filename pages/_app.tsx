@@ -1,7 +1,6 @@
 import { dom as fontAwesomeDom } from "@fortawesome/fontawesome-svg-core";
 import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
-import { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Springboard from "../components/global/Springboard";
 
@@ -68,17 +67,6 @@ const PageContent = styled.div`
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    const setupBrushstroke = async () => {
-      const cssModule: any = CSS;
-      if (cssModule && cssModule.paintWorklet) {
-        await cssModule.paintWorklet.addModule("/brushstroke.js");
-      }
-    };
-
-    setupBrushstroke();
-  }, []);
-
   return (
     <>
       <Head>
