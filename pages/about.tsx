@@ -54,7 +54,7 @@ const About = () => {
 
         <Paragraph>
           I'm incredibly diligent whether setting up a VPS, storing keys,
-          processing input or otherwise. I studied and earnt a BsC in Computer
+          processing input or otherwise. I studied and earnt a BSc in Computer
           Forensics and Security.
         </Paragraph>
 
