@@ -70,15 +70,12 @@ const FooterSocials = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-
   margin-bottom: 12px;
 `;
 
 const Copyright = styled.div`
   color: #fff;
   font-size: 12px;
-  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
   font-weight: 400;
 `;
 

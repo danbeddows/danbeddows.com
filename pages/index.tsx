@@ -1,4 +1,4 @@
-import PageTitle from "components/content/PageTitle";
+import Link from "components/content/Link";
 import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
 import Title from "components/content/Title";
@@ -7,23 +7,18 @@ import Page from "components/layout/Page";
 export default function Home() {
   return (
     <Page>
-      <PageTitle>Hello, World 👋🏻</PageTitle>
-
       <Section>
-        <Title>Introduction</Title>
+        <Title>Hello, World 👋🏻</Title>
 
         <Paragraph>
-          I'm Dan Beddows, a web developer based in Manchester, UK ☔️.
+          I'm Dan Beddows, a Frontend Web Developer based in Manchester, UK ☔️.
         </Paragraph>
 
         <Paragraph>
-          I spend most of my time looking after all things tech at INHAUS, a
-          digital agency based in Manchester 👨‍💻.
-        </Paragraph>
-
-        <Paragraph>
-          I work with clients to advise on, project manage and ship great
-          software.
+          I’ve worn a number of hats over the past decade. I’ve worked
+          professionally as a software developer, founded a couple of SaaS’s,
+          and more recently led the tech approach to a digital agency in
+          Manchester.
         </Paragraph>
 
         <Paragraph>
@@ -32,6 +27,8 @@ export default function Home() {
         </Paragraph>
 
         <Paragraph>Also, I have a shameless passion for donuts 🍩.</Paragraph>
+
+        <Link href={"/about"}>Learn more &rarr;</Link>
       </Section>
     </Page>
   );

@@ -2,7 +2,11 @@ import { dom as fontAwesomeDom } from "@fortawesome/fontawesome-svg-core";
 import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
 import styled, { createGlobalStyle } from "styled-components";
+import fontBasier from "../components/global/FontBasierStyle";
 import Springboard from "../components/global/Springboard";
+
+const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
+const FontBasierGlobalStyle = fontBasier(assetDomain);
 
 const GlobalStyles = createGlobalStyle`
 	@font-face {
@@ -58,7 +62,7 @@ const PageSpringboard = styled.div`
 
 const PageContent = styled.div`
   @media screen and (max-width: 768px) {
-    padding-top: 12px;
+    //padding-top: 12px;
   }
 
   @media screen and (min-width: 769px) {
@@ -85,6 +89,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <GlobalStyles />
+      <FontBasierGlobalStyle />
       <PageContainer>
         <PageSpringboard>
           <Springboard />

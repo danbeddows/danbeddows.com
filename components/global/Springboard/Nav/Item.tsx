@@ -46,8 +46,6 @@ const Title = styled.div`
   font-size: 1.375rem;
   font-weight: 600;
   color: #fff;
-  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
 
   /* mobile */
   @media screen and (max-width: 768px) {
@@ -63,8 +61,6 @@ const Title = styled.div`
 const Label = styled.div`
   font-size: 1rem;
   color: #fff;
-  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
   font-weight: 400;
 
   /* mobile */

@@ -2,28 +2,30 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
-  margin: 0 0 0.8rem;
-  line-height: 1.15;
+  margin: -4rem;
+  margin-bottom: 0.8rem;
+  line-height: 1;
   font-weight: 700;
-  color: #000;
-  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
+  color: #232d52;
   position: relative;
   z-index: -1;
+  background: #6d90ab;
+  padding: 32px 4rem;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -0.8rem;
+    bottom: -0.2rem;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: #000;
+    height: 4px;
+    background: #ff5757;
   }
 
   @media screen and (max-width: 768px) {
     font-size: 2.5rem;
-    max-width: 66%;
+    padding: 2rem;
+    margin: -2rem;
   }
 
   @media screen and (min-width: 769px) {

@@ -2,13 +2,10 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledParagraph = styled.p`
-  margin: 1rem 0;
+  margin: 1.4rem 0;
   font-weight: 400;
   font-size: 1.1rem;
-  line-height: 1.6;
-  letter-spacing: 0rem;
-  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
+  line-height: 1.7;
 
   @media screen and (min-width: 769px) {
     max-width: 700px;

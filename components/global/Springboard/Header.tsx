@@ -83,8 +83,6 @@ const Title = styled.div`
   font-weight: 700;
   text-align: center;
   text-decoration: none;
-  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
 
   @media screen and (max-width: 768px) {
     font-size: 23px;
@@ -97,19 +95,16 @@ const Title = styled.div`
 `;
 
 const Subtitle = styled.div`
-  margin-top: 2px;
-  font-family: "Montserrat", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
   color: #fff;
   font-weight: 400;
   text-align: center;
 
   @media screen and (max-width: 768px) {
-    font-size: 13px;
+    font-size: 12.3px;
   }
 
   @media screen and (min-width: 769px) {
-    font-size: 18px;
+    font-size: 17.2px;
   }
 `;
 
@@ -140,7 +135,7 @@ const Header: FunctionComponent<HeaderProps> = ({
       <Link href="/">
         <StyledBodyLink onClick={closeIfMobile}>
           <Title>Dan Beddows</Title>
-          <Subtitle>Full Stack Web Developer</Subtitle>
+          <Subtitle>Front End Web Developer</Subtitle>
         </StyledBodyLink>
       </Link>
     </StyledHeader>
