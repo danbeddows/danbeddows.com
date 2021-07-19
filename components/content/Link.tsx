@@ -9,7 +9,7 @@ const StyledLink = styled.a`
   line-height: 1.7;
   cursor: pointer;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
   text-decoration-thickness: 2px;
 `;
 
