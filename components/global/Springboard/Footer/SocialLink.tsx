@@ -3,11 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 
+/**
+ * Create components with styled-components
+ */
 const StyledLink = styled.a`
   color: #fff;
   margin-right: 16px;
 `;
 
+/**
+ * Define the 'Icon' functional component (and it's interface), and then extend the component with
+ * styled-components to add a font-size property based on display resolution to a new StyledIcon component
+ */
 interface IconProps {
   className?: string;
   icon: IconProp;
@@ -25,6 +32,9 @@ const StyledIcon = styled(Icon)`
   }
 `;
 
+/**
+ * SocialLink functional component that will be exported
+ */
 interface SocialLinkProps {
   href: string;
   icon: IconProp;

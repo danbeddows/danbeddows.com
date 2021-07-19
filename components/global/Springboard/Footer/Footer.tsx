@@ -66,7 +66,7 @@ const socialData = [
 ];
 
 /**
- * Styled component definitions
+ * Create components with styled-components
  */
 const Container = styled(motion.footer)`
   width: 100%;
@@ -94,7 +94,7 @@ const Copyright = styled.div`
 `;
 
 /**
- * Footer functional component
+ * Footer functional component that will be exported
  */
 interface FooterProps {
   reduceMotion: boolean;
