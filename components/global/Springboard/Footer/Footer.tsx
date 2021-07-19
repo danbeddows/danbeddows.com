@@ -9,38 +9,49 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import SocialLink from "./SocialLink";
 
-const motionVariants = (prefersReducedMotion: boolean) =>
-  !prefersReducedMotion
+/**
+ * Define Motion variants to handle transition animation
+ */
+const motionVariantsOpen = {
+  opacity: 1,
+  y: 0,
+  transition: {
+    delay: 0.45,
+    y: { stiffness: 1000, velocity: -100 },
+  },
+};
+const motionVariantsClosed = {
+  y: 50,
+  opacity: 0,
+  transition: {
+    y: { stiffness: 1000 },
+  },
+};
+const reducedMotionVariantsOpen = {
+  y: 0,
+  opacity: 1,
+  transition: { delay: 0.2, duration: 0.2 },
+};
+const reducedMotionVariantsClosed = {
+  y: 0,
+  opacity: 0,
+  transition: { duration: 0.2 },
+};
+
+const getMotionVariants = (prefersReducedMotion: boolean) =>
+  prefersReducedMotion
     ? {
-        open: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 0.45,
-            y: { stiffness: 1000, velocity: -100 },
-          },
-        },
-        closed: {
-          y: 50,
-          opacity: 0,
-          transition: {
-            y: { stiffness: 1000 },
-          },
-        },
+        open: reducedMotionVariantsOpen,
+        closed: reducedMotionVariantsClosed,
       }
     : {
-        open: {
-          y: 0,
-          opacity: 1,
-          transition: { delay: 0.2, duration: 0.2 },
-        },
-        closed: {
-          y: 0,
-          opacity: 0,
-          transition: { duration: 0.2 },
-        },
+        open: motionVariantsOpen,
+        closed: motionVariantsClosed,
       };
 
+/**
+ * Define social links and related FontAwesome icon
+ */
 const socialData = [
   { href: "https://twitter.com/danbeddows", icon: faTwitter },
   {
@@ -54,6 +65,9 @@ const socialData = [
   { href: "https://github.com/danbeddows/", icon: faGithub },
 ];
 
+/**
+ * Styled component definitions
+ */
 const Container = styled(motion.footer)`
   width: 100%;
   display: flex;
@@ -79,13 +93,16 @@ const Copyright = styled.div`
   font-weight: 400;
 `;
 
+/**
+ * Footer functional component
+ */
 interface FooterProps {
   reduceMotion: boolean;
 }
 
 const Footer: FunctionComponent<FooterProps> = ({ reduceMotion }) => {
   return (
-    <Container variants={motionVariants(reduceMotion)}>
+    <Container variants={getMotionVariants(reduceMotion)}>
       <FooterSocials>
         {socialData.map((social, index) => (
           <SocialLink href={social.href} icon={social.icon} key={index} />
