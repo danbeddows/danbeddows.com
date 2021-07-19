@@ -7,8 +7,7 @@ const StyledInput = styled.input`
   font-size: 0.95em;
   font-weight: 400;
   line-height: 1.42;
-  letter-spacing: -0.03rem;
-  font-family: "Montserrat", Segoe UI, Roboto, Oxygen;
+  letter-spacing: -0.02rem;
   border-radius: 25px;
   border-style: solid;
   border-width: 0px;
@@ -22,6 +21,7 @@ const StyledInput = styled.input`
 
   &::placeholder {
     color: #999;
+    font-weight: 400;
   }
 
   &:focus {

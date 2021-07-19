@@ -7,7 +7,7 @@ import {
 import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import SocialLink from "./Footer/SocialLink";
+import SocialLink from "./SocialLink";
 
 const motionVariants = (prefersReducedMotion: boolean) =>
   !prefersReducedMotion

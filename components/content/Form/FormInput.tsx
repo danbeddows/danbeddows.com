@@ -18,16 +18,12 @@ const Label = styled.label`
   font-weight: 400;
   font-size: 0.9rem;
   cursor: default;
-  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
 `;
 
 const Error = styled.div`
-  font-size: 12px;
+  font-size: 13px;
   margin: 10px 0 5px 17px;
   color: #d43f3a;
-  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
 `;
 
 interface FormInputProps {

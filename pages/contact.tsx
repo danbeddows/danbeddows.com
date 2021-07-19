@@ -1,4 +1,4 @@
-import Form from "components/content/Form";
+import Form from "components/content/Form/Form";
 import FormInput from "components/content/Form/FormInput";
 import PageTitle from "components/content/PageTitle";
 import Section from "components/content/Section";
@@ -37,14 +37,10 @@ const SuccessTitle = styled.div`
   font-size: 1.3rem;
   margin: 1rem 0 0.5rem;
   font-weight: 600;
-  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
 `;
 
 const SuccessBody = styled.div`
   font-size: 1rem;
-  font-family: "wotfard", Roboto, Oxygen, Ubuntu, Droid Sans, Helvetica Neue,
-    sans-serif;
 `;
 
 interface subErrors {

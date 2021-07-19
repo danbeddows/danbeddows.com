@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import Header from "./Header";
-import Nav from "./Nav";
+import Nav from "./Nav/Nav";
 
 const motionVariants = {
   open: { display: "flex" },

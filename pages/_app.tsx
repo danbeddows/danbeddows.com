@@ -3,20 +3,12 @@ import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
 import styled, { createGlobalStyle } from "styled-components";
 import fontBasier from "../components/global/FontBasierStyle";
-import Springboard from "../components/global/Springboard";
+import Springboard from "../components/global/Springboard/Springboard";
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
 const FontBasierGlobalStyle = fontBasier(assetDomain);
 
 const GlobalStyles = createGlobalStyle`
-	@font-face {
-		font-family: "wotfard";
-		src: url("/font/wotfard/regular.woff2") format("woff2"),
-			url("/font/wotfard/regular.ttf") format("truetype");
-		font-weight: normal;
-		font-style: normal;
-	}
-
   body {
 		padding: 0;
 		margin: 0;
@@ -83,10 +75,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.png" />
         <style type="text/css">{fontAwesomeDom.css()}</style>
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <GlobalStyles />
       <FontBasierGlobalStyle />

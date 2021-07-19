@@ -32,10 +32,7 @@ const StyledButton = styled(Btn)`
   height: 49px;
   padding: 0.7rem 1.4rem;
   font-size: 1em;
-  font-weight: 300;
   line-height: 1.42;
-  letter-spacing: -0.03rem;
-  font-family: "Montserrat", Segoe UI, Roboto, Oxygen;
   background: #293462;
   border-style: solid;
   border-width: 2px;
@@ -64,7 +61,7 @@ const StyledButton = styled(Btn)`
   &:hover:enabled {
     i,
     svg {
-      margin: 0 0 0 14px;
+      margin: 0 0 0 10px;
       font-size: 0.85em;
       opacity: 0.5;
     }

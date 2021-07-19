@@ -26,8 +26,6 @@ export default function Home() {
           doing with my time away from work 🍕 ☕️ 🥾.
         </Paragraph>
 
-        <Paragraph>Also, I have a shameless passion for donuts 🍩.</Paragraph>
-
         <Link href={"/about"}>Learn more &rarr;</Link>
       </Section>
     </Page>

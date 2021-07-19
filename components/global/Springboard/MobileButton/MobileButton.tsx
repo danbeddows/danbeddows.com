@@ -2,7 +2,7 @@ import { Lottie } from "@crello/react-lottie";
 import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import burgerData from "./MobileButton/BurgerLottieJson";
+import burgerData from "./BurgerLottieJson";
 
 const motionVariants = (prefersReducedMotion: boolean, height = 1000) =>
   !prefersReducedMotion
