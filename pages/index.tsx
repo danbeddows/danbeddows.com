@@ -14,15 +14,17 @@ export default function Home() {
         </Paragraph>
 
         <Paragraph>
-          I’ve worn a number of hats over the past decade. I’ve worked
+          I’ve worn many hats over the past ten years. I’ve worked
           professionally as a software developer, founded a couple of SaaS’s,
           and more recently led the tech approach to a digital agency in
-          Manchester.
+          Manchester. This has involved working directly with clients to advise
+          on their tech stack, develop their product and act as a product owner,
+          and then actually build and ship.
         </Paragraph>
 
         <Paragraph>
-          Good food, good coffee and hiking make up the most of what I enjoy
-          doing with my time away from work 🍕 ☕️ 🥾.
+          Outside of work: good food, good coffee and hiking make up most of
+          what I enjoy doing with my time 🍕 ☕️ 🥾.
         </Paragraph>
 
         <Link href={"/about"}>Learn more &rarr;</Link>

@@ -1,3 +1,6 @@
+/**
+ * JSON data of a burger icon that has a lottie animation sequence
+ */
 const jsonData = {
   v: "5.6.5",
   fr: 30,

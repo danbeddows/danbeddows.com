@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import useWindowDimensions from "util/hooks/useWindowDimensions";
 import ContentWrapper from "./ContentWrapper";
-import MobileButton from "./MobileButton/MobileButton";
+import MobileButton from "./MobileBurger/MobileBurger";
 
 const Container = styled(motion.aside)`
   width: 100%;
