@@ -18,8 +18,8 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   position: fixed;
-  top: 29px;
-  right: 29px;
+  top: 17px;
+  right: 17px;
   z-index: 1001;
   display: flex;
   align-items: center;

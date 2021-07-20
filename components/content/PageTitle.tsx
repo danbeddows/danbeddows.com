@@ -12,7 +12,7 @@ const Title = styled.h1`
 
   @media screen and (max-width: 768px) {
     font-size: 2.5rem;
-    padding: 2rem;
+    padding: 2rem calc(2rem + 70px) 2rem 2rem;
     margin: -2rem;
   }
 

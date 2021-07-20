@@ -8,7 +8,7 @@ const height = 1000;
  * Define Motion variants to handle transition animation
  */
 const motionVariantsOpen = {
-  clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
+  clipPath: `circle(${height * 2 + 200}px at calc(100% - 53px) 53px)`,
   pointerEvents: "none",
   transition: {
     type: "spring",
@@ -17,7 +17,7 @@ const motionVariantsOpen = {
   },
 };
 const motionVariantsClosed = {
-  clipPath: "circle(36px at calc(100% - 65px) 65px)",
+  clipPath: "circle(30px at calc(100% - 53px) 53px)",
   pointerEvents: "auto",
   transition: {
     delay: 0.3,
@@ -27,7 +27,7 @@ const motionVariantsClosed = {
   },
 };
 const reducedMotionVariantsOpen = {
-  clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
+  clipPath: `circle(${height * 2 + 200}px at calc(100% - 53px) 53px)`,
   pointerEvents: "none",
   opacity: 1,
   transition: {
@@ -35,7 +35,7 @@ const reducedMotionVariantsOpen = {
   },
 };
 const reducedMotionVariantsClosed = {
-  clipPath: `circle(${height * 2 + 200}px at calc(100% - 65px) 65px)`,
+  clipPath: `circle(${height * 2 + 200}px at calc(100% - 53px) 53px)`,
   pointerEvents: "auto",
   opacity: 0,
   transition: {
