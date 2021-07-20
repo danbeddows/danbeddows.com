@@ -41,13 +41,13 @@ const Wrapper = styled(motion.div)`
   }
 `;
 
-interface ContentWrapperProps {
+interface SpringboardWrapperProps {
   closeMenu: () => void;
   isMobile: boolean;
   reduceMotion: boolean;
 }
 
-const ContentWrapper: FunctionComponent<ContentWrapperProps> = ({
+const SpringboardWrapper: FunctionComponent<SpringboardWrapperProps> = ({
   closeMenu,
   isMobile,
   reduceMotion,
@@ -71,4 +71,4 @@ const ContentWrapper: FunctionComponent<ContentWrapperProps> = ({
   );
 };
 
-export default ContentWrapper;
+export default SpringboardWrapper;
