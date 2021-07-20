@@ -4,38 +4,49 @@ import Link from "next/link";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const motionVariants = (prefersReducedMotion: boolean) =>
-  !prefersReducedMotion
+/**
+ * Define Motion variants to handle transition animation
+ */
+const motionVariantsOpen = {
+  opacity: 1,
+  transition: {
+    delay: 0.2,
+  },
+};
+const motionVariantsClosed = {
+  opacity: 0,
+  transition: {
+    delay: 0.2,
+  },
+};
+const reducedMotionVariantsOpen = {
+  opacity: 1,
+  transition: {
+    delay: 0.2,
+    duration: 0.2,
+  },
+};
+const reducedMotionVariantsClosed = {
+  opacity: 0,
+  transition: {
+    duration: 0.2,
+  },
+};
+
+const getMotionVariants = (prefersReducedMotion: boolean) =>
+  prefersReducedMotion
     ? {
-        open: {
-          opacity: 1,
-          transition: {
-            delay: 0.2,
-          },
-        },
-        closed: {
-          opacity: 0,
-          transition: {
-            delay: 0.2,
-          },
-        },
+        open: reducedMotionVariantsOpen,
+        closed: reducedMotionVariantsClosed,
       }
     : {
-        open: {
-          opacity: 1,
-          transition: {
-            delay: 0.2,
-            duration: 0.2,
-          },
-        },
-        closed: {
-          opacity: 0,
-          transition: {
-            duration: 0.2,
-          },
-        },
+        open: motionVariantsOpen,
+        closed: motionVariantsClosed,
       };
 
+/**
+ * Create components with styled-components
+ */
 const StyledHeader = styled(motion.header)`
   display: flex;
   align-items: center;
@@ -108,6 +119,9 @@ const Subtitle = styled.div`
   }
 `;
 
+/**
+ * Header functional component that will be exported
+ */
 interface HeaderProps {
   closeMenu: () => void;
   isMobile: boolean;
@@ -126,7 +140,7 @@ const Header: FunctionComponent<HeaderProps> = ({
   };
 
   return (
-    <StyledHeader variants={motionVariants(reduceMotion)}>
+    <StyledHeader variants={getMotionVariants(reduceMotion)}>
       <Link href="/">
         <StyledImageLink onClick={closeIfMobile}>
           <StyledImage src={"/danbeddows.jpg"} width="140" height="140" />
