@@ -70,6 +70,9 @@ const StyledBackground = styled(motion.div)<StyledBackgroundProps>`
   pointer-events: none;
 `;
 
+/**
+ * 'Background' functional component that will be exported
+ */
 interface BackgroundProps {
   reduceMotion: boolean;
 }

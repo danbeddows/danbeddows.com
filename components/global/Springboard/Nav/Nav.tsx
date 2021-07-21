@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import Item from "./Item";
+import Item from "./NavItem";
 
 const motionVariants = {
   open: {
