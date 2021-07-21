@@ -18,8 +18,8 @@ export default function Home() {
           a software developer, founding a couple of SaaS’s, and more recently I
           led the tech approach at a digital agency in Manchester; which
           involved working directly with clients to advise on their tech stack,
-          develop their product and act as a product owner, and then actually
-          build and ship.
+          develop their product, act as a product owner, and then actually build
+          and ship.
         </Paragraph>
 
         <Paragraph>
