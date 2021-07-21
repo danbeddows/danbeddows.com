@@ -111,11 +111,12 @@ const Subtitle = styled.div`
   text-align: center;
 
   @media screen and (max-width: 768px) {
-    font-size: 12.3px;
+    font-size: 15.5px;
   }
 
   @media screen and (min-width: 769px) {
-    font-size: 17.2px;
+    font-size: 21.4px;
+    margin-top: -2px;
   }
 `;
 
@@ -149,7 +150,7 @@ const Header: FunctionComponent<HeaderProps> = ({
       <Link href="/">
         <StyledBodyLink onClick={closeIfMobile}>
           <Title>Dan Beddows</Title>
-          <Subtitle>Front End Web Developer</Subtitle>
+          <Subtitle>Full Stack Developer</Subtitle>
         </StyledBodyLink>
       </Link>
     </StyledHeader>
