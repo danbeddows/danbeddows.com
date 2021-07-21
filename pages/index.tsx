@@ -14,12 +14,12 @@ export default function Home() {
         </Paragraph>
 
         <Paragraph>
-          I’ve worn many hats over the past ten years. Working professionally as
-          a software developer, founding a couple of SaaS’s, and more recently I
-          led the tech approach at a digital agency in Manchester; which
-          involved working directly with clients to advise on their tech stack,
-          develop their product, act as a product owner, and then actually build
-          and ship.
+          I’ve worn many hats over my 10+ web developer years. Working
+          professionally as a software developer, founding a couple of SaaS’s,
+          and more recently I led the tech approach at a digital agency in
+          Manchester; which involved working directly with clients to advise on
+          their tech stack, develop their product, act as a product owner, and
+          then actually build and ship.
         </Paragraph>
 
         <Paragraph>
