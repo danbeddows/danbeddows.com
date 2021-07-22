@@ -37,7 +37,7 @@ const PageContainer = styled.div`
   }
 `;
 
-const PageSpringboard = styled.div`
+const SpringboardContainer = styled.div`
   @media screen and (max-width: 768px) {
     position: fixed;
     width: 100%;
@@ -52,7 +52,7 @@ const PageSpringboard = styled.div`
   }
 `;
 
-const PageContent = styled.div`
+const ContentContainer = styled.div`
   @media screen and (max-width: 768px) {
     //padding-top: 12px;
   }
@@ -79,12 +79,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <FontBasierGlobalStyle />
       <PageContainer>
-        <PageSpringboard>
+        <SpringboardContainer>
           <Springboard />
-        </PageSpringboard>
-        <PageContent>
+        </SpringboardContainer>
+        <ContentContainer>
           <Component {...pageProps} />
-        </PageContent>
+        </ContentContainer>
       </PageContainer>
     </>
   );
