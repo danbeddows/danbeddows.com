@@ -35,6 +35,7 @@ const motionVariants = (prefersReducedMotion: boolean) =>
 const StyledLink = styled(motion.a)`
   margin: 1rem 0;
   cursor: pointer;
+  text-decoration: none;
 
   /* very small mobile height */
   @media screen and (max-height: 500px) {
@@ -98,7 +99,7 @@ const Item: FunctionComponent<ItemProps> = ({
   };
 
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <StyledLink
         onClick={closeIfMobile}
         variants={motionVariants(reduceMotion)}
