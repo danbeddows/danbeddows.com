@@ -47,7 +47,7 @@ const SpringboardContainer = styled.div`
 
   @media screen and (min-width: 769px) {
     min-width: 300px;
-    flex: 0 0 25vw;
+    flex: 0 0 22vw;
     background: #293462;
   }
 `;
