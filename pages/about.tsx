@@ -72,7 +72,7 @@ const About = () => {
         <Paragraph>
           I'm at my best working with fast-paced startups where I can make a
           large impact quickly. I particularily enjoy working on e-commerce and{" "}
-          SaaS projects.
+          SaaS businesses.
         </Paragraph>
       </Section>
 
@@ -80,8 +80,8 @@ const About = () => {
         <Title>Where I work 📍</Title>
 
         <Paragraph>
-          I work remotely most of the time, with the occasional on-site visit.
-          I'm based in Manchester, UK.
+          Remote is preferred, although I'm open to the occasional on-site
+          visit. I'm based in Manchester, UK.
         </Paragraph>
       </Section>
 

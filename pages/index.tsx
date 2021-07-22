@@ -14,7 +14,7 @@ export default function Home() {
         </Paragraph>
 
         <Paragraph>
-          I’ve worn many hats over my 10+ web developer years. Working
+          I’ve worn many hats over my 10+ years in web developmemt. Working
           professionally as a software developer, founding a couple of SaaS’s,
           and more recently I led the tech approach at a digital agency in
           Manchester; which involved working directly with clients to advise on
