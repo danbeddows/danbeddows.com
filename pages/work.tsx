@@ -1,4 +1,3 @@
-import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import {
   faAngular,
   faAws,
@@ -9,6 +8,7 @@ import {
   faReact,
   faStripe,
   faSymfony,
+  IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageTitle from "components/content/PageTitle";
@@ -148,11 +148,20 @@ const ForegroundRight = styled.div`
   padding: 6px 18px;
   color: #fff;
   display: flex;
+  position: relative;
 
   i,
   svg {
     font-size: 26px;
     margin-left: 10px;
+  }
+
+  div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #383838 23%, transparent);
+    pointer-events: none;
   }
 `;
 
@@ -178,14 +187,14 @@ const Project: FunctionComponent<ProjectProps> = ({ data }) => {
             <ProjectTeaser>{data.teaser}</ProjectTeaser>
           </ForegroundLeft>
           <ForegroundRight>
+            <div></div>
             {data.stack.map((stackItem, index) => (
-              <div key={index}>
-                <FontAwesomeIcon
-                  fixedWidth
-                  icon={stackItem.icon}
-                  title={stackItem.name}
-                />
-              </div>
+              <FontAwesomeIcon
+                key={index}
+                fixedWidth
+                icon={stackItem.icon}
+                title={stackItem.name}
+              />
             ))}
           </ForegroundRight>
         </Foreground>
