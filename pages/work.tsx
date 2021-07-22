@@ -1,4 +1,18 @@
+import { IconDefinition } from "@fortawesome/fontawesome-common-types";
+import {
+  faAngular,
+  faAws,
+  faCss3Alt,
+  faJs,
+  faPaypal,
+  faPhp,
+  faReact,
+  faStripe,
+  faSymfony,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageTitle from "components/content/PageTitle";
+import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
@@ -13,6 +27,11 @@ const projectList = [
     teaser: "A subscription-based menswear startup",
     date: "Dec 2019 - Mar 2021",
     thumb: "/projects/tss/thumb.jpg",
+    stack: [
+      { name: "React", icon: faReact },
+      { name: "Symfony", icon: faSymfony },
+      { name: "Stripe", icon: faStripe },
+    ],
   },
   {
     slug: "school-run",
@@ -20,6 +39,11 @@ const projectList = [
     teaser: "A service to keep parents informed by SMS",
     date: "Oct 2017 - Oct 2019",
     thumb: "",
+    stack: [
+      { name: "Angular", icon: faAngular },
+      { name: "PHP", icon: faPhp },
+      { name: "AWS", icon: faAws },
+    ],
   },
   {
     slug: "archisan",
@@ -27,6 +51,11 @@ const projectList = [
     teaser: "A direct-to-consumer interiors shop",
     date: "Jan 2016 - Oct 2017",
     thumb: "",
+    stack: [
+      { name: "PHP", icon: faPhp },
+      { name: "JavaScript", icon: faJs },
+      { name: "Stripe", icon: faStripe },
+    ],
   },
   {
     slug: "mrkt",
@@ -34,6 +63,11 @@ const projectList = [
     teaser: "An online storebuilder service",
     date: "Mar 2013 - Dec 2015",
     thumb: "",
+    stack: [
+      { name: "PHP", icon: faPhp },
+      { name: "JavaScript", icon: faJs },
+      { name: "Stripe", icon: faStripe },
+    ],
   },
   {
     slug: "zotti",
@@ -41,6 +75,11 @@ const projectList = [
     teaser: "A costume jewellery ecommerce website.",
     date: "Dec 2011 - Jan 2011",
     thumb: "",
+    stack: [
+      { name: "PHP", icon: faPhp },
+      { name: "PayPal", icon: faPaypal },
+      { name: "CSS", icon: faCss3Alt },
+    ],
   },
 ];
 
@@ -87,7 +126,8 @@ const Foreground = styled.div`
 `;
 
 const ForegroundLeft = styled.div`
-  padding: 6px 12px;
+  max-width: 60%;
+  padding: 6px 18px;
 `;
 
 const ProjectTitle = styled.h4`
@@ -103,6 +143,19 @@ const ProjectTeaser = styled.p`
   color: #6d90ab;
 `;
 
+const ForegroundRight = styled.div`
+  max-width: 40%;
+  padding: 6px 18px;
+  color: #fff;
+  display: flex;
+
+  i,
+  svg {
+    font-size: 26px;
+    margin-left: 10px;
+  }
+`;
+
 interface ProjectProps {
   data: {
     slug: string;
@@ -110,6 +163,7 @@ interface ProjectProps {
     teaser: string;
     date: string;
     thumb: string;
+    stack: { name: string; icon: IconDefinition }[];
   };
 }
 
@@ -123,6 +177,17 @@ const Project: FunctionComponent<ProjectProps> = ({ data }) => {
             <ProjectTitle>{data.title}</ProjectTitle>
             <ProjectTeaser>{data.teaser}</ProjectTeaser>
           </ForegroundLeft>
+          <ForegroundRight>
+            {data.stack.map((stackItem, index) => (
+              <div key={index}>
+                <FontAwesomeIcon
+                  fixedWidth
+                  icon={stackItem.icon}
+                  title={stackItem.name}
+                />
+              </div>
+            ))}
+          </ForegroundRight>
         </Foreground>
       </ProjectContents>
     </Link>
@@ -136,6 +201,12 @@ const Work = () => {
 
       <Section>
         <Title>Projects I've worked on</Title>
+
+        <Paragraph>
+          This is list of a few of the projects I've worked on over the years.
+          These pieces of work required me to flex problem solving skills and
+          often integrate a number of technologies for the first time.
+        </Paragraph>
 
         <ProjectsContainer>
           {projectList.map((project, index) => (
