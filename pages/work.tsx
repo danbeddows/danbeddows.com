@@ -157,11 +157,11 @@ const ForegroundRight = styled.div`
   }
 
   div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(270deg, #383838 23%, transparent);
-    pointer-events: none;
+    // position: absolute;
+    // width: 100%;
+    // height: 100%;
+    // background: linear-gradient(270deg, #383838 23%, transparent);
+    // pointer-events: none;
   }
 `;
 
