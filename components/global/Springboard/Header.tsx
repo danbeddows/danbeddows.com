@@ -81,8 +81,16 @@ const StyledImageLink = styled.a`
 const StyledImage = styled(Image)`
   border-radius: 50%;
   overflow: hidden;
-  border: 2px #6d90ab solid !important;
+
   background: #fff;
+
+  @media screen and (max-width: 768px) {
+    border: 2px #6d90ab solid !important;
+  }
+
+  @media screen and (min-width: 769px) {
+    border: 4px #6d90ab solid !important;
+  }
 `;
 
 const StyledBodyLink = styled.a`
@@ -144,7 +152,7 @@ const Header: FunctionComponent<HeaderProps> = ({
     <StyledHeader variants={getMotionVariants(reduceMotion)}>
       <Link href="/">
         <StyledImageLink onClick={closeIfMobile}>
-          <StyledImage src={"/danbeddows.jpg"} width="140" height="140" />
+          <StyledImage src={"/danbeddows.jpg"} width="146" height="146" />
         </StyledImageLink>
       </Link>
       <Link href="/">
