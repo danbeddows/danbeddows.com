@@ -38,11 +38,20 @@ const StyledIcon = styled(Icon)`
 interface SocialLinkProps {
   href: string;
   icon: IconProp;
+  type: string;
 }
 
-const SocialLink: FunctionComponent<SocialLinkProps> = ({ href, icon }) => {
+const SocialLink: FunctionComponent<SocialLinkProps> = ({
+  href,
+  icon,
+  type,
+}) => {
   return (
-    <StyledLink href={href} target="_blank" rel="noreferrer">
+    <StyledLink
+      href={href}
+      target="_blank"
+      aria-label={"Link to my " + type + " account"}
+    >
       <StyledIcon icon={icon} />
     </StyledLink>
   );
