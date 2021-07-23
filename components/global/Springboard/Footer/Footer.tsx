@@ -53,16 +53,18 @@ const getMotionVariants = (prefersReducedMotion: boolean) =>
  * Define social links and related FontAwesome icon
  */
 const socialData = [
-  { href: "https://twitter.com/danbeddows", icon: faTwitter },
+  { href: "https://twitter.com/danbeddows", icon: faTwitter, type: "Twitter" },
   {
     href: "https://www.linkedin.com/in/danbeddows/",
     icon: faLinkedin,
+    type: "LinkedIn",
   },
   {
     href: "https://stackoverflow.com/users/1658795/daniel-beddows",
     icon: faStackOverflow,
+    type: "Stackoverflow",
   },
-  { href: "https://github.com/danbeddows/", icon: faGithub },
+  { href: "https://github.com/danbeddows/", icon: faGithub, type: "GitHub" },
 ];
 
 /**
@@ -105,7 +107,12 @@ const Footer: FunctionComponent<FooterProps> = ({ reduceMotion }) => {
     <Container variants={getMotionVariants(reduceMotion)}>
       <FooterSocials>
         {socialData.map((social, index) => (
-          <SocialLink href={social.href} icon={social.icon} key={index} />
+          <SocialLink
+            href={social.href}
+            icon={social.icon}
+            type={social.type}
+            key={index}
+          />
         ))}
       </FooterSocials>
       <Copyright>&copy; Daniel Beddows {new Date().getFullYear()}</Copyright>

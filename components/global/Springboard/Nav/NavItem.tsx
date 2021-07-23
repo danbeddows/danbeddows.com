@@ -103,6 +103,7 @@ const Item: FunctionComponent<ItemProps> = ({
       <StyledLink
         onClick={closeIfMobile}
         variants={motionVariants(reduceMotion)}
+        aria-label={title}
       >
         <Title>{title}</Title>
         <Label>{description}</Label>
