@@ -10,7 +10,8 @@ export default function Home() {
       <PageTitle>Hello, World 👋🏻</PageTitle>
       <Section>
         <Paragraph>
-          I'm Dan Beddows, a Frontend Web Developer based in Manchester, UK ☔️.
+          I'm Dan Beddows, a Full Stack Web Developer based in Manchester, UK
+          ☔️.
         </Paragraph>
 
         <Paragraph>

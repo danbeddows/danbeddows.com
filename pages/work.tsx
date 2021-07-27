@@ -38,7 +38,7 @@ const projectList = [
     title: "School Run",
     teaser: "A service to keep parents informed by SMS",
     date: "Oct 2017 - Oct 2019",
-    thumb: "",
+    thumb: "/projects/schoolrun/thumb.jpg",
     stack: [
       { name: "Angular", icon: faAngular },
       { name: "PHP", icon: faPhp },
@@ -48,9 +48,9 @@ const projectList = [
   {
     slug: "archisan",
     title: "Archisan",
-    teaser: "A direct-to-consumer interiors shop",
+    teaser: "A direct-to-consumer interiors store",
     date: "Jan 2016 - Oct 2017",
-    thumb: "",
+    thumb: "/projects/archisan/thumb.jpg",
     stack: [
       { name: "PHP", icon: faPhp },
       { name: "JavaScript", icon: faJs },

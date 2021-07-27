@@ -89,7 +89,7 @@ const StyledImage = styled(Image)`
   }
 
   @media screen and (min-width: 769px) {
-    border: 4px #6d90ab solid !important;
+    border: 2px #6d90ab solid !important;
   }
 `;
 
