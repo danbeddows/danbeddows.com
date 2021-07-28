@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import Footer from "./Footer/Footer";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Nav from "./Nav/Nav";
 
 const motionVariants = {
