@@ -1,4 +1,5 @@
 import React, {
+  FormEvent,
   FunctionComponent,
   ReactNode,
   Reducer,
@@ -28,7 +29,7 @@ const Form: FunctionComponent<FormProps> = ({
   const [formData, setFormData] = useReducer(formReducer, {});
   const [formSubmitting, setFormSubmitting] = useState(false);
 
-  const handleFormSubmit = (e: any) => {
+  const handleFormSubmit = (e: FormEvent) => {
     // prevent default form submission
     e.preventDefault();
 
