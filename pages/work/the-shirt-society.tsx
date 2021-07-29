@@ -46,9 +46,9 @@ const TheShirtSociety = () => {
         </Paragraph>
         <Paragraph>
           We capped signups to 200 customers and launched the MVP after 3 weeks
-          of building. That cap was met within a few days. We then worked with
-          Matt to design and build out a deck to raise a seed round. Matt closed
-          the round in January 2020, raising a 6-figure sum.
+          of building. The cap was met within a few days of launch. We then
+          worked with Matt to design and build out a deck to raise a seed round.
+          Matt closed the round in January 2020, raising a 6-figure sum.
         </Paragraph>
         <Paragraph>
           Scott and I then got to work designing the brand as well as the UI
@@ -57,45 +57,47 @@ const TheShirtSociety = () => {
           attention to UX throughout.
         </Paragraph>
         <Paragraph>
-          After the designs were approved and we knew what would be involved
-          from a design perspective, I started designing the data structures and
-          getting an idea of how the API would be designed.
+          After the designs were approved, I started working on the data
+          structures and getting an idea of how the API would be built.
         </Paragraph>
         <Paragraph>
-          I then started creating the API that the frontend would consume. The
-          API took about two months to build, including 3rd-party integrations
-          such as Stripe, MailChimp and Royal Mail. We leveraged Stripe's
-          Subscription API quite frequently to manage The Shirt Society
-          subscriptions. The API was deployed into an AWS EC2 Ubuntu server that
-          was behind a load balancer, and any static assets were placed in S3
-          buckets and available with CloudFront.
+          I then started writing the API that the frontend would consume. The
+          API took about two months to build, including plugging in some
+          3rd-party integrations such as Stripe, MailChimp and Royal Mail. We
+          leveraged Stripe's Subscription API quite frequently to manage The
+          Shirt Society subscriptions. The API was deployed onto an AWS EC2
+          Ubuntu server that was behind a load balancer, and any static assets
+          were placed in S3 buckets and available via CloudFront.
         </Paragraph>
         <Paragraph>
-          With API built, I got to work creating the frontend. We chose React
-          because Matt had expressed an interest in eventually building mobile
-          apps for customers to manage their subscription, and we could leverage
-          React Native for that.
+          With the API built, I got to work creating the frontend. We chose
+          React because Matt had expressed an interest in eventually building
+          mobile apps for customers to manage their subscription, and we could
+          leverage React Native for that.
         </Paragraph>
-        <Paragraph>Three distinct parts were created for launch:</Paragraph>
+        <Paragraph>
+          There were three core pillars for the frontend that I needed to create
+          for launch:
+        </Paragraph>
         <ul>
           <li>The website itself</li>
           <li>
-            an admin dashboard to add products, manage users subscriptions, and
+            An admin area to add products, manage users' subscriptions, and
             view, cancel and ship orders
           </li>
           <li>
-            and finally a migration tool for the initial MVP customers to come
-            over to the new site
+            A migration tool for MVP customers to transfer their data over along
+            with their legacy pricing
           </li>
         </ul>
         <Paragraph>
           All in all, from developing the business, designing the website,
-          building the API and frontend, testing to launch, I spent about 6
+          building the API and frontend, testing to launch, I spent about 9
           months on this project.
         </Paragraph>
         <Paragraph>
-          After launch at the end of July 2020, I worked adding new features and
-          marketing pages until I left the project in March 2021.
+          After launch at the end of July 2020, I worked on adding new features
+          and marketing pages until I left the project in March 2021.
         </Paragraph>
       </Section>
     </Page>
