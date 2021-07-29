@@ -1,4 +1,3 @@
-import Heading from "components/content/Heading";
 import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
@@ -11,59 +10,34 @@ const About = () => {
       <PageTitle>About</PageTitle>
 
       <Section>
-        <Title>What I do 👨🏻‍💻</Title>
-
-        <Heading>Frontend</Heading>
+        <Title>How I got started 👨🏻‍💻</Title>
 
         <Paragraph>
-          Over the past few years, frontend frameworks like React and Angular
-          have began dominating the web. And rightfully so — they've brought a
-          huge paradigm shift in how to build web applications for the better.
+          My programming journey started as a teenager writing in a scripting
+          language called JASS. It was used to create custom games for Warcraft
+          3’s game engine; which I tinkered with and made my own games at the
+          weekends.
         </Paragraph>
 
         <Paragraph>
-          As a result, I'm finding myself increasingly focused on the frontend,
-          especially UX. I have an eye for transforming large amounts of
-          complexity into interfaces that any user would find delightful. I also
-          understand accessiblity concerns and how to build in an accessible
-          manner.
-        </Paragraph>
-
-        <Heading>Backend</Heading>
-
-        <Paragraph>
-          For the past 15 years I've primarily written in PHP, with the
-          occasional sprinkle of Java and C#. More recently, especially due to
-          serverless, I've been building in TypeScript or JavaScript.
+          After a year or so later, I took to editing websites and I quickly
+          became hooked. My sites were very rudimental, but so was the the web
+          back then - AJAX had still not debuted, nor had HTML5. I started
+          programming for the web after installing a vBulletin forum; trying to
+          understand how it worked under the hood and tweak some otherwise
+          non-customisable settings.
         </Paragraph>
 
         <Paragraph>
-          I've built API's for a handful of reasons, like fetching financial
-          markets data, processing e-commerce lifecycle events and even a
-          mass-SMS API for schools to use. I've also integrated plenty to power
-          those too, like Stripe, Twilio, IEX Cloud, Mandrill and many others.
+          I’ve always had a strong entrepreneurial spirit, I used to sell
+          pebbles that I found at the beach to passerby in my front garden. But
+          when I started programming it felt like an actual superpower. I could
+          create something that was free to make (other than time) and sell it
+          to a potentially unlimited amount of people. What other industry can
+          you do that? That create-stuff spirit drove me to exploring what the
+          web was capable of and build a bunch of businesses over the past
+          decade.
         </Paragraph>
-
-        <Heading>Security</Heading>
-
-        <Paragraph>
-          Computer security is more important than ever. As the web becomes more
-          complex, new attack vectors become apparent or are created, and it's
-          crucial to stay updated on the latest exploits.
-        </Paragraph>
-
-        <Paragraph>
-          I'm incredibly diligent whether setting up a VPS, storing keys,
-          processing input or otherwise. I studied and earnt a BSc in Computer
-          Forensics and Security.
-        </Paragraph>
-
-        {/*<div>
-          <h3>
-            <span className={styles.highlight}>Business development</span>
-          </h3>
-          <p></p>
-				</div>*/}
       </Section>
 
       <Section>

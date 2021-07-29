@@ -14,7 +14,7 @@ const motionVariants = {
 
 const navData = [
   { href: "/", title: "Home", description: "Go to the homepage" },
-  { href: "/about", title: "About", description: "What I do and why" },
+  { href: "/about", title: "About", description: "Why I started programming" },
   { href: "/work", title: "Work", description: "Projects I've worked on" },
   { href: "/contact", title: "Contact", description: "Say hello" },
 ];
