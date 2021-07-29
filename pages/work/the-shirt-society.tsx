@@ -76,20 +76,18 @@ const TheShirtSociety = () => {
           apps for customers to manage their subscription, and we could leverage
           React Native for that.
         </Paragraph>
-        <Paragraph>
-          Three distinct parts were created for launch:
-          <ul>
-            <li>The website itself</li>
-            <li>
-              an admin dashboard to add products, manage users subscriptions,
-              and view, cancel and ship orders
-            </li>
-            <li>
-              and finally a migration tool for the initial MVP customers to come
-              over to the new site
-            </li>
-          </ul>
-        </Paragraph>
+        <Paragraph>Three distinct parts were created for launch:</Paragraph>
+        <ul>
+          <li>The website itself</li>
+          <li>
+            an admin dashboard to add products, manage users subscriptions, and
+            view, cancel and ship orders
+          </li>
+          <li>
+            and finally a migration tool for the initial MVP customers to come
+            over to the new site
+          </li>
+        </ul>
         <Paragraph>
           All in all, from developing the business, designing the website,
           building the API and frontend, testing to launch, I spent about 6
