@@ -11,85 +11,93 @@ const TheShirtSociety = () => {
       <PageTitle>The Shirt Society</PageTitle>
 
       <Section>
-        <Title>What I do 👨🏻‍💻</Title>
+        <Title>Overview</Title>
 
-        <Heading>Frontend</Heading>
+        <Heading>Time Involved</Heading>
+        <Paragraph>October 2019 - March 2021</Paragraph>
 
+        <Heading>About the business</Heading>
         <Paragraph>
-          Over the past few years, frontend frameworks like React and Angular
-          have began dominating the web. And rightfully so — they've brought a
-          huge paradigm shift in how to build web applications for the better.
+          The Shirt Society is an online menswear subscription. Matt, the
+          founder, wanted to enable time-poor consumers to effectively 'set and
+          forget' their subscription and have premium shirts, polo shirts and
+          t-shirts delivered with little effort.
         </Paragraph>
 
+        <Heading>Work involved</Heading>
         <Paragraph>
-          As a result, I'm finding myself increasingly focused on the frontend,
-          especially UX. I have an eye for transforming large amounts of
-          complexity into interfaces that any user would find delightful. I also
-          understand accessiblity concerns and how to build in an accessible
-          manner.
+          <ul>
+            <li></li>
+          </ul>
         </Paragraph>
 
-        <Heading>Backend</Heading>
-
-        <Paragraph>
-          For the past 15 years I've primarily written in PHP, with the
-          occasional sprinkle of Java and C#. More recently, especially due to
-          serverless, I've been building in TypeScript or JavaScript.
-        </Paragraph>
-
-        <Paragraph>
-          I've built API's for a handful of reasons, like fetching financial
-          markets data, processing e-commerce lifecycle events and even a
-          mass-SMS API for schools to use. I've also integrated plenty to power
-          those too, like Stripe, Twilio, IEX Cloud, Mandrill and many others.
-        </Paragraph>
-
-        <Heading>Security</Heading>
-
-        <Paragraph>
-          Computer security is more important than ever. As the web becomes more
-          complex, new attack vectors become apparent or are created, and it's
-          crucial to stay updated on the latest exploits.
-        </Paragraph>
-
-        <Paragraph>
-          I'm incredibly diligent whether setting up a VPS, storing keys,
-          processing input or otherwise. I studied and earnt a BSc in Computer
-          Forensics and Security.
-        </Paragraph>
-
-        {/*<div>
-          <h3>
-            <span className={styles.highlight}>Business development</span>
-          </h3>
-          <p></p>
-				</div>*/}
+        <Heading>Highlights</Heading>
+        <Paragraph>Some good stuff</Paragraph>
       </Section>
 
       <Section>
-        <Title>What I enjoy working on 💪🏻</Title>
+        <Title>The Story</Title>
 
         <Paragraph>
-          I'm at my best working with fast-paced startups where I can make a
-          large impact quickly. I particularily enjoy working on e-commerce and{" "}
-          SaaS businesses.
+          I started working with Matt whilst his business was at the concept
+          stage and bootstrapped. Along with my cofounder at Inhaus (a digital
+          agency in Manchester), I worked with Matt to develop his ideas into a
+          strategy and develop and MVP.
         </Paragraph>
-      </Section>
-
-      <Section>
-        <Title>Where I work 📍</Title>
-
         <Paragraph>
-          Remote is preferred, although I'm open to the occasional on-site
-          visit. I'm based in Manchester, UK.
+          We capped signups to 200 customers and launched the MVP after 3 weeks
+          of building. That cap was met within a few days. We then worked with
+          Matt to design and build out a deck to raise a seed round. Matt closed
+          the round in January 2020, raising a 6-figure sum.
         </Paragraph>
-      </Section>
-
-      <Section>
-        <Title>Other interests 🔎</Title>
-
         <Paragraph>
-          Investing, politics, business, consumer technology.
+          Scott and I then got to work designing the brand as well as the UI
+          components. We used Figma to design the landing page, account page,
+          onboarding, product-selection and offboarding flows, paying special
+          attention to UX throughout.
+        </Paragraph>
+        <Paragraph>
+          After the designs were approved and we knew what would be involved
+          from a design perspective, I started designing the data structures and
+          getting an idea of how the API would be designed.
+        </Paragraph>
+        <Paragraph>
+          I then started creating the API that the frontend would consume. The
+          API took about two months to build, including 3rd-party integrations
+          such as Stripe, MailChimp and Royal Mail. We leveraged Stripe's
+          Subscription API quite frequently to manage The Shirt Society
+          subscriptions. The API was deployed into an AWS EC2 Ubuntu server that
+          was behind a load balancer, and any static assets were placed in S3
+          buckets and available with CloudFront.
+        </Paragraph>
+        <Paragraph>
+          With API built, I got to work creating the frontend. We chose React
+          because Matt had expressed an interest in eventually building mobile
+          apps for customers to manage their subscription, and we could leverage
+          React Native for that.
+        </Paragraph>
+        <Paragraph>
+          Three distinct parts were created for launch:
+          <ul>
+            <li>The website itself</li>
+            <li>
+              an admin dashboard to add products, manage users subscriptions,
+              and view, cancel and ship orders
+            </li>
+            <li>
+              and finally a migration tool for the initial MVP customers to come
+              over to the new site
+            </li>
+          </ul>
+        </Paragraph>
+        <Paragraph>
+          All in all, from developing the business, designing the website,
+          building the API and frontend, testing to launch, I spent about 6
+          months on this project.
+        </Paragraph>
+        <Paragraph>
+          After launch at the end of July 2020, I worked adding new features and
+          marketing pages until I left the project in March 2021.
         </Paragraph>
       </Section>
     </Page>

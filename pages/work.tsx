@@ -25,7 +25,7 @@ const projectList = [
     slug: "the-shirt-society",
     title: "The Shirt Society",
     teaser: "A subscription-based menswear startup",
-    date: "Dec 2019 - Mar 2021",
+    date: "Oct 2019 - Mar 2021",
     thumb: "/projects/tss/thumb.jpg",
     stack: [
       { name: "React", icon: faReact },
