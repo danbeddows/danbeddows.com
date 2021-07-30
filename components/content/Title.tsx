@@ -5,7 +5,6 @@ import slugify from "slugify";
 import styled from "styled-components";
 
 const TitleContainer = styled.h2`
-  margin: 1.3rem -40px;
   line-height: 1;
   font-size: 2rem;
   font-weight: 600;
@@ -18,6 +17,18 @@ const TitleContainer = styled.h2`
   &:hover {
     a {
       opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 1.3rem -40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 1.3rem 0;
+
+    a {
+      display: none;
     }
   }
 `;
