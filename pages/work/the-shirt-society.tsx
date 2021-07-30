@@ -3,6 +3,7 @@ import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
 import Title from "components/content/Title";
+import UnorderedList from "components/content/UnorderedList";
 import Page from "components/layout/Page";
 
 const TheShirtSociety = () => {
@@ -79,7 +80,7 @@ const TheShirtSociety = () => {
           There were three core pillars for the frontend that I needed to create
           for launch:
         </Paragraph>
-        <ul>
+        <UnorderedList>
           <li>The website itself</li>
           <li>
             An admin area to add products, manage users' subscriptions, and
@@ -89,7 +90,7 @@ const TheShirtSociety = () => {
             A migration tool for MVP customers to transfer their data over along
             with their legacy pricing
           </li>
-        </ul>
+        </UnorderedList>
         <Paragraph>
           All in all, from developing the business, designing the website,
           building the API and frontend, testing to launch, I spent about 9
