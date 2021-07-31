@@ -17,6 +17,7 @@ const TitleContainer = styled.h2<TitleProps>`
   position: relative;
   display: flex;
   align-items: center;
+  cursor: default;
 
   /**
 	 * Show the :hover link on desktop
@@ -60,6 +61,7 @@ const StyledLink = styled.a`
   align-items: center;
   justify-content: center;
   padding: 6px;
+  cursor: pointer;
 `;
 
 const Title: FunctionComponent<TitleProps> = ({ children, hideLink }) => {
