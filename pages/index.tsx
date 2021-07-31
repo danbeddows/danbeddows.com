@@ -22,6 +22,7 @@ export default function Home() {
           Web development is my passion, and over the last 10+ years I’ve wore
           many hats including:
         </Paragraph>
+
         <UnorderedList>
           <li>working professionally as a software developer</li>
           <li>founding a couple of internet service businesses (SaaS's)</li>
@@ -30,6 +31,7 @@ export default function Home() {
             Manchester
           </li>
         </UnorderedList>
+
         <Paragraph>
           During my time at Inhaus I've worked directly with clients to advise
           on their tech stack, develop their product, act as a product owner,
