@@ -19,8 +19,8 @@ export default function Home() {
         </Paragraph>
 
         <Paragraph>
-          Web development is my passion, and I’ve worn many hats over the last
-          10+ years including:
+          Web development is my passion, and over the last 10+ years I’ve wore
+          many hats including:
         </Paragraph>
         <UnorderedList>
           <li>working professionally as a software developer</li>
