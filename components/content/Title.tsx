@@ -4,7 +4,11 @@ import { FunctionComponent } from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
-const TitleContainer = styled.h2`
+interface TitleProps {
+  hideLink?: boolean;
+}
+
+const TitleContainer = styled.h2<TitleProps>`
   line-height: 1;
   font-size: 2rem;
   font-weight: 600;
@@ -14,16 +18,25 @@ const TitleContainer = styled.h2`
   display: flex;
   align-items: center;
 
-  &:hover {
-    a {
-      opacity: 1;
-    }
-  }
-
+  /**
+	 * Show the :hover link on desktop
+	 */
   @media screen and (min-width: 768px) {
-    margin: 1.3rem -40px;
+    &:hover {
+      a {
+        opacity: 1;
+      }
+    }
+
+    /**
+		 * If hideLink==true, adjust margin to 0
+		 */
+    margin: 1.3rem ${(props) => (!props.hideLink ? "-40px" : "0")};
   }
 
+  /**
+	 * Hide :hover link on mobile
+	 */
   @media screen and (max-width: 768px) {
     margin: 1.3rem 0;
 
@@ -49,16 +62,20 @@ const StyledLink = styled.a`
   padding: 6px;
 `;
 
-const Title: FunctionComponent = ({ children }) => {
+const Title: FunctionComponent<TitleProps> = ({ children, hideLink }) => {
   const slug = slugify(children?.toString()!, {
     lower: true,
   });
 
+  hideLink = hideLink !== undefined;
+
   return (
-    <TitleContainer>
-      <StyledLink href={"#" + slug} id={slug}>
-        <FontAwesomeIcon icon={faLink} />
-      </StyledLink>
+    <TitleContainer hideLink={hideLink}>
+      {!hideLink && (
+        <StyledLink href={"#" + slug} id={slug}>
+          <FontAwesomeIcon icon={faLink} />
+        </StyledLink>
+      )}
       {children}
     </TitleContainer>
   );

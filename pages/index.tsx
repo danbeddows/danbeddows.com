@@ -2,6 +2,8 @@ import Link from "components/content/Link";
 import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
+import Title from "components/content/Title";
+import UnorderedList from "components/content/UnorderedList";
 import Page from "components/layout/Page";
 
 export default function Home() {
@@ -10,17 +12,28 @@ export default function Home() {
       <PageTitle>Hello, World 👋🏻</PageTitle>
       <Section>
         <Paragraph>
-          I'm Dan Beddows, a Full Stack Web Developer based in Manchester, UK
-          ☔️.
+          <Title hideLink>
+            I'm Dan Beddows, a Full Stack Web Developer based in Manchester, UK
+            ☔️
+          </Title>
         </Paragraph>
 
         <Paragraph>
-          I’ve worn many hats over my 10+ years in web development. I've worked
-          professionally as a software developer, founded a couple of SaaS’s,
-          and more recently I've led the tech approach at a digital agency in
-          Manchester. During my time there, I worked directly with clients to
-          advise on their tech stack, develop their product, act as a product
-          owner, and then actually build and ship.
+          Web development is my passion, and I’ve worn many hats over the last
+          10+ years including:
+        </Paragraph>
+        <UnorderedList>
+          <li>working professionally as a software developer</li>
+          <li>founding a couple of internet service businesses (SaaS's)</li>
+          <li>
+            more recently I've led the tech approach at digital agency Inhaus in
+            Manchester
+          </li>
+        </UnorderedList>
+        <Paragraph>
+          During my time at Inhaus I worked directly with clients to advise on
+          their tech stack, develop their product, act as a product owner, and
+          actually build and ship their product.
         </Paragraph>
 
         <Paragraph>
