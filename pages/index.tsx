@@ -31,9 +31,9 @@ export default function Home() {
           </li>
         </UnorderedList>
         <Paragraph>
-          During my time at Inhaus I worked directly with clients to advise on
-          their tech stack, develop their product, act as a product owner, and
-          actually build and ship their product.
+          During my time at Inhaus I've worked directly with clients to advise
+          on their tech stack, develop their product, act as a product owner,
+          and actually build and ship their product.
         </Paragraph>
 
         <Paragraph>
