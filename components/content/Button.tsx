@@ -109,9 +109,9 @@ const StyledButton = styled(Btn)`
 `;
 
 interface ButtonProps {
-  type: "button" | "submit" | "reset";
-  loading: boolean;
-  disabled: boolean;
+  type?: "button" | "submit" | "reset";
+  loading?: boolean;
+  disabled?: boolean;
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
