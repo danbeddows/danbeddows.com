@@ -13,7 +13,7 @@ const TitleContainer = styled.h2<TitleProps>`
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: -0.03rem;
-  color: #ff5757;
+  color: var(--coral);
   position: relative;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ const StyledLink = styled.a`
   width: 26px;
   margin-right: 13px;
   font-size: 14px;
-  color: #ff5757;
+  color: var(--coral);
   text-decoration: none;
   opacity: 0;
   transition: opacity 0.15s;

@@ -133,7 +133,7 @@ const ForegroundLeft = styled.div`
 const ProjectTitle = styled.h4`
   font-size: 20px;
   font-weight: 500;
-  color: #ff5757;
+  color: var(--coral);
   margin: 0;
 `;
 

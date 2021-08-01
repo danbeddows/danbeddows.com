@@ -8,7 +8,7 @@ const Title = styled.h1`
   position: relative;
   z-index: -1;
   background: var(--light-blue);
-  border-bottom: 4px solid #ff5757;
+  border-bottom: 4px solid var(--coral);
 
   @media screen and (max-width: 768px) {
     font-size: 2.5rem;

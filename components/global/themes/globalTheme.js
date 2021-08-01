@@ -4,6 +4,7 @@ const ThemeGlobals = createGlobalStyle`
 :root {
 	--dark-blue: #293462;
 	--light-blue: #6d90ab;
+	--coral: #ff5757;
 }
 `;
 
