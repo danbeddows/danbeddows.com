@@ -50,6 +50,7 @@ const SpringboardContainer = styled.div`
     flex: 0 0 22vw;
     z-index: 1;
     background: var(--dark-blue);
+    height: auto;
   }
 `;
 
