@@ -140,7 +140,7 @@ const ProjectTitle = styled.h4`
 const ProjectTeaser = styled.p`
   font-size: 14px;
   margin: 0;
-  color: #6d90ab;
+  color: var(--light-blue);
 `;
 
 const ForegroundRight = styled.div`

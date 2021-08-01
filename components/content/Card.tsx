@@ -7,7 +7,7 @@ const StyledCard = styled.div`
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.7;
-  border: 1px solid #6d90ab;
+  border: 1px solid var(--light-blue);
   background: #cedae3;
   border-radius: 4px;
   padding: 18px;

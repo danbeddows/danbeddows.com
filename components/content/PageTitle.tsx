@@ -7,7 +7,7 @@ const Title = styled.h1`
   color: #232d52;
   position: relative;
   z-index: -1;
-  background: #6d90ab;
+  background: var(--light-blue);
   border-bottom: 4px solid #ff5757;
 
   @media screen and (max-width: 768px) {

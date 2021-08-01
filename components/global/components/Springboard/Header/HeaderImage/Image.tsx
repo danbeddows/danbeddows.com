@@ -9,11 +9,11 @@ const StyledImage = styled(Image)`
   background: #fff;
 
   @media screen and (max-width: 768px) {
-    border: 2px #6d90ab solid !important;
+    border: 2px var(--light-blue) solid !important;
   }
 
   @media screen and (min-width: 769px) {
-    border: 2px #6d90ab solid !important;
+    border: 2px var(--light-blue) solid !important;
   }
 `;
 
