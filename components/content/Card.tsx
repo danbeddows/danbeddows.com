@@ -12,7 +12,7 @@ const StyledCard = styled.div`
   border-radius: 4px;
   padding: 18px;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     max-width: 700px;
   }
 `;

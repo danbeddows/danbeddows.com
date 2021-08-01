@@ -25,12 +25,9 @@ const StyledNav = styled(motion.nav)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
 
-  @media screen and (max-width: 768px) {
-    align-items: flex-end;
-  }
-
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     align-items: flex-start;
   }
 `;

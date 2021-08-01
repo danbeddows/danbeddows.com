@@ -13,47 +13,38 @@ const motionVariants = {
   },
 };
 
-const Wrapper = styled(motion.div)`
-  @media screen and (max-width: 768px) {
-    z-index: 1000;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 100%;
-    pointer-events: auto;
-  }
+const Inner = styled(motion.div)`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  min-height: 100%;
+  z-index: 1000;
+  pointer-events: auto;
 
-  @media screen and (min-width: 769px) {
-    position: sticky;
-    top: 0;
-    width: 100%;
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     padding: 2rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     min-height: 100vh;
   }
 `;
 
-interface SpringboardWrapperProps {
+interface SpringboardInnerProps {
   closeMenu: () => void;
   isMobile: boolean;
   reduceMotion: boolean;
 }
 
-const SpringboardWrapper: FunctionComponent<SpringboardWrapperProps> = ({
+const SpringboardInner: FunctionComponent<SpringboardInnerProps> = ({
   closeMenu,
   isMobile,
   reduceMotion,
 }) => {
   return (
-    <Wrapper variants={motionVariants}>
+    <Inner variants={motionVariants}>
       <Header
         closeMenu={closeMenu}
         isMobile={isMobile}
@@ -67,8 +58,8 @@ const SpringboardWrapper: FunctionComponent<SpringboardWrapperProps> = ({
       />
 
       <Footer reduceMotion={reduceMotion} />
-    </Wrapper>
+    </Inner>
   );
 };
 
-export default SpringboardWrapper;
+export default SpringboardInner;

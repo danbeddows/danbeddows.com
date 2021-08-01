@@ -5,13 +5,11 @@ import Background from "./BurgerBackground";
 import burgerData from "./BurgerLottieJson";
 
 const Container = styled.div`
-  @media screen and (max-width: 768px) {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     display: none !important;
   }
 `;

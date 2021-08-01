@@ -37,8 +37,7 @@ const StyledLink = styled(motion.a)`
   cursor: pointer;
   text-decoration: none;
 
-  /* very small mobile height */
-  @media screen and (max-height: 500px) {
+  @media (max-height: ${(props) => props.theme.bp.smallMobileHeight}) {
     margin: 0.5rem 0;
   }
 `;
@@ -47,14 +46,13 @@ const Title = styled.div`
   font-size: 1.375rem;
   font-weight: 600;
   color: #fff;
+  text-align: right;
 
-  /* mobile */
-  @media screen and (max-width: 768px) {
-    text-align: right;
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    text-align: left;
   }
 
-  /* very small mobile height */
-  @media screen and (max-height: 500px) {
+  @media (max-height: ${(props) => props.theme.bp.smallMobileHeight}) {
     font-size: 18px;
   }
 `;
@@ -63,14 +61,13 @@ const Label = styled.div`
   font-size: 1rem;
   color: #fff;
   font-weight: 400;
+  text-align: right;
 
-  /* mobile */
-  @media screen and (max-width: 768px) {
-    text-align: right;
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    text-align: left;
   }
 
-  /* very small mobile height */
-  @media screen and (max-height: 500px) {
+  @media (max-height: ${(props) => props.theme.bp.smallMobileHeight}) {
     font-size: 14px;
   }
 `;

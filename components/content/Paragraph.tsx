@@ -7,7 +7,7 @@ const StyledParagraph = styled.p`
   font-size: 1.1rem;
   line-height: 1.7;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     max-width: 700px;
   }
 `;

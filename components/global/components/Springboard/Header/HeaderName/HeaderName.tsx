@@ -13,12 +13,9 @@ const Title = styled.div`
   color: #fff;
   font-weight: 700;
   text-align: center;
+  font-size: 23px;
 
-  @media screen and (max-width: 768px) {
-    font-size: 23px;
-  }
-
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     margin-top: 18px;
     font-size: 32px;
   }
@@ -28,12 +25,9 @@ const Subtitle = styled.div`
   color: #fff;
   font-weight: 400;
   text-align: center;
+  font-size: 15.5px;
 
-  @media screen and (max-width: 768px) {
-    font-size: 15.5px;
-  }
-
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     font-size: 21.4px;
     margin-top: -2px;
   }

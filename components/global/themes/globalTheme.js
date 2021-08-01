@@ -10,8 +10,12 @@ const ThemeGlobals = createGlobalStyle`
 
 const Theme = {
   bp: {
+    mobile: "374px",
+    mobileNoPx: "374",
     desktop: "769px",
     desktopNoPx: "769",
+    smallMobileHeight: "500px",
+    smallMobileHeightNoPx: "500",
   },
 };
 

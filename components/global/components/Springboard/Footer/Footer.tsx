@@ -77,7 +77,7 @@ const Container = styled(motion.footer)`
   align-items: flex-start;
   margin-top: 2rem;
 
-  @media screen and (max-height: 500px) {
+  @media (max-height: ${(props) => props.theme.bp.smallMobileHeight}) {
     margin-top: 1rem;
   }
 `;

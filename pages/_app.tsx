@@ -23,14 +23,12 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const PageContainer = styled.div`
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     width: 100%;
     height: 100%;
     display: flex;
@@ -39,26 +37,26 @@ const PageContainer = styled.div`
 `;
 
 const SpringboardContainer = styled.div`
-  @media screen and (max-width: 768px) {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 990;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    position: static;
     min-width: 300px;
+    pointer-events: auto;
     flex: 0 0 22vw;
+    z-index: 1;
     background: var(--dark-blue);
   }
 `;
 
 const ContentContainer = styled.div`
-  @media screen and (max-width: 768px) {
-    //padding-top: 12px;
-  }
+  //padding-top: 12px;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     flex: 1;
   }
 `;
@@ -98,16 +96,16 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <ThemeGlobals />
       <FontBasierGlobalStyle />
-      <PageContainer>
-        <SpringboardContainer>
-          <Springboard />
-        </SpringboardContainer>
-        <ContentContainer>
-          <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={Theme}>
+        <PageContainer>
+          <SpringboardContainer>
+            <Springboard />
+          </SpringboardContainer>
+          <ContentContainer>
             <Component {...pageProps} />
-          </ThemeProvider>
-        </ContentContainer>
-      </PageContainer>
+          </ContentContainer>
+        </PageContainer>
+      </ThemeProvider>
     </>
   );
 }

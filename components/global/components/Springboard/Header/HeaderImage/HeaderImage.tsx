@@ -7,14 +7,17 @@ import Image from "./Image";
  * Create components with styled-components
  */
 const StyledLink = styled.a`
-  @media screen and (max-width: 768px) {
-    max-width: 80px;
-    margin-right: 11px;
-  }
+  max-width: 80px;
+  margin-right: 11px;
 
   /* hide profile photo when width gets too small */
-  @media screen and (max-width: 374px) {
+  @media (max-width: ${(props) => props.theme.bp.mobile}) {
     display: none !important;
+  }
+
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    max-width: none;
+    margin-right: 0;
   }
 `;
 

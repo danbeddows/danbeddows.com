@@ -27,7 +27,7 @@ const Icon: FunctionComponent<IconProps> = ({ className, icon }) => (
 const StyledIcon = styled(Icon)`
   font-size: 28px;
 
-  @media screen and (max-height: 500px) {
+  @media (max-height: ${(props) => props.theme.bp.smallMobileHeight}) {
     font-size: 22px;
   }
 `;

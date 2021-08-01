@@ -8,22 +8,18 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const StyledInput = styled(FormInput)`
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
+  width: 100%;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     width: 300px;
   }
 `;
 
 const StyledTextarea = styled(FormInput)`
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    height: 250px;
-  }
+  width: 100%;
+  height: 250px;
 
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     width: 550px;
     height: 300px;
   }

@@ -52,13 +52,10 @@ const StyledHeader = styled(motion.header)`
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 1rem;
+  flex-direction: row;
+  width: 100%;
 
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    flex-direction: row;
-  }
-
-  @media screen and (min-width: 769px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
     flex-direction: column;
     flex: 0 0 220px;
   }

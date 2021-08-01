@@ -9,6 +9,7 @@ interface TitleProps {
 }
 
 const TitleContainer = styled.h2<TitleProps>`
+  margin: 1.3rem 0;
   line-height: 1;
   font-size: 2rem;
   font-weight: 600;
@@ -19,10 +20,18 @@ const TitleContainer = styled.h2<TitleProps>`
   align-items: center;
   cursor: default;
 
+  a {
+    display: none;
+  }
+
   /**
 	 * Show the :hover link on desktop
 	 */
-  @media screen and (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    a {
+      display: flex;
+    }
+
     &:hover {
       a {
         opacity: 1;
@@ -34,21 +43,9 @@ const TitleContainer = styled.h2<TitleProps>`
 		 */
     margin: 1.3rem ${(props) => (!props.hideLink ? "-40px" : "0")};
   }
-
-  /**
-	 * Hide :hover link on mobile
-	 */
-  @media screen and (max-width: 768px) {
-    margin: 1.3rem 0;
-
-    a {
-      display: none;
-    }
-  }
 `;
 
 const StyledLink = styled.a`
-  display: block;
   width: 26px;
   margin-right: 13px;
   font-size: 14px;
@@ -57,7 +54,6 @@ const StyledLink = styled.a`
   opacity: 0;
   transition: opacity 0.15s;
   height: 45px;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 6px;
