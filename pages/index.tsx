@@ -1,4 +1,5 @@
-import { faRocketLaunch } from "@fortawesome/pro-solid-svg-icons";
+import { faArrowRight, faRocketLaunch } from "@fortawesome/pro-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "components/content/Card";
 import Link from "components/content/Link";
 import PageTitle from "components/content/PageTitle";
@@ -22,7 +23,9 @@ export default function Home() {
 
         <Card icon={faRocketLaunch} title={"I'm available to hire"}>
           <p>I have some availablity to take on new work.</p>
-          <Link href={"/contact"}>Send me a message &rarr;</Link>
+          <Link href={"/contact"}>
+            Send me a message <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
         </Card>
 
         <Paragraph>

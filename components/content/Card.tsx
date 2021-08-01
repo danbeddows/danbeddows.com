@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  margin: 1.4rem 0;
+  margin: 2rem 0;
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.7;
