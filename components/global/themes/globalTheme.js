@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const ThemeGlobals = createGlobalStyle`
 :root {
-	--dark-blue: #293462; /* keep - used in nav */
+	--dark-blue: #293462;
 
 }
 `;

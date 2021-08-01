@@ -65,7 +65,7 @@ const StyledBackground = styled(motion.div)<StyledBackgroundProps>`
   left: 0;
   bottom: 0;
   width: 100%;
-  background: #293462;
+  background: var(--dark-blue);
   z-index: 999;
   pointer-events: none;
 `;

@@ -3,7 +3,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledLink = styled.a`
-  color: #293462;
+  color: var(--dark-blue);
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.7;

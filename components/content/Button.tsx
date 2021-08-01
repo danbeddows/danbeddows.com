@@ -1,4 +1,4 @@
-import { lighten } from "polished";
+import { cssVar, lighten } from "polished";
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 
@@ -33,7 +33,7 @@ const StyledButton = styled(Btn)`
   padding: 0.7rem 1.4rem;
   font-size: 1em;
   line-height: 1.42;
-  background: #293462;
+  background: var(--dark-blue);
   border-style: solid;
   border-width: 2px;
   -webkit-appearance: none;
@@ -83,26 +83,26 @@ const StyledButton = styled(Btn)`
     props.type &&
     props.type == "submit" &&
     css`
-      background: ${lighten(0.1, "#293462")};
-      border-color: #293462;
+      background: ${lighten(0.1, String(cssVar("--dark-blue")))};
+      border-color: var(--dark-blue);
       color: #fff;
       font-weight: 400;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
       &:hover {
-        background: #293462;
-        border-color: #293462;
+        background: var(--dark-blue);
+        border-color: var(--dark-blue);
       }
 
       &:disabled {
         cursor: default;
-        border-color: ${lighten(0.5, "#293462")};
-        background: ${lighten(0.5, "#293462")};
+        border-color: ${lighten(0.5, String(cssVar("--dark-blue")))};
+        background: ${lighten(0.5, String(cssVar("--dark-blue")))};
 
         &:hover {
-          background: ${lighten(0.5, "#293462")};
-          border-color: ${lighten(0.5, "#293462")};
+          background: ${lighten(0.5, String(cssVar("--dark-blue")))};
+          border-color: ${lighten(0.5, String(cssVar("--dark-blue")))};
         }
       }
     `}

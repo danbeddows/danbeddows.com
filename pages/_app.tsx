@@ -4,7 +4,7 @@ import Head from "next/head";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Springboard from "../components/global/components/Springboard/Springboard";
 import fontBasier from "../components/global/themes/fontBasier";
-import { Theme as GlobalTheme } from "../components/global/themes/globalTheme";
+import { Theme, ThemeGlobals } from "../components/global/themes/globalTheme";
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
 const FontBasierGlobalStyle = fontBasier(assetDomain);
@@ -49,7 +49,7 @@ const SpringboardContainer = styled.div`
   @media screen and (min-width: 769px) {
     min-width: 300px;
     flex: 0 0 22vw;
-    background: #293462;
+    background: var(--dark-blue);
   }
 `;
 
@@ -96,14 +96,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:image" content="" />
       </Head>
       <GlobalStyles />
-
+      <ThemeGlobals />
       <FontBasierGlobalStyle />
       <PageContainer>
         <SpringboardContainer>
           <Springboard />
         </SpringboardContainer>
         <ContentContainer>
-          <ThemeProvider theme={GlobalTheme}>
+          <ThemeProvider theme={Theme}>
             <Component {...pageProps} />
           </ThemeProvider>
         </ContentContainer>

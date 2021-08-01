@@ -6,7 +6,7 @@ const StyledHeading = styled.h3`
   line-height: 1;
   font-size: 1rem;
   font-weight: 700;
-  color: #293462;
+  color: var(--dark-blue);
   text-transform: uppercase;
 `;
 
