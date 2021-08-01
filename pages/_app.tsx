@@ -2,8 +2,8 @@ import { dom as fontAwesomeDom } from "@fortawesome/fontawesome-svg-core";
 import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
 import styled, { createGlobalStyle } from "styled-components";
+import Springboard from "../components/global/components/Springboard/Springboard";
 import fontBasier from "../components/global/FontBasierStyle";
-import Springboard from "../components/global/Springboard/Springboard";
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
 const FontBasierGlobalStyle = fontBasier(assetDomain);
