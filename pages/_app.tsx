@@ -1,9 +1,10 @@
 import { dom as fontAwesomeDom } from "@fortawesome/fontawesome-svg-core";
 import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Springboard from "../components/global/components/Springboard/Springboard";
-import fontBasier from "../components/global/themes/FontBasier";
+import fontBasier from "../components/global/themes/fontBasier";
+import { Theme as GlobalTheme } from "../components/global/themes/globalTheme";
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
 const FontBasierGlobalStyle = fontBasier(assetDomain);
@@ -95,13 +96,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:image" content="" />
       </Head>
       <GlobalStyles />
+
       <FontBasierGlobalStyle />
       <PageContainer>
         <SpringboardContainer>
           <Springboard />
         </SpringboardContainer>
         <ContentContainer>
-          <Component {...pageProps} />
+          <ThemeProvider theme={GlobalTheme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
         </ContentContainer>
       </PageContainer>
     </>
