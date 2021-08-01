@@ -22,7 +22,7 @@ export default function Home() {
         </Paragraph>
 
         <Card icon={faRocketLaunch} title={"I'm available to hire"}>
-          <p>I have some availablity to take on new work.</p>
+          <Paragraph>I have some availablity to take on new work.</Paragraph>
           <Link href={"/contact"}>
             Send me a message <FontAwesomeIcon icon={faArrowRight} />
           </Link>
