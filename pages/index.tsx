@@ -1,5 +1,4 @@
-import { faWhistle } from "@fortawesome/pro-solid-svg-icons";
-import Button from "components/content/Button";
+import { faRocketLaunch } from "@fortawesome/pro-solid-svg-icons";
 import Card from "components/content/Card";
 import Link from "components/content/Link";
 import PageTitle from "components/content/PageTitle";
@@ -21,10 +20,9 @@ export default function Home() {
           </Title>
         </Paragraph>
 
-        <Card icon={faWhistle} title={"I'm currently available for work"}>
-          So hire me to work on your frontend project.
-          <br />
-          <Button>Send me a message</Button>
+        <Card icon={faRocketLaunch} title={"I'm available to hire"}>
+          <p>I have some availablity to take on new work.</p>
+          <Link href={"/contact"}>Send me a message &rarr;</Link>
         </Card>
 
         <Paragraph>
