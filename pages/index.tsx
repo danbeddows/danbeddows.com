@@ -61,7 +61,7 @@ export default function Home() {
         <Paragraph>
           During my time at Inhaus I've worked directly with clients to advise
           on their tech stack, develop their product, act as a product owner,
-          and also build and ship their product.
+          and actually build and ship their product too.
         </Paragraph>
 
         <Paragraph>
