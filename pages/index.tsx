@@ -21,8 +21,24 @@ export default function Home() {
           </Title>
         </Paragraph>
 
-        <Card icon={faRocketLaunch} title={"I'm available to hire"}>
-          <Paragraph>I have some availablity to take on new work.</Paragraph>
+        <Card icon={faRocketLaunch} title={"Hire me for your next project"}>
+          <Paragraph>
+            I currently have availablity to take on a new project.
+          </Paragraph>
+          <Paragraph>
+            If you're looking for an engineer:
+            <UnorderedList>
+              <li>experienced with React production applications</li>
+              <li>with a laser focus to UX and design</li>
+              <li>that can deal with the backend too</li>
+              <li>that understands best practices for the web</li>
+              <li>to hire remotely as a contractor</li>
+            </UnorderedList>
+          </Paragraph>
+          <Paragraph>
+            Then I'd love to chat to you about your project and see if we can
+            work together.
+          </Paragraph>
           <Link href={"/contact"}>
             Send me a message <FontAwesomeIcon icon={faArrowRight} />
           </Link>
@@ -53,7 +69,13 @@ export default function Home() {
           what I enjoy doing with my time 🍕 ☕️ 🥾.
         </Paragraph>
 
-        <Link href={"/about"}>Learn more &rarr;</Link>
+        <Link href={"/about"}>
+          More about me <FontAwesomeIcon icon={faArrowRight} />
+        </Link>
+        <br />
+        <Link href={"/about"}>
+          My latest work <FontAwesomeIcon icon={faArrowRight} />
+        </Link>
       </Section>
     </Page>
   );

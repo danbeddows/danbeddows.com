@@ -30,7 +30,9 @@ const CardTitle = styled.h5`
 
 const CardContent = styled.div`
   p,
-  a {
+  a,
+  ul,
+  li {
     font-size: 0.9375rem;
   }
 
