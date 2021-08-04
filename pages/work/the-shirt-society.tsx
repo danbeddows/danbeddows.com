@@ -39,6 +39,7 @@ const TheShirtSociety = () => {
       <Section>
         <Title>The Story</Title>
 
+        <Heading>The MVP</Heading>
         <Paragraph>
           I started working with Matt whilst his business was at the concept
           stage and bootstrapped. Along with my cofounder at Inhaus (a digital
@@ -51,6 +52,8 @@ const TheShirtSociety = () => {
           worked with Matt to design and build out a deck to raise a seed round.
           Matt closed the round in January 2020, raising a 6-figure sum.
         </Paragraph>
+
+        <Heading>Planning and build</Heading>
         <Paragraph>
           Scott and I then got to work designing the brand as well as the UI
           components. We used Figma to design the landing page, account page,

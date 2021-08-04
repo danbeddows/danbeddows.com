@@ -8,10 +8,10 @@ const StyledTextarea = styled.textarea`
   font-weight: 400;
   line-height: 1.42;
   letter-spacing: -0.02rem;
-  border-radius: 25px;
+  border-radius: 14px;
   border-style: solid;
-  border-width: 0px;
-  border-color: rgba(50, 50, 93, 0.25);
+  border-width: 2px;
+  border-color: var(--light-blue);
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -20,14 +20,9 @@ const StyledTextarea = styled.textarea`
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   &::placeholder {
-    color: #999;
+    color: #a8a8a8;
     font-weight: 400;
-  }
-
-  &:focus {
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    letter-spacing: -0.3px;
   }
 `;
 

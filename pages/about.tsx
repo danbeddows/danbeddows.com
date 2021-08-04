@@ -15,16 +15,16 @@ const About = () => {
         <Paragraph>
           My programming journey started as a teenager writing in a scripting
           language called JASS. It was used to create custom games for Warcraft
-          3’s game engine; which I tinkered with and made my own games at the
+          3’s game engine; which I tinkered with to make my own games at the
           weekends.
         </Paragraph>
 
         <Paragraph>
-          After a year or so later, I took to editing websites and I quickly
-          became hooked. My sites were very rudimental, but so was the the web
-          back then - AJAX had still not debuted, nor had HTML5. I started
+          After a year or so, I started editing websites and I quickly became
+          hooked. My sites were very rudimental, but so was the the web back
+          then - AJAX had still not debuted, nor had HTML5. I started seriously
           programming for the web after installing a vBulletin forum; trying to
-          understand how it worked under the hood and tweak some otherwise
+          understand how it worked under the hood and hack some otherwise
           non-customisable settings.
         </Paragraph>
 

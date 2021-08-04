@@ -14,10 +14,15 @@ const Label = styled.label`
   display: inline-block;
   font-size: 14px;
   margin-left: 17px;
-  margin-bottom: 7px;
-  font-weight: 400;
+  margin-bottom: 9px;
+  font-weight: 600;
   font-size: 0.9rem;
   cursor: default;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--coral);
+  color: var(--blue);
 `;
 
 const Error = styled.div`
