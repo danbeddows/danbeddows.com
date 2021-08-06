@@ -10,7 +10,7 @@ Clone this repository
 $ git clone git://github.com/danbeddows/danbeddows.com.git
 ```
 
-Enter the danbeddows.com directory and use npm to install dependancies.
+Enter the danbeddows.com directory and use npm to install dependencies.
 
 ```bash
 $ cd danbeddows.com
