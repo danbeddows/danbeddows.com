@@ -11,13 +11,15 @@ const StyledCard = styled.div`
   border: 1px solid var(--light-blue);
   background: #cedae3;
   border-radius: 4px;
-  padding: 18px;
+  padding: 28px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {
     max-width: 700px;
+    flex-direction: row;
+    padding: 18px;
   }
 `;
 
@@ -41,6 +43,12 @@ const CardContent = styled.div`
   }
 `;
 
+const IconArea = styled.div`
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    margin: 13px 30px 0 13px;
+  }
+`;
+
 interface CardProps {
   icon?: IconProp;
   title?: string;
@@ -54,16 +62,15 @@ const Card: FunctionComponent<CardProps> = ({
   return (
     <StyledCard>
       {icon != null && (
-        <FontAwesomeIcon
-          icon={icon}
-          style={{
-            fontSize: 28,
-            marginRight: 30,
-            color: "var(--dark-blue)",
-            marginLeft: 13,
-            marginTop: 13,
-          }}
-        />
+        <IconArea>
+          <FontAwesomeIcon
+            icon={icon}
+            style={{
+              fontSize: 28,
+              color: "var(--dark-blue)",
+            }}
+          />
+        </IconArea>
       )}
       <div>
         {title != null && <CardTitle>{title}</CardTitle>}
