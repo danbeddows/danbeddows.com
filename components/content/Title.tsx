@@ -9,7 +9,7 @@ interface TitleProps {
 }
 
 const TitleContainer = styled.h2<TitleProps>`
-  margin: 1.3rem 0;
+  margin: 0 0 1.3rem;
   line-height: 1.3;
   font-size: 2rem;
   font-weight: 600;
