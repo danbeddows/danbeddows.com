@@ -85,40 +85,42 @@ const projectList = [
 
 const ProjectsContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
+
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    flex-direction: row;
+  }
 `;
 
 const ProjectContents = styled.a`
-  width: 600px;
+  width: 100%;
   height: 400px;
-  margin: 30px 15px;
   border-radius: 12px;
   position: relative;
   overflow: hidden;
   text-decoration: none;
+
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    width: 600px;
+    margin: 30px 15px;
+  }
 `;
 
 const Background = styled.div`
   width: 100%;
   height: 320px;
-  position: absolute;
-  z-index: 5;
   background-color: #555;
   background-size: cover;
   background-position: center;
 `;
 
 const Foreground = styled.div`
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 80px;
-  z-index: 10;
   background: #383838;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -126,8 +128,11 @@ const Foreground = styled.div`
 `;
 
 const ForegroundLeft = styled.div`
-  max-width: 60%;
   padding: 6px 18px;
+
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    max-width: 60%;
+  }
 `;
 
 const ProjectTitle = styled.h4`
@@ -144,11 +149,12 @@ const ProjectTeaser = styled.p`
 `;
 
 const ForegroundRight = styled.div`
-  max-width: 40%;
   padding: 6px 18px;
   color: #fff;
-  display: flex;
-  position: relative;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 
   i,
   svg {
@@ -156,12 +162,10 @@ const ForegroundRight = styled.div`
     margin-left: 10px;
   }
 
-  div {
-    // position: absolute;
-    // width: 100%;
-    // height: 100%;
-    // background: linear-gradient(270deg, #383838 23%, transparent);
-    // pointer-events: none;
+  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+    display: flex;
+    position: relative;
+    max-width: 40%;
   }
 `;
 
