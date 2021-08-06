@@ -32,7 +32,7 @@ const projectList = [
       { name: "Symfony", icon: faSymfony },
       { name: "Stripe", icon: faStripe },
     ],
-  },
+  } /*,
   {
     slug: "school-run",
     title: "School Run",
@@ -80,7 +80,7 @@ const projectList = [
       { name: "PayPal", icon: faPaypal },
       { name: "CSS", icon: faCss3Alt },
     ],
-  },
+  }*/,
 ];
 
 const ProjectsContainer = styled.div`
@@ -212,9 +212,10 @@ const Work = () => {
         <Title>Projects I've worked on</Title>
 
         <Paragraph>
-          This is list of a few of the projects I've worked on over the years.
-          These pieces of work required me to flex problem solving skills and
-          often integrate a number of technologies for the first time.
+          This is a select list of a few of the projects I've worked on over the
+          years. These pieces in particular had me flex problem solving skills
+          and often integrate a number of technologies that I hadn't used
+          before.
         </Paragraph>
 
         <ProjectsContainer>
