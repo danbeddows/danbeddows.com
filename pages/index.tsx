@@ -45,16 +45,15 @@ export default function Home() {
         </Card>
 
         <Paragraph>
-          Web development is my passion, and over the last 10+ years I’ve wore
-          many hats including:
+          Web development is my passion, and over the last 10+ years I’ve:
         </Paragraph>
 
         <UnorderedList>
-          <li>working professionally as a software developer</li>
-          <li>founding a couple of internet service businesses (SaaS's)</li>
+          <li>worked professionally as a software developer</li>
+          <li>founded a couple of internet service businesses (SaaS's)</li>
           <li>
-            more recently I've led the tech approach at digital agency Inhaus in
-            Manchester
+            and more recently I've led the tech approach at digital agency
+            Inhaus in Manchester
           </li>
         </UnorderedList>
 

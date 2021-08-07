@@ -120,7 +120,7 @@ const Background = styled.div`
 const Foreground = styled.div`
   width: 100%;
   height: 80px;
-  background: #383838;
+  background: #2b2b2b;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -145,7 +145,7 @@ const ProjectTitle = styled.h4`
 const ProjectTeaser = styled.p`
   font-size: 14px;
   margin: 0;
-  color: var(--light-blue);
+  color: #fff;
 `;
 
 const ForegroundRight = styled.div`
@@ -218,7 +218,7 @@ const Work = () => {
         <Title>Projects I've worked on</Title>
 
         <Paragraph>
-          This is a select list of a few projects I've worked on over the years.
+          This is a list of a select few projects I've worked on over the years.
           These pieces in particular had me flex problem solving skills and
           often integrate a number of technologies that I hadn't used before.
         </Paragraph>

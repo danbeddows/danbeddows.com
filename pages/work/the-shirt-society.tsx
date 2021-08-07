@@ -37,7 +37,7 @@ const TheShirtSociety = () => {
               Integrate 3rd-party API's such as Stripe, Twilio and MailChimp.
             </li>
             <li>
-              Provision the platform on AWS using primarily EC2, RDS, S3,
+              Provision the platform on AWS primarily using EC2, RDS, S3,
               CloudFront.
             </li>
             <li>
@@ -52,9 +52,9 @@ const TheShirtSociety = () => {
         <Paragraph>
           No matter how many years I've been in web development, it's still an
           incredible feeling for me when real people; people that you've never
-          met, use your app unguided, and they managed to figure everything out
-          and it just works ✨. And this was even more so, as it was the
-          most-used project I've had full accountability for, with 1000's of
+          met, use your app unguided, and they manage to figure everything out
+          and it just works ✨. This project felt extra incredible as it was the
+          most-used website I've had full accountability for; with 1000's of
           signups and &gt;£100k of transactions processed.
         </Paragraph>
         <Paragraph>
@@ -71,9 +71,9 @@ const TheShirtSociety = () => {
         <Heading>The MVP</Heading>
         <Paragraph>
           I started working with Matt whilst his business was at the concept
-          stage and bootstrapped. Along with my cofounder at Inhaus (a digital
-          agency in Manchester), I worked with Matt to develop his ideas into a
-          strategy and develop and MVP.
+          stage and bootstrapped. Along with my cofounder Scott at Inhaus (a
+          digital agency in Manchester), I worked with Matt to develop his ideas
+          into a strategy and build an MVP.
         </Paragraph>
         <Paragraph>
           Signups were capped to 200 customers and the MVP launched 3 weeks

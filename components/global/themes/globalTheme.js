@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const ThemeGlobals = createGlobalStyle`
 :root {
 	--dark-blue: #293462;
-	--light-blue: #6d90ab;
+	--light-blue: #2873a9;
 	--coral: #ff5757;
 }
 `;
