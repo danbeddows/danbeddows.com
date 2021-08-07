@@ -12,7 +12,7 @@ import Page from "components/layout/Page";
 export default function Home() {
   return (
     <Page>
-      <PageTitle>Hello, World 👋🏻</PageTitle>
+      <PageTitle>Hello, World</PageTitle>
       <Section>
         <Paragraph>
           <Title hideLink>

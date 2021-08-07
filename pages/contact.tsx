@@ -133,7 +133,7 @@ export default function Contact() {
       <PageTitle>Contact</PageTitle>
 
       <Section>
-        <Title>Say hello</Title>
+        <Title>Say hello 👋🏻</Title>
 
         <Form onSubmit={submitForm} disabled={formSubmitted}>
           <StyledInput

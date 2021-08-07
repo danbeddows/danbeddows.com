@@ -12,7 +12,7 @@ const TheShirtSociety = () => {
       <PageTitle>The Shirt Society</PageTitle>
 
       <Section>
-        <Title>Overview</Title>
+        <Title>Overview 👀</Title>
 
         <Heading>Time Involved</Heading>
         <Paragraph>October 2019 - March 2021</Paragraph>
@@ -66,7 +66,7 @@ const TheShirtSociety = () => {
       </Section>
 
       <Section>
-        <Title>The Story</Title>
+        <Title>The Story 📖</Title>
 
         <Heading>The MVP</Heading>
         <Paragraph>

@@ -215,7 +215,7 @@ const Work = () => {
       <PageTitle>Work</PageTitle>
 
       <Section>
-        <Title>Projects I've worked on</Title>
+        <Title>Projects I've worked on 👨🏻‍💻</Title>
 
         <Paragraph>
           This is a list of a select few projects I've worked on over the years.
