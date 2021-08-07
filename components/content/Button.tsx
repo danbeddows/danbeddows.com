@@ -39,7 +39,7 @@ const StyledButton = styled(Btn)`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 25px;
+  border-radius: 14px;
   transition: background 0.3s;
   outline: none;
   cursor: pointer;
