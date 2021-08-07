@@ -1,10 +1,11 @@
+import { cssVar, darken } from "polished";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
   line-height: 1;
   font-weight: 700;
-  color: #232d52;
+  color: ${darken(0.1, String(cssVar("--dark-blue", "#293462")))};
   position: relative;
   z-index: -1;
   background: var(--light-blue);
