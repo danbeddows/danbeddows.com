@@ -218,10 +218,9 @@ const Work = () => {
         <Title>Projects I've worked on</Title>
 
         <Paragraph>
-          This is a select list of a few of the projects I've worked on over the
-          years. These pieces in particular had me flex problem solving skills
-          and often integrate a number of technologies that I hadn't used
-          before.
+          This is a select list of a few projects I've worked on over the years.
+          These pieces in particular had me flex problem solving skills and
+          often integrate a number of technologies that I hadn't used before.
         </Paragraph>
 
         <ProjectsContainer>
