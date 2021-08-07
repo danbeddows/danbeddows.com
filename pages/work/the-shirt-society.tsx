@@ -50,16 +50,19 @@ const TheShirtSociety = () => {
 
         <Heading>Personal Highlights</Heading>
         <Paragraph>
-            No matter how many years I've been in web development, it's still
-              an incredible feeling for me when real people; people that you've
-              never met, use your app unguided, and they managed to figure
-              everything out and it just works ✨. And this was even more so, as it was the most-used project I've had full accountability for, with 1000's of signups and >£100k of transactions processed.
-            
+          No matter how many years I've been in web development, it's still an
+          incredible feeling for me when real people; people that you've never
+          met, use your app unguided, and they managed to figure everything out
+          and it just works ✨. And this was even more so, as it was the
+          most-used project I've had full accountability for, with 1000's of
+          signups and &gt;£100k of transactions processed.
         </Paragraph>
-				<Paragraph>I also really enjoyed using React Hooks on a large project (100+
-              components). After coming from using classes with React and
-              occasionally AngularJS (yes, v1!) it was very freeing not having
-              to write a lot of boilerplate.</Paragraph>
+        <Paragraph>
+          I also really enjoyed using React Hooks on a large project (100+
+          components). After coming from using classes with React and
+          occasionally AngularJS (yes, v1!) it was very freeing not having to
+          write a lot of boilerplate.
+        </Paragraph>
       </Section>
 
       <Section>

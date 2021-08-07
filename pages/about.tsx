@@ -29,7 +29,7 @@ const About = () => {
         </Paragraph>
 
         <Paragraph>
-          I’ve always had a strong entrepreneurial spirit, I used to sell
+          I’ve always had a strong entrepreneurial spirit, I even used to sell
           pebbles that I found at the beach to passerby in my front garden. But
           when I started programming it felt like an actual superpower. I could
           create something that was free to make (other than time) and sell it
