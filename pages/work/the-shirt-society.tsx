@@ -48,8 +48,18 @@ const TheShirtSociety = () => {
           </ul>
         </Paragraph>
 
-        <Heading>Highlights</Heading>
-        <Paragraph>Some good stuff</Paragraph>
+        <Heading>Personal Highlights</Heading>
+        <Paragraph>
+            No matter how many years I've been in web development, it's still
+              an incredible feeling for me when real people; people that you've
+              never met, use your app unguided, and they managed to figure
+              everything out and it just works ✨. And this was even more so, as it was the most-used project I've had full accountability for, with 1000's of signups and >£100k of transactions processed.
+            
+        </Paragraph>
+				<Paragraph>I also really enjoyed using React Hooks on a large project (100+
+              components). After coming from using classes with React and
+              occasionally AngularJS (yes, v1!) it was very freeing not having
+              to write a lot of boilerplate.</Paragraph>
       </Section>
 
       <Section>
@@ -63,10 +73,11 @@ const TheShirtSociety = () => {
           strategy and develop and MVP.
         </Paragraph>
         <Paragraph>
-          We capped signups to 200 customers and launched the MVP after 3 weeks
-          of building. The cap was met within a few days of launch. We then
-          worked with Matt to design and build out a deck to raise a seed round.
-          Matt closed the round in January 2020, raising a 6-figure sum.
+          Signups were capped to 200 customers and the MVP launched 3 weeks
+          after we started building. The cap was met within a few days of
+          launch. We then worked with Matt to design and build out a deck to
+          raise a seed round. Matt closed the round in January 2020, raising a
+          6-figure sum.
         </Paragraph>
 
         <Heading>Planning and build</Heading>
@@ -117,7 +128,7 @@ const TheShirtSociety = () => {
         </Paragraph>
         <Paragraph>
           After launch at the end of July 2020, I worked on adding new features
-          and marketing pages until I left the project in March 2021.
+          and marketing pages until I left the project around March 2021.
         </Paragraph>
       </Section>
     </Page>
