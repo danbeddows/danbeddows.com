@@ -28,7 +28,23 @@ const TheShirtSociety = () => {
         <Heading>Work involved</Heading>
         <Paragraph>
           <ul>
-            <li></li>
+            <li>
+              Write an API in PHP to handle products, orders, subscriptions,
+              users, authentication, discounts and more.
+            </li>
+            <li>Build a frontend using React to consume the API.</li>
+            <li>
+              Integrate 3rd-party API's such as Stripe, Twilio and MailChimp.
+            </li>
+            <li>
+              Provision the platform on AWS using primarily EC2, RDS, S3,
+              CloudFront.
+            </li>
+            <li>
+              Be the product owner. Working directly with stakeholders to plan
+              features, work around budget contraints, prioritise features to
+              tight deadlines and be accountable.
+            </li>
           </ul>
         </Paragraph>
 
