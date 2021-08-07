@@ -166,6 +166,8 @@ const ForegroundRight = styled.div`
     display: flex;
     position: relative;
     max-width: 40%;
+    top: 0;
+    right: 0;
   }
 `;
 
