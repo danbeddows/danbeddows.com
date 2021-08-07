@@ -3,7 +3,7 @@ import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Springboard from "../components/global/components/Springboard/Springboard";
-import fontBasier from "../components/global/themes/fontBasier";
+import fontBasier from "../components/global/themes/globalFontBasier";
 import { Theme, ThemeGlobals } from "../components/global/themes/globalTheme";
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
