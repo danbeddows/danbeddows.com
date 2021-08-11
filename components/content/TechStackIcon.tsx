@@ -17,7 +17,7 @@ const StyledLink = styled.a`
 interface StackProps {
   icon: string;
   title?: string;
-  href?: string;
+  href: string | null | undefined;
 }
 
 const TechStackIcon: FunctionComponent<StackProps> = ({

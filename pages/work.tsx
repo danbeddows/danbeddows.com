@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps = async () => {
     endDate:
       w.endDate.toLocaleString("default", { month: "long" }) +
       " " +
-      w.startDate.getFullYear(),
+      w.endDate.getFullYear(),
   }));
 
   /**
