@@ -1,10 +1,21 @@
-import { dom as fontAwesomeDom } from "@fortawesome/fontawesome-svg-core";
+import {
+  dom as fontAwesomeDom,
+  library,
+} from "@fortawesome/fontawesome-svg-core";
+import {
+  faMailchimp,
+  faReact,
+  faStripe,
+  faSymfony,
+} from "@fortawesome/free-brands-svg-icons";
 import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Springboard from "../components/global/components/Springboard/Springboard";
 import fontBasier from "../components/global/themes/globalFontBasier";
 import { Theme, ThemeGlobals } from "../components/global/themes/globalTheme";
+
+library.add(faReact, faSymfony, faStripe, faMailchimp);
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
 const FontBasierGlobalStyle = fontBasier(assetDomain);

@@ -1,87 +1,15 @@
-import {
-  faAngular,
-  faAws,
-  faCss3Alt,
-  faJs,
-  faPaypal,
-  faPhp,
-  faReact,
-  faStripe,
-  faSymfony,
-  IconDefinition,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { WorkItem } from ".prisma/client";
+import { StackItem, WorkItemStack } from "@prisma/client";
 import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
+import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
+import prisma from "lib/prisma";
+import { GetStaticProps } from "next";
 import Link from "next/link";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
-
-const projectList = [
-  {
-    slug: "the-shirt-society",
-    title: "The Shirt Society",
-    teaser: "A subscription-based menswear startup",
-    date: "Oct 2019 - Mar 2021",
-    thumb: "/projects/tss/thumb.jpg",
-    stack: [
-      { name: "React", icon: faReact },
-      { name: "Symfony", icon: faSymfony },
-      { name: "Stripe", icon: faStripe },
-    ],
-  } /*,
-  {
-    slug: "school-run",
-    title: "School Run",
-    teaser: "A service to keep parents informed by SMS",
-    date: "Oct 2017 - Oct 2019",
-    thumb: "/projects/schoolrun/thumb.jpg",
-    stack: [
-      { name: "Angular", icon: faAngular },
-      { name: "PHP", icon: faPhp },
-      { name: "AWS", icon: faAws },
-    ],
-  },
-  {
-    slug: "archisan",
-    title: "Archisan",
-    teaser: "A direct-to-consumer interiors store",
-    date: "Jan 2016 - Oct 2017",
-    thumb: "/projects/archisan/thumb.jpg",
-    stack: [
-      { name: "PHP", icon: faPhp },
-      { name: "JavaScript", icon: faJs },
-      { name: "Stripe", icon: faStripe },
-    ],
-  },
-  {
-    slug: "mrkt",
-    title: "MRKT",
-    teaser: "An online storebuilder service",
-    date: "Mar 2013 - Dec 2015",
-    thumb: "",
-    stack: [
-      { name: "PHP", icon: faPhp },
-      { name: "JavaScript", icon: faJs },
-      { name: "Stripe", icon: faStripe },
-    ],
-  },
-  {
-    slug: "zotti",
-    title: "Zotti",
-    teaser: "A costume jewellery ecommerce website.",
-    date: "Dec 2011 - Jan 2011",
-    thumb: "",
-    stack: [
-      { name: "PHP", icon: faPhp },
-      { name: "PayPal", icon: faPaypal },
-      { name: "CSS", icon: faCss3Alt },
-    ],
-  }*/,
-];
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -159,7 +87,7 @@ const ForegroundRight = styled.div`
   i,
   svg {
     font-size: 26px;
-    margin-left: 10px;
+    margin: 0 8px;
   }
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {
@@ -171,35 +99,34 @@ const ForegroundRight = styled.div`
   }
 `;
 
+type CombinedWorkItem = WorkItem & {
+  stackItems: (WorkItemStack & {
+    stackItem: StackItem;
+  })[];
+};
+
 interface ProjectProps {
-  data: {
-    slug: string;
-    title: string;
-    teaser: string;
-    date: string;
-    thumb: string;
-    stack: { name: string; icon: IconDefinition }[];
-  };
+  workItem: CombinedWorkItem;
 }
 
-const Project: FunctionComponent<ProjectProps> = ({ data }) => {
+const Project: React.FC<ProjectProps> = ({ workItem }) => {
   return (
-    <Link href={"/work/" + data.slug} passHref>
+    <Link href={"/work/" + workItem.slug} passHref>
       <ProjectContents>
-        <Background style={{ backgroundImage: "url(" + data.thumb + ")" }} />
+        <Background
+          style={{ backgroundImage: "url(" + workItem.thumbUrl + ")" }}
+        />
         <Foreground>
           <ForegroundLeft>
-            <ProjectTitle>{data.title}</ProjectTitle>
-            <ProjectTeaser>{data.teaser}</ProjectTeaser>
+            <ProjectTitle>{workItem.title}</ProjectTitle>
+            <ProjectTeaser>{workItem.teaser}</ProjectTeaser>
           </ForegroundLeft>
           <ForegroundRight>
-            <div></div>
-            {data.stack.map((stackItem, index) => (
-              <FontAwesomeIcon
+            {workItem.stackItems.map((stackItem, index) => (
+              <TechStackIcon
                 key={index}
-                fixedWidth
-                icon={stackItem.icon}
-                title={stackItem.name}
+                icon={stackItem.stackItem.icon}
+                title={stackItem.stackItem.name}
               />
             ))}
           </ForegroundRight>
@@ -209,7 +136,11 @@ const Project: FunctionComponent<ProjectProps> = ({ data }) => {
   );
 };
 
-const Work = () => {
+interface Props {
+  workList: CombinedWorkItem[];
+}
+
+const Work: React.FC<Props> = (props) => {
   return (
     <Page>
       <PageTitle>Work</PageTitle>
@@ -224,13 +155,52 @@ const Work = () => {
         </Paragraph>
 
         <ProjectsContainer>
-          {projectList.map((project, index) => (
-            <Project data={project} key={index}></Project>
+          {props.workList.map((workItem, index) => (
+            <Project workItem={workItem} key={index}></Project>
           ))}
         </ProjectsContainer>
       </Section>
     </Page>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  /**
+   * Fetch work items from db
+   */
+  const workItems = await prisma.workItem.findMany({
+    include: {
+      stackItems: {
+        take: 3,
+        orderBy: {
+          displayOrder: "asc",
+        },
+        include: {
+          stackItem: true,
+        },
+      },
+    },
+  });
+
+  /**
+   * Map through each result and change the Date objects to strings (<month name> <year>)
+   */
+  let workItemsTransformed = workItems.map((w) => ({
+    ...w,
+    startDate:
+      w.startDate.toLocaleString("default", { month: "long" }) +
+      " " +
+      w.startDate.getFullYear(),
+    endDate:
+      w.endDate.toLocaleString("default", { month: "long" }) +
+      " " +
+      w.startDate.getFullYear(),
+  }));
+
+  /**
+   * Return work list as component prop
+   */
+  return { props: { workList: workItemsTransformed } };
 };
 
 export default Work;

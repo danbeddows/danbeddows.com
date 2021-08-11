@@ -1,0 +1,38 @@
+// schedma.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model WorkItem {
+	id         Int    @default(autoincrement()) @id
+	slug       String @unique
+	title      String
+	teaser     String
+	startDate  DateTime
+	endDate    DateTime
+	thumbUrl   String
+	stackItems WorkItemStack[]
+}
+
+model StackItem {
+	id   Int @default(autoincrement()) @id
+	name String
+	icon String
+	href String?
+	workItems WorkItemStack[]
+}
+
+model WorkItemStack {
+	workItem     WorkItem  @relation(fields: [workItemId], references: [id])
+	workItemId   Int
+	stackItem    StackItem @relation(fields: [stackItemId], references: [id])
+	stackItemId  Int
+	displayOrder Int
+
+	@@id([workItemId, stackItemId])
+}

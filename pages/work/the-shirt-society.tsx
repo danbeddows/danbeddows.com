@@ -2,6 +2,7 @@ import Heading from "components/content/Heading";
 import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
+import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
 import UnorderedList from "components/content/UnorderedList";
 import Page from "components/layout/Page";
@@ -46,6 +47,25 @@ const TheShirtSociety = () => {
               tight deadlines and be accountable.
             </li>
           </ul>
+        </Paragraph>
+
+        <Heading>Stack</Heading>
+        <Paragraph>
+          <TechStackIcon
+            icon={"react"}
+            title={"React"}
+            href={"https://reactjs.org"}
+          />
+          <TechStackIcon
+            icon={"symfony"}
+            title={"Symfony"}
+            href={"https://symfony.com"}
+          />
+          <TechStackIcon
+            icon={"stripe"}
+            title={"Stripe"}
+            href={"https://stripe.com"}
+          />
         </Paragraph>
 
         <Heading>Personal Highlights</Heading>
