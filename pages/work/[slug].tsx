@@ -9,9 +9,12 @@ import UnorderedList from "components/content/UnorderedList";
 import Page from "components/layout/Page";
 import prisma from "lib/prisma";
 import { GetServerSideProps } from "next";
+import ErrorPage from "next/error";
+import React from "react";
+import { deflate, inflate } from "util/hooks/reactBalloon";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const slug = "the-shirt-society"; //params?.slug;
+  const slug = params?.slug as string;
 
   const workItem = await prisma.workItem.findUnique({
     where: {
@@ -29,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   });
 
-  let workItemTransformed;
+  let workItemTransformed = null;
 
   if (workItem !== null) {
     workItemTransformed = {
@@ -63,6 +66,10 @@ interface WorkProps {
 const Work: React.FC<WorkProps> = (props) => {
   const work = props.workItem;
 
+  if (work == null) {
+    return <ErrorPage statusCode={404} />;
+  }
+
   return (
     <Page>
       <PageTitle>{work.title}</PageTitle>
@@ -76,35 +83,10 @@ const Work: React.FC<WorkProps> = (props) => {
         </Paragraph>
 
         <Heading>About the business</Heading>
-        <Paragraph>
-          The Shirt Society is an online menswear subscription. Matt, the
-          founder, wanted to enable time-poor consumers to effectively 'set and
-          forget' their subscription and have premium shirts, polo shirts and
-          t-shirts delivered with little effort.
-        </Paragraph>
+        {inflate(work.aboutTheBusiness)}
 
         <Heading>Work involved</Heading>
-        <Paragraph>
-          <ul>
-            <li>
-              Write an API in PHP to handle products, orders, subscriptions,
-              users, authentication, discounts and more.
-            </li>
-            <li>Build a frontend using React to consume the API.</li>
-            <li>
-              Integrate 3rd-party API's such as Stripe, Twilio and MailChimp.
-            </li>
-            <li>
-              Provision the platform on AWS primarily using EC2, RDS, S3,
-              CloudFront.
-            </li>
-            <li>
-              Be the product owner. Working directly with stakeholders to plan
-              features, work around budget contraints, prioritise features to
-              tight deadlines and be accountable.
-            </li>
-          </ul>
-        </Paragraph>
+        {inflate(work.workInvolved)}
 
         <Heading>Stack</Heading>
         <Paragraph>
@@ -119,90 +101,13 @@ const Work: React.FC<WorkProps> = (props) => {
         </Paragraph>
 
         <Heading>Personal Highlights</Heading>
-        <Paragraph>
-          No matter how many years I've been in web development, it's still an
-          incredible feeling for me when real people; people that you've never
-          met, use your app unguided, and they manage to figure everything out
-          and it just works ✨. This project felt extra incredible as it was the
-          most-used website I've had full accountability for; with 1000's of
-          signups and &gt;£100k of transactions processed.
-        </Paragraph>
-        <Paragraph>
-          I also really enjoyed using React Hooks on a large project (100+
-          components). After coming from using classes with React and
-          occasionally AngularJS (yes, v1!) it was very freeing not having to
-          write a lot of boilerplate.
-        </Paragraph>
+        {inflate(work.personalHighlights)}
       </Section>
 
       <Section>
         <Title>The Story 📖</Title>
 
-        <Heading>The MVP</Heading>
-        <Paragraph>
-          I started working with Matt whilst his business was at the concept
-          stage and bootstrapped. Along with my cofounder Scott at Inhaus (a
-          digital agency in Manchester), I worked with Matt to develop his ideas
-          into a strategy and build an MVP.
-        </Paragraph>
-        <Paragraph>
-          Signups were capped to 200 customers and the MVP launched 3 weeks
-          after we started building. The cap was met within a few days of
-          launch. We then worked with Matt to design and build out a deck to
-          raise a seed round. Matt closed the round in January 2020, raising a
-          6-figure sum.
-        </Paragraph>
-
-        <Heading>Planning and build</Heading>
-        <Paragraph>
-          Scott and I then got to work designing the brand as well as the UI
-          components. We used Figma to design the landing page, account page,
-          onboarding, product-selection and offboarding flows, paying special
-          attention to UX throughout.
-        </Paragraph>
-        <Paragraph>
-          After the designs were approved, I started working on the data
-          structures and getting an idea of how the API would be built.
-        </Paragraph>
-        <Paragraph>
-          I then started writing the API that the frontend would consume. The
-          API took about two months to build, including plugging in some
-          3rd-party integrations such as Stripe, MailChimp and Royal Mail. We
-          leveraged Stripe's Subscription API quite frequently to manage The
-          Shirt Society subscriptions. The API was deployed onto an AWS EC2
-          Ubuntu server that was behind a load balancer, and any static assets
-          were placed in S3 buckets and available via CloudFront.
-        </Paragraph>
-        <Paragraph>
-          With the API built, I got to work creating the frontend. We chose
-          React because Matt had expressed an interest in eventually building
-          mobile apps for customers to manage their subscription, and we could
-          leverage React Native for that.
-        </Paragraph>
-        <Paragraph>
-          There were three core pillars for the frontend that I needed to create
-          for launch:
-        </Paragraph>
-        <UnorderedList>
-          <li>The website itself</li>
-          <li>
-            An admin area to add products, manage users' subscriptions, and
-            view, cancel and ship orders
-          </li>
-          <li>
-            A migration tool for MVP customers to transfer their data over along
-            with their legacy pricing
-          </li>
-        </UnorderedList>
-        <Paragraph>
-          All in all, from developing the business, designing the website,
-          building the API and frontend, testing to launch, I spent about 9
-          months on this project.
-        </Paragraph>
-        <Paragraph>
-          After launch at the end of July 2020, I worked on adding new features
-          and marketing pages until I left the project around March 2021.
-        </Paragraph>
+        {inflate(work.theStory)}
       </Section>
     </Page>
   );
