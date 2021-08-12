@@ -77,16 +77,16 @@ const Work: React.FC<WorkProps> = (props) => {
       <Section>
         <Title>Overview 👀</Title>
 
-        <Heading>Time Involved</Heading>
-        <Paragraph>
-          {work.startDate} - {work.endDate}
-        </Paragraph>
-
         <Heading>About the business</Heading>
         {inflate(work.aboutTheBusiness)}
 
         <Heading>Work involved</Heading>
         {inflate(work.workInvolved)}
+
+        <Heading>Time Involved</Heading>
+        <Paragraph>
+          {work.startDate} - {work.endDate}
+        </Paragraph>
 
         <Heading>Stack</Heading>
         <Paragraph>
