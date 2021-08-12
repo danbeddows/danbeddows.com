@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledLink = styled.a`
-  tect-decoration: none;
+  text-decoration: none;
   color: inherit;
 
   i,
