@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const workProp = { ...workItem, startDate: startStr, endDate: endStr };
 
   return {
-    props: { workProp },
+    props: { workItem: workProp },
   };
 };
 
