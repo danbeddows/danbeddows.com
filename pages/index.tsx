@@ -72,7 +72,7 @@ export default function Home() {
           More about me <FontAwesomeIcon icon={faArrowRight} />
         </Link>
         <br />
-        <Link href={"/about"}>
+        <Link href={"/work"}>
           My latest work <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       </Section>
