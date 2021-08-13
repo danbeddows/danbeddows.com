@@ -5,13 +5,11 @@ import Paragraph from "components/content/Paragraph";
 import Section from "components/content/Section";
 import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
-import UnorderedList from "components/content/UnorderedList";
 import Page from "components/layout/Page";
 import prisma from "lib/prisma";
 import { GetServerSideProps } from "next";
-import ErrorPage from "next/error";
 import React from "react";
-import { deflate, inflate } from "util/hooks/reactBalloon";
+import { inflate } from "util/hooks/reactBalloon";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const slug = params?.slug as string;
@@ -32,21 +30,26 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   });
 
-  let workItemTransformed = null;
-
-  if (workItem !== null) {
-    workItemTransformed = {
-      ...workItem,
-      startDate:
-        workItem.startDate.toLocaleString("default", { month: "long" }) +
-        " " +
-        workItem.startDate.getFullYear(),
-      endDate:
-        workItem.endDate.toLocaleString("default", { month: "long" }) +
-        " " +
-        workItem.endDate.getFullYear(),
-    };
+  if (workItem === null) {
+    return { notFound: true };
   }
+
+  /**
+   * Transform the returned workItem object to swap
+   * Date objects to strings
+   */
+  let workItemTransformed = null;
+  workItemTransformed = {
+    ...workItem,
+    startDate:
+      workItem.startDate.toLocaleString("default", { month: "long" }) +
+      " " +
+      workItem.startDate.getFullYear(),
+    endDate:
+      workItem.endDate.toLocaleString("default", { month: "long" }) +
+      " " +
+      workItem.endDate.getFullYear(),
+  };
 
   return {
     props: { workItem: workItemTransformed },
@@ -65,10 +68,6 @@ interface WorkProps {
 
 const Work: React.FC<WorkProps> = (props) => {
   const work = props.workItem;
-
-  if (work == null) {
-    return <ErrorPage statusCode={404} />;
-  }
 
   return (
     <Page>
