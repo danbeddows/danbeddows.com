@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const fontBasierStyle = (assetDomain) => {
+const fontBasierStyle = (assetDomain: string) => {
   return createGlobalStyle`
 		* {
 			font-family: "basier", Segoe UI, Roboto, Oxygen;
