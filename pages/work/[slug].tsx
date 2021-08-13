@@ -35,24 +35,20 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   }
 
   /**
-   * Transform the returned workItem object to swap
-   * Date objects to strings
+   * Transform date objects to strings
    */
-  let workItemTransformed = null;
-  workItemTransformed = {
-    ...workItem,
-    startDate:
-      workItem.startDate.toLocaleString("default", { month: "long" }) +
-      " " +
-      workItem.startDate.getFullYear(),
-    endDate:
-      workItem.endDate.toLocaleString("default", { month: "long" }) +
-      " " +
-      workItem.endDate.getFullYear(),
-  };
+  const dateToStr = (d: Date): string =>
+    d.toLocaleString("default", { month: "long" }) + " " + d.getFullYear();
+
+  const { startDate, endDate } = workItem;
+
+  const startStr = dateToStr(startDate);
+  const endStr = dateToStr(endDate);
+
+  const workProp = { ...workItem, startDate: startStr, endDate: endStr };
 
   return {
-    props: { workItem: workItemTransformed },
+    props: { workProp },
   };
 };
 

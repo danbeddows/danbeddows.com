@@ -76,16 +76,13 @@ export const getStaticProps: GetStaticProps = async () => {
   /**
    * Map through each result and change the Date objects to strings (<month name> <year>)
    */
+  const dateToStr = (d: Date): string =>
+    d.toLocaleString("default", { month: "long" }) + " " + d.getFullYear();
+
   let workItemsTransformed = workItems.map((w) => ({
     ...w,
-    startDate:
-      w.startDate.toLocaleString("default", { month: "long" }) +
-      " " +
-      w.startDate.getFullYear(),
-    endDate:
-      w.endDate.toLocaleString("default", { month: "long" }) +
-      " " +
-      w.endDate.getFullYear(),
+    startDate: dateToStr(w.startDate),
+    endDate: dateToStr(w.endDate),
   }));
 
   /**
