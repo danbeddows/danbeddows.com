@@ -52,7 +52,7 @@ interface InflatedComponent {
 /**
  * Declare a string-based list to map to component types when inflating
  */
-const componentLibrary = {
+const componentLibrary: { [k: string]: FunctionComponent } = {
   Paragraph: Paragraph,
   UnorderedList: UnorderedList,
   Heading: Heading,
