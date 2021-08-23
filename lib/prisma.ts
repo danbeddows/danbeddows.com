@@ -3,6 +3,14 @@ import { PrismaClient } from "@prisma/client";
 
 let prisma: PrismaClient;
 
+declare global {
+  namespace NodeJS {
+    interface Global {
+      prisma: any;
+    }
+  }
+}
+
 if (
   process.env.NODE_ENV === "production" ||
   process.env.VERCEL_ENV === "production"
