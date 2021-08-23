@@ -111,19 +111,25 @@ const createReactComponent = (
   htmlType?: string,
   componentType?: string
 ): ReactNode => {
+  const createElement = (type: string | FunctionComponent<{}>) =>
+    React.createElement(type, props, children);
+
   if (componentType) {
-    // React component
+    // React component - if not found, jump out of if statement - React.Fragment will be returned at the end of this function
     let component = componentLibrary[componentType];
-    return React.createElement(component, props, children);
+
+    if (component !== undefined) {
+      return createElement(component);
+    }
   }
 
   if (htmlType) {
     // HTML element
-    return React.createElement(htmlType, props, children);
+    return createElement(htmlType);
   }
 
   // Neither componentType or htmlType were passed, return a fragment
-  return React.createElement(React.Fragment, props, children);
+  return createElement(React.Fragment);
 };
 
 const inflateRecursive = (elem: InflatedComponent, key: number = 0) => {
