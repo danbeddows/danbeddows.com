@@ -35,7 +35,7 @@ library.add(
 const assetDomain =
   process.env.NEXT_PUBLIC_ASSET_SERVER !== undefined
     ? process.env.NEXT_PUBLIC_ASSET_SERVER
-    : "/";
+    : "";
 
 const FontBasierGlobalStyle = fontBasier(assetDomain);
 
