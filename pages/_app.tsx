@@ -32,7 +32,11 @@ library.add(
   faSass
 );
 
-const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER;
+const assetDomain =
+  process.env.NEXT_PUBLIC_ASSET_SERVER !== undefined
+    ? process.env.NEXT_PUBLIC_ASSET_SERVER
+    : "/";
+
 const FontBasierGlobalStyle = fontBasier(assetDomain);
 
 const GlobalStyles = createGlobalStyle`
