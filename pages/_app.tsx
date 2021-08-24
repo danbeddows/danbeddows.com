@@ -7,6 +7,7 @@ import {
   faAws,
   faFontAwesome,
   faHtml5,
+  faJs,
   faMailchimp,
   faPhp,
   faReact,
@@ -31,7 +32,8 @@ library.add(
   faFontAwesome,
   faHtml5,
   faSass,
-  faAngular
+  faAngular,
+  faJs
 );
 
 const assetDomain =
