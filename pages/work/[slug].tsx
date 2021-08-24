@@ -36,7 +36,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: slugList,
     fallback: false,
-    revalidate: 600,
   };
 };
 
@@ -78,6 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { workItem: workProp },
+    revalidate: 600,
   };
 };
 
