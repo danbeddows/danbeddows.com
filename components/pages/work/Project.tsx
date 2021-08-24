@@ -11,6 +11,7 @@ const ProjectContents = styled.a`
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  margin: 15px 0;
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {
     width: 600px;
@@ -91,29 +92,42 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ workItem }) => {
+  if (workItem.isComingSoon) {
+    workItem.thumbUrl = "/projects/coming-soon.png";
+  }
+
+  const projectContents = (
+    <ProjectContents>
+      <Background
+        style={{ backgroundImage: "url(" + workItem.thumbUrl + ")" }}
+      />
+      <Foreground>
+        <ForegroundLeft>
+          <ProjectTitle>{workItem.title}</ProjectTitle>
+          <ProjectTeaser>{workItem.teaser}</ProjectTeaser>
+        </ForegroundLeft>
+        <ForegroundRight>
+          {workItem.stackItems.map((stackItem, index) => (
+            <TechStackIcon
+              key={index}
+              icon={stackItem.stackItem.icon}
+              title={stackItem.stackItem.name}
+            />
+          ))}
+        </ForegroundRight>
+      </Foreground>
+    </ProjectContents>
+  );
+
   return (
-    <Link href={"/work/" + workItem.slug} passHref>
-      <ProjectContents>
-        <Background
-          style={{ backgroundImage: "url(" + workItem.thumbUrl + ")" }}
-        />
-        <Foreground>
-          <ForegroundLeft>
-            <ProjectTitle>{workItem.title}</ProjectTitle>
-            <ProjectTeaser>{workItem.teaser}</ProjectTeaser>
-          </ForegroundLeft>
-          <ForegroundRight>
-            {workItem.stackItems.map((stackItem, index) => (
-              <TechStackIcon
-                key={index}
-                icon={stackItem.stackItem.icon}
-                title={stackItem.stackItem.name}
-              />
-            ))}
-          </ForegroundRight>
-        </Foreground>
-      </ProjectContents>
-    </Link>
+    <>
+      {workItem.isComingSoon && projectContents}
+      {!workItem.isComingSoon && (
+        <Link href={"/work/" + workItem.slug} passHref>
+          {projectContents}
+        </Link>
+      )}
+    </>
   );
 };
 

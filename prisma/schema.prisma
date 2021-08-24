@@ -22,6 +22,7 @@ model WorkItem {
 	workInvolved       String
 	personalHighlights String
 	theStory           String
+	isComingSoon       Boolean         @default(true)
 }
 
 model StackItem {

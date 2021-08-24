@@ -3,6 +3,7 @@ import {
   library,
 } from "@fortawesome/fontawesome-svg-core";
 import {
+  faAngular,
   faAws,
   faFontAwesome,
   faHtml5,
@@ -29,7 +30,8 @@ library.add(
   faAws,
   faFontAwesome,
   faHtml5,
-  faSass
+  faSass,
+  faAngular
 );
 
 const assetDomain =

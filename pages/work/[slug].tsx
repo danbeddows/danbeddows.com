@@ -23,15 +23,15 @@ interface SlugList extends Array<SlugItem> {}
 export const getStaticPaths: GetStaticPaths = async () => {
   const workItems = await getWorkItems();
 
-  const slugList: SlugList = workItems.map((item) => {
-    const slugItem: SlugItem = {
-      params: {
-        slug: item.slug,
-      },
-    };
-
-    return slugItem;
-  });
+  const slugList: SlugList = workItems
+    .filter((item) => !item.isComingSoon) // exclude all items that are coming soon
+    .map((item) => {
+      return {
+        params: {
+          slug: item.slug,
+        },
+      };
+    });
 
   return {
     paths: slugList,
