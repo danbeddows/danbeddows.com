@@ -7,11 +7,40 @@ import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
 import prisma from "lib/prisma";
-import { GetServerSideProps } from "next";
+import { getWorkItems } from "lib/workItems/getWorkItems";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { inflate } from "util/hooks/reactBalloon";
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+interface SlugItem {
+  params: {
+    slug: string;
+  };
+}
+
+interface SlugList extends Array<SlugItem> {}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const workItems = await getWorkItems();
+
+  const slugList: SlugList = workItems.map((item) => {
+    const slugItem: SlugItem = {
+      params: {
+        slug: item.slug,
+      },
+    };
+
+    return slugItem;
+  });
+
+  return {
+    paths: slugList,
+    fallback: false,
+    revalidate: 600,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
 
   const workItem = await prisma.workItem.findUnique({

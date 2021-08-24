@@ -5,7 +5,7 @@ import Section from "components/content/Section";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
 import Project from "components/pages/work/Project";
-import prisma from "lib/prisma";
+import { getWorkItems } from "lib/workItems/getWorkItems";
 import { GetStaticProps } from "next";
 import styled from "styled-components";
 
@@ -59,36 +59,12 @@ export const getStaticProps: GetStaticProps = async () => {
   /**
    * Fetch work items from db
    */
-  const workItems = await prisma.workItem.findMany({
-    include: {
-      stackItems: {
-        take: 3,
-        orderBy: {
-          displayOrder: "asc",
-        },
-        include: {
-          stackItem: true,
-        },
-      },
-    },
-  });
-
-  /**
-   * Map through each result and change the Date objects to strings (<month name> <year>)
-   */
-  const dateToStr = (d: Date): string =>
-    d.toLocaleString("default", { month: "long" }) + " " + d.getFullYear();
-
-  let workItemsTransformed = workItems.map((w) => ({
-    ...w,
-    startDate: dateToStr(w.startDate),
-    endDate: dateToStr(w.endDate),
-  }));
+  const workItems = await getWorkItems();
 
   /**
    * Return work list as component prop
    */
-  return { props: { workList: workItemsTransformed } };
+  return { props: { workList: workItems } };
 };
 
 export default Work;
