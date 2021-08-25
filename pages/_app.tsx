@@ -5,10 +5,12 @@ import {
 import {
   faAngular,
   faAws,
+  faCss3,
   faFontAwesome,
   faHtml5,
   faJs,
   faMailchimp,
+  faPaypal,
   faPhp,
   faReact,
   faSass,
@@ -33,7 +35,9 @@ library.add(
   faHtml5,
   faSass,
   faAngular,
-  faJs
+  faJs,
+  faPaypal,
+  faCss3
 );
 
 const assetDomain =
