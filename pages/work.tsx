@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps = async () => {
   /**
    * Return work list as component prop
    */
-  return { props: { workList: workItems } };
+  return { props: { workList: workItems }, revalidate: 600 };
 };
 
 export default Work;
