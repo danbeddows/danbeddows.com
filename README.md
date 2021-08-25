@@ -19,10 +19,13 @@ $ npm install
 
 ## Built With
 
+- [TypeScript](https://github.com/microsoft/TypeScript)
 - [React](https://github.com/facebook/react/)
 - [Next.js](https://github.com/vercel/next.js)
 - [Framer Motion](https://github.com/framer/motion)
 - [styled-components](https://github.com/styled-components/styled-components)
+- [Prisma](https://github.com/prisma/prisma)
+- [Jest](https://github.com/facebook/jest)
 - [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
 ## Versioning
