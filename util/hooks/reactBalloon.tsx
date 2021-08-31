@@ -152,7 +152,7 @@ const inflateRecursive = (elem: InflatedComponent, key: number = 0) => {
   );
 
   return createReactComponent(
-    elem.props,
+    { key, ...elem.props },
     recursiveChildren,
     elem.type,
     elem.component
