@@ -23,6 +23,7 @@ model WorkItem {
 	personalHighlights String
 	theStory           String
 	isComingSoon       Boolean         @default(true)
+	images             WorkItemImage[]
 }
 
 model StackItem {
@@ -41,4 +42,14 @@ model WorkItemStack {
 	displayOrder Int
 
 	@@id([workItemId, stackItemId])
+}
+
+model WorkItemImage {
+	id         Int      @default(autoincrement()) @id
+	workItem   WorkItem @relation(fields: [workItemId], references: [id])
+	workItemId Int
+	url        String
+	width      Int
+	height     Int
+	alt        String
 }
