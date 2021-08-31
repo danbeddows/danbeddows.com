@@ -1,4 +1,9 @@
-import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
+import {
+  StackItem,
+  WorkItem,
+  WorkItemImage,
+  WorkItemStack,
+} from "@prisma/client";
 import Heading from "components/content/Heading";
 import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
@@ -6,6 +11,8 @@ import Section from "components/content/Section";
 import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
+import Gallary from "components/pages/work/workItem/Gallary";
+import GallaryImage from "components/pages/work/workItem/GallaryImage";
 import prisma from "lib/prisma";
 import { getWorkItems } from "lib/workItems/getWorkItems";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -55,6 +62,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           stackItem: true,
         },
       },
+      images: {},
     },
   });
 
@@ -81,14 +89,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-type WorkItemWithStack = WorkItem & {
+type WorkItemWithJoins = WorkItem & {
   stackItems: (WorkItemStack & {
     stackItem: StackItem;
   })[];
+} & {
+  images: WorkItemImage[];
 };
 
 interface WorkProps {
-  workItem: WorkItemWithStack;
+  workItem: WorkItemWithJoins;
 }
 
 const Work: React.FC<WorkProps> = (props) => {
@@ -132,6 +142,11 @@ const Work: React.FC<WorkProps> = (props) => {
         <Title>The Story 📖</Title>
 
         {inflate(work.theStory)}
+      </Section>
+
+      <Section>
+        <Title>Gallary</Title>
+        <Gallary images={work.images} />
       </Section>
     </Page>
   );
