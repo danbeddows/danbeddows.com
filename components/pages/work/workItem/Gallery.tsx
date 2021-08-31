@@ -1,8 +1,8 @@
 import { WorkItemImage } from "@prisma/client";
 import styled from "styled-components";
-import GallaryImage from "./GallaryImage";
+import GalleryImage from "./GalleryImage";
 
-const GallaryContainer = styled.div`
+const GalleryContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -10,18 +10,18 @@ const GallaryContainer = styled.div`
   justify-content: flex-start;
 `;
 
-interface GallaryProps {
+interface GalleryProps {
   images: WorkItemImage[];
 }
 
-const Gallary: React.FC<GallaryProps> = (props) => {
+const Gallery: React.FC<GalleryProps> = (props) => {
   return (
-    <GallaryContainer>
+    <GalleryContainer>
       {props.images.map((image, key) => (
-        <GallaryImage key={key} image={image} />
+        <GalleryImage key={key} image={image} />
       ))}
-    </GallaryContainer>
+    </GalleryContainer>
   );
 };
 
-export default Gallary;
+export default Gallery;

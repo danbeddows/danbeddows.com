@@ -11,8 +11,8 @@ import Section from "components/content/Section";
 import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
-import Gallary from "components/pages/work/workItem/Gallary";
-import GallaryImage from "components/pages/work/workItem/GallaryImage";
+import Gallery from "components/pages/work/workItem/Gallery";
+import GalleryImage from "components/pages/work/workItem/GalleryImage";
 import prisma from "lib/prisma";
 import { getWorkItems } from "lib/workItems/getWorkItems";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -145,8 +145,8 @@ const Work: React.FC<WorkProps> = (props) => {
       </Section>
 
       <Section>
-        <Title>Gallary</Title>
-        <Gallary images={work.images} />
+        <Title>Gallery</Title>
+        <Gallery images={work.images} />
       </Section>
     </Page>
   );
