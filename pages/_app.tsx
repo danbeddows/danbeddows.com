@@ -108,7 +108,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Dan Beddows</title>
+        <title>Dan Beddows – Web Developer</title>
 
         <meta name="description" content={aboutDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
