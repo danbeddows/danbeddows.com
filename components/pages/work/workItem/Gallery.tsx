@@ -1,6 +1,6 @@
 import { WorkItemImage } from "@prisma/client";
 import styled from "styled-components";
-import GalleryImage from "./GalleryImage";
+import GalleryImage from "./GalleryItem";
 
 const GalleryContainer = styled.div`
   width: 100%;

@@ -25,12 +25,11 @@ const imageVariants = (
           height: 160,
         },
         expanded: {
-          left: 0,
-          top: 0,
-          right: 0,
-          bottom: 0,
+          left: `calc( 50vw - ${width / 2}px )`,
+          top: `calc( 50vh - ${height / 2}px )`,
           width,
           height,
+          maxWidth: "90vw",
           zIndex: 5000,
         },
       }
@@ -83,7 +82,7 @@ const HoverOverlay = styled.div`
   }
 `;
 
-const GallaryImage: React.FC<GalleryImageProps> = (props) => {
+const GallaryItem: React.FC<GalleryImageProps> = (props) => {
   const { url, alt, width, height } = props.image;
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -113,4 +112,4 @@ const GallaryImage: React.FC<GalleryImageProps> = (props) => {
   );
 };
 
-export default GallaryImage;
+export default GallaryItem;

@@ -12,7 +12,7 @@ import TechStackIcon from "components/content/TechStackIcon";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
 import Gallery from "components/pages/work/workItem/Gallery";
-import GalleryImage from "components/pages/work/workItem/GalleryImage";
+import GalleryImage from "components/pages/work/workItem/GalleryItem";
 import prisma from "lib/prisma";
 import { getWorkItems } from "lib/workItems/getWorkItems";
 import { GetStaticPaths, GetStaticProps } from "next";
