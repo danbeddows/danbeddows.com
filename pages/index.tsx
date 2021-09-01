@@ -23,7 +23,7 @@ export default function Home() {
 
         <Card icon={faRocketLaunch} title={"Hire me for your next project"}>
           <Paragraph>
-            I currently have availablity to take on a new project.
+            I currently have availability to take on a new project.
           </Paragraph>
           <Paragraph>
             If you're looking for an engineer:
