@@ -21,7 +21,7 @@ export default function Home() {
           </Title>
         </Paragraph>
 
-        <Card icon={faRocketLaunch} title={"Hire me for your next project"}>
+        {/* <Card icon={faRocketLaunch} title={"Hire me for your next project"}>
           <Paragraph>
             I currently have availability to take on a new project.
           </Paragraph>
@@ -42,7 +42,7 @@ export default function Home() {
           <Link href={"/contact"}>
             Send me a message <FontAwesomeIcon icon={faArrowRight} />
           </Link>
-        </Card>
+        </Card> */}
 
         <Paragraph>
           Web development is my passion, and over the last 10+ years I’ve:
