@@ -29,14 +29,14 @@ const About = () => {
         </Paragraph>
 
         <Paragraph>
-          I’ve always had a strong entrepreneurial spirit, I even used to sell
-          pebbles that I found at the beach to passersby in my front garden. But
-          when I started programming it felt like an actual superpower. I could
-          create something that was free to make (other than time) and sell it
-          to a potentially unlimited amount of people. In what other industry
-          can you do that? That create-stuff spirit drove me to exploring what
-          the web was capable of and build a bunch of businesses over the past
-          decade.
+          I’ve always had a strong entrepreneurial spirit, even as a kid: I used
+          to sell pebbles that I found at the beach to passersby in my front
+          garden. But when I started programming it felt like an actual
+          superpower. I could create something that was free to make (other than
+          time) and sell it to a potentially unlimited amount of people. In what
+          other industry can you do that? That create-stuff spirit drove me to
+          exploring what the web was capable of and build a bunch of businesses
+          over the past decade.
         </Paragraph>
       </Section>
 
