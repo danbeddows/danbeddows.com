@@ -92,7 +92,7 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ workItem }) => {
-  if (workItem.isComingSoon) {
+  if (workItem.thumbUrl == "/") {
     workItem.thumbUrl = "/projects/coming-soon.png";
   }
 

@@ -10,6 +10,7 @@ import {
   faHtml5,
   faJs,
   faMailchimp,
+  faNode,
   faPaypal,
   faPhp,
   faReact,
@@ -37,7 +38,8 @@ library.add(
   faAngular,
   faJs,
   faPaypal,
-  faCss3
+  faCss3,
+  faNode
 );
 
 const assetDomain =

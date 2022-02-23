@@ -60,11 +60,14 @@ export const getStaticProps: GetStaticProps = async () => {
    * Fetch work items from db
    */
   const workItems = await getWorkItems();
+  const workItemsSorted = workItems.sort(
+    (a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
+  );
 
   /**
    * Return work list as component prop
    */
-  return { props: { workList: workItems }, revalidate: 600 };
+  return { props: { workList: workItemsSorted }, revalidate: 600 };
 };
 
 export default Work;
