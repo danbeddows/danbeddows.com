@@ -2,9 +2,9 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledUl = styled.ul`
-  margin: 1.4rem 0;
+  margin: 1.2rem 0;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {

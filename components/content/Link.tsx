@@ -5,7 +5,7 @@ import styled from "styled-components";
 const StyledLink = styled.a`
   color: var(--dark-blue);
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
   cursor: pointer;
   text-decoration: underline;

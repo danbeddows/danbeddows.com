@@ -9,9 +9,9 @@ interface TitleProps {
 }
 
 const TitleContainer = styled.h2<TitleProps>`
-  margin: 0 0 1.3rem;
+  margin: 0 0 1rem;
   line-height: 1.3;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: -0.03rem;
   color: var(--coral);
@@ -41,7 +41,7 @@ const TitleContainer = styled.h2<TitleProps>`
     /**
 		 * If hideLink==true, adjust margin to 0
 		 */
-    margin: 1.3rem ${(props) => (!props.hideLink ? "-40px" : "0")};
+    margin: 1rem ${(props) => (!props.hideLink ? "-40px" : "0")};
   }
 `;
 
@@ -53,7 +53,6 @@ const StyledLink = styled.a`
   text-decoration: none;
   opacity: 0;
   transition: opacity 0.15s;
-  height: 45px;
   align-items: center;
   justify-content: center;
   padding: 6px;
@@ -61,7 +60,7 @@ const StyledLink = styled.a`
 `;
 
 const Title: FunctionComponent<TitleProps> = ({ children, hideLink }) => {
-  const slug = slugify(children?.toString()!, {
+  const slug = slugify((children ?? {}).toString(), {
     lower: true,
   });
 
