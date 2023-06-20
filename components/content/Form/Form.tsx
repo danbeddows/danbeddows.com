@@ -22,7 +22,7 @@ interface FormProps {
 const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
   const [childrenObjs, setChildrenObjs] = useState<ReactNode[]>([]);
   const [formData, setFormData] = useReducer(formReducer, {});
-  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false);
 
   const handleFormSubmit = (e: FormEvent) => {
     // prevent default form submission
@@ -32,16 +32,12 @@ const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
     let submitPromise = onSubmit(formData);
 
     if (submitPromise && submitPromise !== null) {
-      setFormSubmitting(true);
+      setIsFormSubmitting(true);
 
       submitPromise.then(() => {
-        setFormSubmitting(false);
+        setIsFormSubmitting(false);
       });
     }
-  };
-
-  const isFormSubmitting = () => {
-    return formSubmitting;
   };
 
   const isFormDisabled = () => {
@@ -64,7 +60,7 @@ const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
       }
 
       let extraProps: extraPropsInterface = {
-        isFormSubmitting: isFormSubmitting(),
+        isFormSubmitting,
         disabled: isFormDisabled(),
       };
 
@@ -87,7 +83,7 @@ const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
     });
 
     setChildrenObjs(childrenArray);
-  }, [children, formSubmitting]);
+  }, [children, isFormSubmitting]);
 
   // Set initial empty data for children
   useEffect(() => {
@@ -111,9 +107,7 @@ const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
         handleFormSubmit(e);
       }}
     >
-      {childrenObjs.map((child) => {
-        return child;
-      })}
+      {childrenObjs}
     </form>
   );
 };

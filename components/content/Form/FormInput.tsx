@@ -62,19 +62,19 @@ const FormInput = ({
     setInputValue(val);
 
     if (onChange) {
-      onChange(val as string);
+      onChange(val);
     }
   };
 
   return (
     <Container style={containerStyle ? containerStyle : {}}>
       {/* form input label - only display for type 'text' or textarea */}
-      {(type == "text" || type == "textarea") && (
+      {(type === "text" || type === "textarea") && (
         <Label htmlFor={id}>{label}</Label>
       )}
 
       {/* text input */}
-      {type == "text" && (
+      {type === "text" && (
         <TextInput
           placeholder={placeholder!}
           id={id}
@@ -86,7 +86,7 @@ const FormInput = ({
       )}
 
       {/* textarea input */}
-      {type == "textarea" && (
+      {type === "textarea" && (
         <Textarea
           placeholder={placeholder!}
           id={id}
@@ -98,7 +98,7 @@ const FormInput = ({
       )}
 
       {/* submit button */}
-      {type == "submit" && (
+      {type === "submit" && (
         <Submit
           label={label}
           isLoading={isFormSubmitting!}

@@ -11,25 +11,19 @@ interface TextareaProps {
 }
 
 const Textarea = ({
-  value,
+  value = "",
   placeholder,
   id,
   className,
   onChange,
   disabled,
 }: TextareaProps) => {
-  const [inputValue, setInputValue] = useState(value ? value : "");
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
-
   return (
     <StyledTextarea
       placeholder={placeholder}
       id={id}
       className={className}
-      value={inputValue}
+      value={value}
       onChange={(e) => {
         onChange(e.target.value);
       }}

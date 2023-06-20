@@ -11,26 +11,20 @@ interface TextInputProps {
 }
 
 const TextInput = ({
-  value,
+  value = "",
   placeholder,
   id,
   className,
   onChange,
   disabled,
 }: TextInputProps) => {
-  const [inputValue, setInputValue] = useState(value ? value : "");
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
-
   return (
     <StyledInput
       type="text"
       placeholder={placeholder}
       id={id}
       className={className}
-      value={inputValue}
+      value={value}
       onChange={(e) => {
         onChange(e.target.value);
       }}
