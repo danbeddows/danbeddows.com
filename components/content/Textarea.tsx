@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledTextarea = styled.textarea`
@@ -35,7 +34,7 @@ interface TextareaProps {
   disabled: boolean;
 }
 
-const Textarea: FunctionComponent<TextareaProps> = ({
+const Textarea: React.FC<TextareaProps> = ({
   children,
   className,
   id,

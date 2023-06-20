@@ -36,24 +36,22 @@ const Springboard = () => {
   };
 
   /**
-   * useEffect to track changes to the window dimensions and update the state that tracks
+   * Track changes to the window dimensions and update the state that tracks
    * whether the user is on mobile or larger
    *
    * the sidebar interactions behave differently for mobile vs desktop, so we must track
    * window size changes
    */
-  useEffect(() => {
-    if (windowDimensions) {
-      let mobileBreakpoint = 768;
-      let isMobile = windowDimensions.width <= mobileBreakpoint;
+  if (windowDimensions) {
+    const mobileBreakpoint = 768;
+    const isMobile = windowDimensions.width <= mobileBreakpoint;
 
-      // Only update state if the new state value has changed
-      if (isMobile != isDisplayMobile) {
-        setIsDisplayMobile(isMobile);
-        setMenuOpen(!isMobile);
-      }
+    // Only update state if the new state value has changed
+    if (isMobile != isDisplayMobile) {
+      setIsDisplayMobile(isMobile);
+      setMenuOpen(!isMobile);
     }
-  }, [windowDimensions]);
+  }
 
   return (
     <Container initial={false} animate={menuOpen ? "open" : "closed"}>

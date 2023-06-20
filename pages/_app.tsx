@@ -20,10 +20,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import Springboard from "../components/global/components/Springboard/Springboard";
-import fontBasier from "../components/global/themes/globalFontBasier";
-import { Theme, ThemeGlobals } from "../components/global/themes/globalTheme";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import fontBasier from "../components/themes/globalFontBasier";
+import { Theme, ThemeGlobals } from "../components/themes/globalTheme";
+import SpringboardLayout from "components/layout/SpringboardLayout";
 
 library.add(
   faReact,
@@ -42,10 +42,7 @@ library.add(
   faNode
 );
 
-const assetDomain =
-  process.env.NEXT_PUBLIC_ASSET_SERVER !== undefined
-    ? process.env.NEXT_PUBLIC_ASSET_SERVER
-    : "";
+const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER ?? "";
 
 const FontBasierGlobalStyle = fontBasier(assetDomain);
 
@@ -60,46 +57,6 @@ const GlobalStyles = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 	}
-`;
-
-const PageContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: ${(props) => props.theme.bp.desktop}) {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-`;
-
-const SpringboardContainer = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 990;
-
-  @media (min-width: ${(props) => props.theme.bp.desktop}) {
-    position: static;
-    min-width: 300px;
-    pointer-events: auto;
-    flex: 0 0 22vw;
-    z-index: 1;
-    background: var(--dark-blue);
-    height: auto;
-  }
-`;
-
-const ContentContainer = styled.div`
-  //padding-top: 12px;
-
-  @media (min-width: ${(props) => props.theme.bp.desktop}) {
-    flex: 1;
-  }
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -138,14 +95,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeGlobals />
       <FontBasierGlobalStyle />
       <ThemeProvider theme={Theme}>
-        <PageContainer>
-          <SpringboardContainer>
-            <Springboard />
-          </SpringboardContainer>
-          <ContentContainer>
-            <Component {...pageProps} />
-          </ContentContainer>
-        </PageContainer>
+        <SpringboardLayout>
+          <Component {...pageProps} />
+        </SpringboardLayout>
       </ThemeProvider>
     </>
   );

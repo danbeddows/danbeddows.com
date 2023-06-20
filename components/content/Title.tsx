@@ -1,6 +1,5 @@
 import { faLink } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FunctionComponent } from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
@@ -59,7 +58,7 @@ const StyledLink = styled.a`
   cursor: pointer;
 `;
 
-const Title: FunctionComponent<TitleProps> = ({ children, hideLink }) => {
+const Title: React.FC<TitleProps> = ({ children, hideLink }) => {
   const slug = slugify((children ?? {}).toString(), {
     lower: true,
   });

@@ -1,5 +1,4 @@
 import { cssVar, lighten } from "polished";
-import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 
 interface BtnProps {
@@ -9,7 +8,7 @@ interface BtnProps {
   disabled: boolean;
 }
 
-const Btn: FunctionComponent<BtnProps> = ({
+const Btn: React.FC<BtnProps> = ({
   className,
   children,
   type = "button",
@@ -114,7 +113,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: FunctionComponent<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   type = "button",
   loading = false,

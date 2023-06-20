@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledParagraph = styled.p`
@@ -12,7 +11,7 @@ const StyledParagraph = styled.p`
   }
 `;
 
-const Paragraph: FunctionComponent = ({ children }) => {
+const Paragraph: React.FC = ({ children }) => {
   return <StyledParagraph>{children}</StyledParagraph>;
 };
 

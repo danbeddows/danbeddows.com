@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledUl = styled.ul`
@@ -14,7 +13,7 @@ const StyledUl = styled.ul`
 
 interface UlProps {}
 
-const UnorderedList: FunctionComponent<UlProps> = ({ children }) => {
+const UnorderedList: React.FC<UlProps> = ({ children }) => {
   return <StyledUl>{children}</StyledUl>;
 };
 

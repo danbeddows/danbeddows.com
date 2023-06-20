@@ -1,6 +1,5 @@
 import React, {
   FormEvent,
-  FunctionComponent,
   ReactNode,
   Reducer,
   useEffect,
@@ -20,11 +19,7 @@ interface FormProps {
   onSubmit: (payload: any) => Promise<void>;
 }
 
-const Form: FunctionComponent<FormProps> = ({
-  children,
-  onSubmit,
-  disabled,
-}) => {
+const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
   const [childrenObjs, setChildrenObjs] = useState<ReactNode[]>([]);
   const [formData, setFormData] = useReducer(formReducer, {});
   const [formSubmitting, setFormSubmitting] = useState(false);

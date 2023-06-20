@@ -1,5 +1,4 @@
 import { cssVar, darken } from "polished";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -21,7 +20,7 @@ const Title = styled.h1`
   }
 `;
 
-const PageTitle: FunctionComponent = ({ children }) => {
+const PageTitle: React.FC = ({ children }) => {
   return <Title>{children}</Title>;
 };
 

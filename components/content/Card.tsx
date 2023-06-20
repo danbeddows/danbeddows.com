@@ -1,6 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -54,11 +53,7 @@ interface CardProps {
   title?: string;
 }
 
-const Card: FunctionComponent<CardProps> = ({
-  children,
-  icon = null,
-  title = null,
-}) => {
+const Card: React.FC<CardProps> = ({ children, icon = null, title = null }) => {
   return (
     <StyledCard>
       {icon != null && (

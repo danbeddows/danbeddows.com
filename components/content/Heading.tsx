@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledHeading = styled.h3`
@@ -10,7 +9,7 @@ const StyledHeading = styled.h3`
   text-transform: uppercase;
 `;
 
-const Heading: FunctionComponent = ({ children }) => {
+const Heading: React.FC = ({ children }) => {
   return <StyledHeading>{children}</StyledHeading>;
 };
 

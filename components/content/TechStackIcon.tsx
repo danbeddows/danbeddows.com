@@ -1,6 +1,5 @@
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledLink = styled.a`
@@ -20,7 +19,7 @@ interface StackProps {
   href?: string | null | undefined;
 }
 
-const TechStackIcon: FunctionComponent<StackProps> = ({
+const TechStackIcon: React.FC<StackProps> = ({
   icon,
   title = undefined,
   href = undefined,

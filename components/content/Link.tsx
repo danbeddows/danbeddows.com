@@ -1,5 +1,4 @@
 import NextLink from "next/link";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledLink = styled.a`
@@ -17,7 +16,7 @@ interface LinkProps {
   href: string;
 }
 
-const Link: FunctionComponent<LinkProps> = ({ href, children }) => {
+const Link: React.FC<LinkProps> = ({ href, children }) => {
   return (
     <NextLink href={href}>
       <StyledLink>{children}</StyledLink>

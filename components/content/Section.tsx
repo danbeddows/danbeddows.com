@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
@@ -9,7 +8,7 @@ const StyledSection = styled.section`
   }
 `;
 
-const Section: FunctionComponent = ({ children }) => {
+const Section: React.FC = ({ children }) => {
   return <StyledSection>{children}</StyledSection>;
 };
 

@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledInput = styled.input`
@@ -36,7 +35,7 @@ interface InputProps {
   type: string;
 }
 
-const Input: FunctionComponent<InputProps> = ({
+const Input: React.FC<InputProps> = ({
   children,
   className,
   id,
