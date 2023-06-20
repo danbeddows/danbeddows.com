@@ -5,8 +5,8 @@ import styled from "styled-components";
 const StyledImage = styled(Image)`
   border-radius: 50%;
   overflow: hidden;
-  border: 2px var(--light-blue) solid !important;
-  background: #fff;
+  border: 2px #c6c6c6 solid !important;
+  background: #c6c6c6;
 `;
 
 const HeaderImage: FC = () => {

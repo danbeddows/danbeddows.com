@@ -25,7 +25,7 @@ export default function Home() {
           <Paragraph>
             If you're looking for an contract web engineer:
             <UnorderedList>
-              <li>experienced with React production applications</li>
+              <li>experienced with production React applications</li>
               <li>with a laser focus to UX and design</li>
               <li>that can work with the whole stack</li>
               <li>that understands best practices for the web</li>
