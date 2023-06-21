@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faRocketLaunch } from "@fortawesome/pro-solid-svg-icons";
-import Card from "components/content/Card";
-import Link from "components/content/Link";
-import PageTitle from "components/content/PageTitle";
-import Paragraph from "components/content/Paragraph";
-import Section from "components/content/Section";
-import Title from "components/content/Title";
-import UnorderedList from "components/content/UnorderedList";
-import Page from "components/layout/Page";
+import Card from "src/components/content/Card";
+import Link from "src/components/content/Link";
+import PageTitle from "src/components/content/PageTitle";
+import Paragraph from "src/components/content/Paragraph";
+import Section from "src/components/content/Section";
+import Title from "src/components/content/Title";
+import UnorderedList from "src/components/content/UnorderedList";
+import Page from "src/components/layout/Page";
 
 const HomePage = () => {
   return (

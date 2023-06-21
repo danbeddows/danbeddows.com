@@ -21,9 +21,9 @@ import {
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import fontBasier from "../components/themes/globalFontBasier";
-import { Theme, ThemeGlobals } from "../components/themes/globalTheme";
-import SpringboardLayout from "components/layout/SpringboardLayout";
+import fontBasier from "../src/components/themes/globalFontBasier";
+import { Theme, ThemeGlobals } from "../src/components/themes/globalTheme";
+import SpringboardLayout from "src/components/layout/SpringboardLayout";
 
 library.add(
   faReact,

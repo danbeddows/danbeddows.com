@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Form from "components/content/Form/Form";
-import FormInput from "components/content/Form/FormInput";
-import PageTitle from "components/content/PageTitle";
-import Section from "components/content/Section";
-import Title from "components/content/Title";
-import Page from "components/layout/Page";
+import Form from "src/components/content/Form/Form";
+import FormInput from "src/components/content/Form/FormInput";
+import PageTitle from "src/components/content/PageTitle";
+import Section from "src/components/content/Section";
+import Title from "src/components/content/Title";
+import Page from "src/components/layout/Page";
 
 const StyledInput = styled(FormInput)`
   width: 100%;

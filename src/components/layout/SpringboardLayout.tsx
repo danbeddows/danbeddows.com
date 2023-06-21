@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Springboard from "../../components/global/Springboard/Springboard";
+import Springboard from "../global/Springboard/Springboard";
 
 const PageContainer = styled.div`
   width: 100%;

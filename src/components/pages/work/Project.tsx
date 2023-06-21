@@ -1,5 +1,5 @@
 import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
-import TechStackIcon from "components/content/TechStackIcon";
+import TechStackIcon from "src/components/content/TechStackIcon";
 import Link from "next/link";
 import WorkItemWithStack from "pages/work";
 import styled from "styled-components";

@@ -1,13 +1,13 @@
 import { GetStaticProps } from "next";
 import styled from "styled-components";
 import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
-import PageTitle from "components/content/PageTitle";
-import Paragraph from "components/content/Paragraph";
-import Section from "components/content/Section";
-import Title from "components/content/Title";
-import Page from "components/layout/Page";
-import Project from "components/pages/work/Project";
-import { getWorkItems } from "lib/workItems/getWorkItems";
+import PageTitle from "src/components/content/PageTitle";
+import Paragraph from "src/components/content/Paragraph";
+import Section from "src/components/content/Section";
+import Title from "src/components/content/Title";
+import Page from "src/components/layout/Page";
+import Project from "src/components/pages/work/Project";
+import { getWorkItems } from "src/lib/workItems/getWorkItems";
 
 const ProjectsContainer = styled.div`
   display: flex;

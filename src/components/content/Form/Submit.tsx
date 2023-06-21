@@ -3,7 +3,7 @@ import {
   faSpinnerThird,
 } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "components/content/Button";
+import Button from "src/components/content/Button";
 
 interface SubmitProps {
   isLoading: boolean;

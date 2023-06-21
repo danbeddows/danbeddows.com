@@ -1,16 +1,16 @@
 import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
-import Heading from "components/content/Heading";
-import PageTitle from "components/content/PageTitle";
-import Paragraph from "components/content/Paragraph";
-import Section from "components/content/Section";
-import TechStackIcon from "components/content/TechStackIcon";
-import Title from "components/content/Title";
-import Page from "components/layout/Page";
-import prisma from "lib/prisma";
-import { getWorkItems } from "lib/workItems/getWorkItems";
+import Heading from "src/components/content/Heading";
+import PageTitle from "src/components/content/PageTitle";
+import Paragraph from "src/components/content/Paragraph";
+import Section from "src/components/content/Section";
+import TechStackIcon from "src/components/content/TechStackIcon";
+import Title from "src/components/content/Title";
+import Page from "src/components/layout/Page";
+import prisma from "src/lib/prisma";
+import { getWorkItems } from "src/lib/workItems/getWorkItems";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
-import { inflate } from "util/reactBalloon";
+import { inflate } from "src/util/reactBalloon";
 
 interface SlugItem {
   params: {

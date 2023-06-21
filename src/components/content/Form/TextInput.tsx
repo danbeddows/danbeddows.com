@@ -1,7 +1,7 @@
-import StyledTextarea from "components/content/Textarea";
+import StyledInput from "src/components/content/Input";
 import React, { useEffect, useState } from "react";
 
-interface TextareaProps {
+interface TextInputProps {
   value: string;
   placeholder: string;
   id: string;
@@ -10,16 +10,17 @@ interface TextareaProps {
   disabled: boolean;
 }
 
-const Textarea = ({
+const TextInput = ({
   value = "",
   placeholder,
   id,
   className,
   onChange,
   disabled,
-}: TextareaProps) => {
+}: TextInputProps) => {
   return (
-    <StyledTextarea
+    <StyledInput
+      type="text"
       placeholder={placeholder}
       id={id}
       className={className}
@@ -28,8 +29,8 @@ const Textarea = ({
         onChange(e.target.value);
       }}
       disabled={disabled}
-    ></StyledTextarea>
+    />
   );
 };
 
-export default Textarea;
+export default TextInput;
