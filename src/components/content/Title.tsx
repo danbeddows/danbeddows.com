@@ -26,7 +26,7 @@ const TitleContainer = styled.h2<TitleProps>`
   /**
 	 * Show the :hover link on desktop
 	 */
-  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+  @media (min-width: 769px) {
     a {
       display: flex;
     }

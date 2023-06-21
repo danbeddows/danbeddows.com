@@ -1,13 +1,11 @@
 import { GetStaticProps } from "next";
 import styled from "styled-components";
-import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
 import PageTitle from "src/components/content/PageTitle";
 import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
 import Page from "src/components/layout/Page";
 import Project from "src/components/pages/work/Project";
-import { getWorkItems } from "src/lib/workItems/getWorkItems";
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -59,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
   /**
    * Fetch work items from db
    */
-  const workItems = await getWorkItems();
+  const workItems = {};
   const workItemsSorted = workItems.sort(
     (a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
   );

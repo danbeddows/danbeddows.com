@@ -5,6 +5,7 @@ const ThemeGlobals = createGlobalStyle`
 		--dark-blue: #293462;
 		--light-blue: #2873a9;
 		--coral: #ff5757;
+		--bpDesktop: 769px;
 	}
 `;
 

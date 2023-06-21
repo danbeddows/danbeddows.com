@@ -1,139 +1,79 @@
-import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
-import Heading from "src/components/content/Heading";
+import fs from "fs";
+import path from "path";
+import { useMemo } from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { POSTS_PATH, postFilePaths } from "src/util/mdx";
+import { bundleMDX } from "mdx-bundler";
+import { getMDXComponent } from "mdx-bundler/client";
+import Page from "src/components/layout/Page";
 import PageTitle from "src/components/content/PageTitle";
 import Paragraph from "src/components/content/Paragraph";
-import Section from "src/components/content/Section";
-import TechStackIcon from "src/components/content/TechStackIcon";
+import Heading from "src/components/content/Heading";
+import UnorderedList from "src/components/content/UnorderedList";
 import Title from "src/components/content/Title";
-import Page from "src/components/layout/Page";
-import prisma from "src/lib/prisma";
-import { getWorkItems } from "src/lib/workItems/getWorkItems";
-import { GetStaticPaths, GetStaticProps } from "next";
-import React from "react";
-import { inflate } from "src/util/reactBalloon";
 
-interface SlugItem {
-  params: {
-    slug: string;
-  };
-}
-type SlugList = SlugItem[];
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const workItems = await getWorkItems();
-
-  const slugList: SlugList = workItems
-    .filter((item) => !item.isComingSoon) // exclude all items that are coming soon
-    .map((item) => {
-      return {
-        params: {
-          slug: item.slug,
-        },
-      };
-    });
-
-  return {
-    paths: slugList,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string;
-
-  const workItem = await prisma.workItem.findUnique({
-    where: {
-      slug: slug,
-    },
-    include: {
-      stackItems: {
-        orderBy: {
-          displayOrder: "asc",
-        },
-        include: {
-          stackItem: true,
-        },
-      },
-    },
-  });
-
-  if (workItem === null) {
-    return { notFound: true };
-  }
-
-  /**
-   * Transform date objects to strings
-   */
-  const dateToStr = (d: Date): string =>
-    d.toLocaleString("default", { month: "long" }) + " " + d.getFullYear();
-
-  const { startDate, endDate } = workItem;
-
-  const startStr = dateToStr(startDate);
-  const endStr = dateToStr(endDate);
-
-  const workProp = { ...workItem, startDate: startStr, endDate: endStr };
-
-  return {
-    props: { workItem: workProp },
-    revalidate: 600,
-  };
-};
-
-type WorkItemWithStack = WorkItem & {
-  stackItems: (WorkItemStack & {
-    stackItem: StackItem;
-  })[];
-};
-
-interface WorkProps {
-  workItem: WorkItemWithStack;
-}
-
-const Work: React.FC<WorkProps> = (props) => {
-  const work = props.workItem;
+const WorkPage = ({ frontmatter, code }) => {
+  const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <Page>
-      <PageTitle>{work.title}</PageTitle>
+      <PageTitle>{frontmatter.title}</PageTitle>
 
-      <Section>
-        <Title>Overview 👀</Title>
-
-        <Heading>About the business</Heading>
-        {inflate(work.aboutTheBusiness)}
-
-        <Heading>Work involved</Heading>
-        {inflate(work.workInvolved)}
-
-        <Heading>Time Involved</Heading>
-        <Paragraph>
-          {work.startDate} - {work.endDate}
-        </Paragraph>
-
-        <Heading>Stack</Heading>
-        <Paragraph>
-          {work.stackItems.map((stackItem, index) => (
-            <TechStackIcon
-              key={index}
-              icon={stackItem.stackItem.icon}
-              title={stackItem.stackItem.name}
-              href={stackItem.stackItem.href}
-            />
-          ))}
-        </Paragraph>
-
-        <Heading>Personal Highlights</Heading>
-        {inflate(work.personalHighlights)}
-      </Section>
-
-      <Section>
-        <Title>The Story 📖</Title>
-
-        {inflate(work.theStory)}
-      </Section>
+      <MDXComponent
+        components={{ p: Paragraph, h3: Heading, ul: UnorderedList, h1: Title }}
+      />
     </Page>
   );
 };
 
-export default Work;
+const getComponentPaths = (component: string) => {
+  const mdxPath = `./src/components/content/${component}.tsx`;
+  const localPath = path.join(
+    process.cwd(),
+    `src/components/content/${component}.tsx`
+  );
+
+  return {
+    [mdxPath]: fs.readFileSync(localPath, { encoding: "utf8", flag: "r" }),
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postFilePath = path.join(POSTS_PATH, `${params?.slug}.mdx`);
+  const source = fs.readFileSync(postFilePath, "utf-8");
+
+  const { code, frontmatter, matter } = await bundleMDX({
+    source,
+    esbuildOptions: (options) => {
+      options.platform = "node";
+
+      return options;
+    },
+    files: {
+      ...getComponentPaths("Paragraph"),
+      ...getComponentPaths("Title"),
+      ...getComponentPaths("Section"),
+      ...getComponentPaths("Heading"),
+      ...getComponentPaths("TechStack"),
+      ...getComponentPaths("TechStackIcon"),
+    },
+  });
+
+  return {
+    props: { code, frontmatter },
+    notFound: process.env.NODE_ENV === "production" && frontmatter.draft,
+  };
+};
+
+export const getStaticPaths = async () => {
+  const paths = postFilePaths
+    .map((filePath) => filePath.replace(/\.mdx?$/, ""))
+    .map((slug) => ({ params: { slug } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export default WorkPage;
