@@ -12,7 +12,11 @@ import Heading from "src/components/content/Heading";
 import UnorderedList from "src/components/content/UnorderedList";
 import Title from "src/components/content/Title";
 
-const WorkPage = ({ frontmatter, code }) => {
+interface WorkPageProps {
+  frontmatter: { [key: string]: any };
+  code: string;
+}
+const WorkPage: React.FC<WorkPageProps> = ({ frontmatter, code }) => {
   const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (
@@ -65,7 +69,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = postFilePaths
     .map((filePath) => filePath.replace(/\.mdx?$/, ""))
     .map((slug) => ({ params: { slug } }));
