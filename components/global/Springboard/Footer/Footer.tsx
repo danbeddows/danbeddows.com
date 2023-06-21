@@ -5,7 +5,6 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 import SocialLink from "./SocialLink";
 
@@ -102,7 +101,7 @@ interface FooterProps {
   reduceMotion: boolean;
 }
 
-const Footer: FunctionComponent<FooterProps> = ({ reduceMotion }) => {
+const Footer: React.FC<FooterProps> = ({ reduceMotion }) => {
   return (
     <Container variants={getMotionVariants(reduceMotion)}>
       <FooterSocials>

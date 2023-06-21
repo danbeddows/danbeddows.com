@@ -11,7 +11,7 @@
 import Heading from "components/content/Heading";
 import Paragraph from "components/content/Paragraph";
 import UnorderedList from "components/content/UnorderedList";
-import React, { FunctionComponent, ReactElement, ReactNode } from "react";
+import React, { ReactElement, ReactNode } from "react";
 
 // The object structure received after using Reacts React.Children.toArray method
 interface DeflatedComponent {
@@ -52,7 +52,7 @@ interface InflatedComponent {
 /**
  * Declare a string-based list to map to component types when inflating
  */
-const componentLibrary: { [k: string]: FunctionComponent } = {
+const componentLibrary: { [k: string]: React.FC } = {
   Paragraph: Paragraph,
   UnorderedList: UnorderedList,
   Heading: Heading,
@@ -111,7 +111,7 @@ const createReactComponent = (
   htmlType?: string,
   componentType?: string
 ): ReactNode => {
-  const createElement = (type: string | FunctionComponent<{}>) =>
+  const createElement = (type: string | React.FC<{}>) =>
     React.createElement(type, props, children);
 
   if (componentType) {

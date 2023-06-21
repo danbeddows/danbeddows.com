@@ -1,5 +1,5 @@
-import { faArrowRight, faRocketLaunch } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faRocketLaunch } from "@fortawesome/pro-solid-svg-icons";
 import Card from "components/content/Card";
 import Link from "components/content/Link";
 import PageTitle from "components/content/PageTitle";
@@ -9,7 +9,7 @@ import Title from "components/content/Title";
 import UnorderedList from "components/content/UnorderedList";
 import Page from "components/layout/Page";
 
-export default function Home() {
+const HomePage = () => {
   return (
     <Page>
       <PageTitle>Hello, World</PageTitle>
@@ -76,4 +76,6 @@ export default function Home() {
       </Section>
     </Page>
   );
-}
+};
+
+export default HomePage;

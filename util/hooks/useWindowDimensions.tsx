@@ -13,16 +13,16 @@ interface DimensionState {
   height: number;
 }
 
-export default function useWindowDimensions() {
+const useWindowDimensions = () => {
   const [windowDimensions, setWindowDimensions] = useState<DimensionState>({
     width: 0,
     height: 0,
   });
 
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       setWindowDimensions(getWindowDimensions());
-    }
+    };
 
     // Initial set
     setWindowDimensions(getWindowDimensions());
@@ -32,4 +32,6 @@ export default function useWindowDimensions() {
   }, []);
 
   return windowDimensions;
-}
+};
+
+export default useWindowDimensions;

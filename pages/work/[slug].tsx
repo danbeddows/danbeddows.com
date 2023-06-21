@@ -10,15 +10,14 @@ import prisma from "lib/prisma";
 import { getWorkItems } from "lib/workItems/getWorkItems";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
-import { inflate } from "util/hooks/reactBalloon";
+import { inflate } from "util/reactBalloon";
 
 interface SlugItem {
   params: {
     slug: string;
   };
 }
-
-interface SlugList extends Array<SlugItem> {}
+type SlugList = SlugItem[];
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const workItems = await getWorkItems();

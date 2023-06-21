@@ -1,11 +1,11 @@
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 import Form from "components/content/Form/Form";
 import FormInput from "components/content/Form/FormInput";
 import PageTitle from "components/content/PageTitle";
 import Section from "components/content/Section";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
-import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
 
 const StyledInput = styled(FormInput)`
   width: 100%;
@@ -57,7 +57,7 @@ interface responseError {
   error: string;
 }
 
-export default function Contact() {
+const ContactPage = () => {
   const [errors, setErrors] = useState<subErrors>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -179,4 +179,6 @@ export default function Contact() {
       </Section>
     </Page>
   );
-}
+};
+
+export default ContactPage;

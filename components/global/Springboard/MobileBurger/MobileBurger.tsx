@@ -1,5 +1,4 @@
 import { Lottie } from "@crello/react-lottie";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 import Background from "./BurgerBackground";
 import burgerData from "./BurgerLottieJson";
@@ -43,7 +42,7 @@ interface MobileButtonProps {
   toggleMenu: () => void;
 }
 
-const MobileButton: FunctionComponent<MobileButtonProps> = ({
+const MobileButton: React.FC<MobileButtonProps> = ({
   reduceMotion,
   menuOpen,
   toggleMenu,

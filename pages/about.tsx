@@ -4,7 +4,7 @@ import Section from "components/content/Section";
 import Title from "components/content/Title";
 import Page from "components/layout/Page";
 
-const About = () => {
+const AboutPage = () => {
   return (
     <Page>
       <PageTitle>About</PageTitle>
@@ -68,4 +68,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

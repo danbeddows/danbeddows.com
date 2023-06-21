@@ -59,7 +59,7 @@ const GlobalStyles = createGlobalStyle`
 	}
 `;
 
-function MyApp({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const aboutUrl = "https://danbeddows.com/";
   const aboutDescription =
     "Hi, I'm Dan Beddows, a full stack web developer. I'm available to hire for contract work.";
@@ -101,6 +101,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </>
   );
-}
+};
 
-export default MyApp;
+export default App;

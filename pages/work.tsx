@@ -1,3 +1,5 @@
+import { GetStaticProps } from "next";
+import styled from "styled-components";
 import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
 import PageTitle from "components/content/PageTitle";
 import Paragraph from "components/content/Paragraph";
@@ -6,8 +8,6 @@ import Title from "components/content/Title";
 import Page from "components/layout/Page";
 import Project from "components/pages/work/Project";
 import { getWorkItems } from "lib/workItems/getWorkItems";
-import { GetStaticProps } from "next";
-import styled from "styled-components";
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -27,11 +27,11 @@ type WorkItemWithStack = WorkItem & {
   })[];
 };
 
-interface Props {
+interface WorkPageProps {
   workList: WorkItemWithStack[];
 }
 
-const Work: React.FC<Props> = (props) => {
+const WorkPage: React.FC<WorkPageProps> = (props) => {
   return (
     <Page>
       <PageTitle>Work</PageTitle>
@@ -70,4 +70,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { workList: workItemsSorted }, revalidate: 600 };
 };
 
-export default Work;
+export default WorkPage;

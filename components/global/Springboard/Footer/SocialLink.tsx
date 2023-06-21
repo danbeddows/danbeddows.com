@@ -1,6 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 /**
@@ -20,7 +19,7 @@ interface IconProps {
   icon: IconProp;
 }
 
-const Icon: FunctionComponent<IconProps> = ({ className, icon }) => (
+const Icon: React.FC<IconProps> = ({ className, icon }) => (
   <FontAwesomeIcon icon={icon} className={className} />
 );
 
@@ -41,11 +40,7 @@ interface SocialLinkProps {
   type: string;
 }
 
-const SocialLink: FunctionComponent<SocialLinkProps> = ({
-  href,
-  icon,
-  type,
-}) => {
+const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, type }) => {
   return (
     <StyledLink
       href={href}

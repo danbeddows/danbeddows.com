@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const motionVariants = (prefersReducedMotion: boolean) =>
@@ -81,7 +80,7 @@ interface ItemProps {
   closeMenu: () => void;
 }
 
-const Item: FunctionComponent<ItemProps> = ({
+const Item: React.FC<ItemProps> = ({
   isMobile,
   closeMenu,
   href,

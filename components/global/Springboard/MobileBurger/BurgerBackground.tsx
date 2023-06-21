@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const height = 1000;
@@ -77,7 +76,7 @@ interface BackgroundProps {
   reduceMotion: boolean;
 }
 
-const Background: FunctionComponent<BackgroundProps> = ({ reduceMotion }) => {
+const Background: React.FC<BackgroundProps> = ({ reduceMotion }) => {
   return <StyledBackground variants={getMotionVariants(reduceMotion)} />;
 };
 

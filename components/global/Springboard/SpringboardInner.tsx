@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { FunctionComponent } from "react";
 import styled from "styled-components";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
@@ -38,7 +37,7 @@ interface SpringboardInnerProps {
   reduceMotion: boolean;
 }
 
-const SpringboardInner: FunctionComponent<SpringboardInnerProps> = ({
+const SpringboardInner: React.FC<SpringboardInnerProps> = ({
   closeMenu,
   isMobile,
   reduceMotion,
