@@ -13,7 +13,7 @@ const Title = styled.h1`
   padding: 2rem calc(2rem + 70px) 2rem 2rem;
   margin: -2rem -2rem 0rem;
 
-  @media (min-width: ${(props) => props.theme.bp.desktop}) {
+  @media (min-width: 769px) {
     font-size: 3rem;
     padding: 32px 4rem;
     margin: -4rem -4rem 0.8rem -4rem;

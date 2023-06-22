@@ -1,12 +1,31 @@
 import TechStackIcon from "./TechStackIcon";
 
-interface TechStackItem {
+interface TechStackProps {
+  stack: string;
+}
+const TechStack: React.FC<TechStackProps> = ({ stack }) => {
+  const stackList = transformTechStackText(stack);
+
+  return (
+    <>
+      {stackList.map((stackItem) => (
+        <TechStackIcon
+          icon={getStackItemProperty(stackItem, "icon")}
+          title={stackItem}
+          href={getStackItemProperty(stackItem, "href")}
+        />
+      ))}
+    </>
+  );
+};
+
+export interface TechStackItem {
   icon: string;
   name: string;
   href: string;
 }
 
-const techStackList: TechStackItem[] = [
+export const techStackList: TechStackItem[] = [
   {
     icon: "react",
     name: "React",
@@ -79,26 +98,18 @@ const techStackList: TechStackItem[] = [
   },
 ];
 
-const getStackItemProperty = (stackItem: string, prop: keyof TechStackItem) =>
-  techStackList.filter((thisItem) => thisItem.name === stackItem)[0][prop];
+const transformTechStackText = (stack: string): string[] =>
+  stack.split(",").map((s) => s.trim());
 
-interface TechStackProps {
-  stack: string;
-}
-const TechStack: React.FC<TechStackProps> = ({ stack }) => {
-  const stackList = stack.split(",").map((s) => s.trim());
+export const transformTechStack = (stack: string): TechStackItem[] =>
+  transformTechStackText(stack).map((stackName) => getStackItem(stackName));
 
-  return (
-    <>
-      {stackList.map((stackItem) => (
-        <TechStackIcon
-          icon={getStackItemProperty(stackItem, "icon")}
-          title={stackItem}
-          href={getStackItemProperty(stackItem, "href")}
-        />
-      ))}
-    </>
-  );
-};
+const getStackItem = (stackItemName: string) =>
+  techStackList.filter((thisItem) => thisItem.name === stackItemName)[0];
+
+export const getStackItemProperty = (
+  stackItem: string,
+  prop: keyof TechStackItem
+) => getStackItem(stackItem)[prop];
 
 export default TechStack;

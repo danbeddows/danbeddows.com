@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import useWindowDimensions from "src/util/hooks/useWindowDimensions";
 import MobileButton from "./MobileBurger/MobileBurger";

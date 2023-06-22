@@ -1,5 +1,5 @@
 import StyledInput from "src/components/content/Input";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface TextInputProps {
   value: string;

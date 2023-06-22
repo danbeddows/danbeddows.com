@@ -1,8 +1,7 @@
-import { StackItem, WorkItem, WorkItemStack } from "@prisma/client";
 import TechStackIcon from "src/components/content/TechStackIcon";
 import Link from "next/link";
-import WorkItemWithStack from "pages/work";
 import styled from "styled-components";
+import { WorkItem } from "./workUtils";
 
 const ProjectContents = styled.a`
   width: 100%;
@@ -81,22 +80,16 @@ const ForegroundRight = styled.div`
   }
 `;
 
-type WorkItemWithStack = WorkItem & {
-  stackItems: (WorkItemStack & {
-    stackItem: StackItem;
-  })[];
-};
-
-interface ProjectProps {
-  workItem: WorkItemWithStack;
+interface WorkCardProps {
+  workItem: WorkItem;
 }
 
-const Project: React.FC<ProjectProps> = ({ workItem }) => {
+const WorkCard: React.FC<WorkCardProps> = ({ workItem }) => {
   if (workItem.thumbUrl == "/") {
     workItem.thumbUrl = "/projects/coming-soon.png";
   }
 
-  const projectContents = (
+  const cardContents = (
     <ProjectContents>
       <Background
         style={{ backgroundImage: "url(" + workItem.thumbUrl + ")" }}
@@ -107,11 +100,11 @@ const Project: React.FC<ProjectProps> = ({ workItem }) => {
           <ProjectTeaser>{workItem.teaser}</ProjectTeaser>
         </ForegroundLeft>
         <ForegroundRight>
-          {workItem.stackItems.map((stackItem, index) => (
+          {workItem.techStack.slice(0, 3).map((stackItem, index) => (
             <TechStackIcon
               key={index}
-              icon={stackItem.stackItem.icon}
-              title={stackItem.stackItem.name}
+              icon={stackItem.icon}
+              title={stackItem.name}
             />
           ))}
         </ForegroundRight>
@@ -119,16 +112,15 @@ const Project: React.FC<ProjectProps> = ({ workItem }) => {
     </ProjectContents>
   );
 
+  if (workItem.isDraft) {
+    return cardContents;
+  }
+
   return (
-    <>
-      {workItem.isComingSoon && projectContents}
-      {!workItem.isComingSoon && (
-        <Link href={"/work/" + workItem.slug} passHref>
-          {projectContents}
-        </Link>
-      )}
-    </>
+    <Link href={"/work/" + workItem.slug} passHref>
+      {cardContents}
+    </Link>
   );
 };
 
-export default Project;
+export default WorkCard;

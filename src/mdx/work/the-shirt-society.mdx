@@ -1,10 +1,13 @@
 ---
+slug: the-shirt-society
 title: "The Shirt Society"
-description: "A subscription-based menswear startup"
-banner: "/projects/tss/thumb.jpg"
+teaser: "A subscription-based menswear startup"
+thumbUrl: "/projects/tss/thumb.jpg"
 startDateLabel: "October 2019"
 endDateLabel: "March 2021"
-stack: React, Symfony, Stripe, PHP, MailChimp, AWS, Font Awesome, HTML5, Sass
+techStackText: React, Symfony, Stripe, PHP, MailChimp, AWS, Font Awesome, HTML5, Sass
+published: true
+draft: false
 ---
 
 import Section from "./src/components/content/Section";
@@ -33,7 +36,7 @@ import TechStack from "./src/components/content/TechStack";
     ### Stack
 
     <Paragraph>
-      <TechStack stack={frontmatter.stack} />
+      <TechStack stack={frontmatter.techStackText} />
     </Paragraph>
 
     ### Personal Highlights

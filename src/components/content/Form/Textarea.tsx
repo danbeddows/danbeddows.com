@@ -1,5 +1,5 @@
 import StyledTextarea from "src/components/content/Textarea";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface TextareaProps {
   value: string;

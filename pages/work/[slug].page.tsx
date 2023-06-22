@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { useMemo } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { POSTS_PATH, postFilePaths } from "src/util/mdx";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
 import Page from "src/components/layout/Page";
@@ -11,6 +10,8 @@ import Paragraph from "src/components/content/Paragraph";
 import Heading from "src/components/content/Heading";
 import UnorderedList from "src/components/content/UnorderedList";
 import Title from "src/components/content/Title";
+import { WORKITEM_PATH, workItemFilePaths } from "./workUtils";
+import { getComponentPaths } from "src/util/mdxHelpers";
 
 interface WorkPageProps {
   frontmatter: { [key: string]: any };
@@ -30,21 +31,9 @@ const WorkPage: React.FC<WorkPageProps> = ({ frontmatter, code }) => {
   );
 };
 
-const getComponentPaths = (component: string) => {
-  const mdxPath = `./src/components/content/${component}.tsx`;
-  const localPath = path.join(
-    process.cwd(),
-    `src/components/content/${component}.tsx`
-  );
-
-  return {
-    [mdxPath]: fs.readFileSync(localPath, { encoding: "utf8", flag: "r" }),
-  };
-};
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params?.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath, "utf-8");
+  const workFilePath = path.join(WORKITEM_PATH, `${params?.slug}.mdx`);
+  const source = fs.readFileSync(workFilePath, "utf-8");
 
   const { code, frontmatter, matter } = await bundleMDX({
     source,
@@ -70,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = postFilePaths
+  const paths = workItemFilePaths
     .map((filePath) => filePath.replace(/\.mdx?$/, ""))
     .map((slug) => ({ params: { slug } }));
 

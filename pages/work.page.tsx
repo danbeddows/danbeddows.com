@@ -5,7 +5,8 @@ import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
 import Page from "src/components/layout/Page";
-import Project from "src/components/pages/work/Project";
+import Project from "pages/work/WorkCard";
+import { WorkItem, getLatestWork } from "./work/workUtils";
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -19,14 +20,8 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-type WorkItemWithStack = WorkItem & {
-  stackItems: (WorkItemStack & {
-    stackItem: StackItem;
-  })[];
-};
-
 interface WorkPageProps {
-  workList: WorkItemWithStack[];
+  workList: WorkItem[];
 }
 
 const WorkPage: React.FC<WorkPageProps> = (props) => {
@@ -57,10 +52,12 @@ export const getStaticProps: GetStaticProps = async () => {
   /**
    * Fetch work items from db
    */
-  const workItems = {};
-  const workItemsSorted = workItems.sort(
+  const workItems = await getLatestWork();
+  const workItemsSorted = workItems; /*.sort(
     (a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
-  );
+  )*/
+
+  console.log(workItems);
 
   /**
    * Return work list as component prop
