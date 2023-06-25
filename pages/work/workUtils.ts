@@ -44,7 +44,11 @@ export const getLatestWork = async (count = 5): Promise<WorkItem[]> => {
     workItems.push(transformFrontmatterToWorkItem(frontmatter));
   }
 
-  return workItems;
+  const workItemsSorted = workItems.sort(
+    (a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
+  );
+
+  return workItemsSorted.slice(0, count);
 };
 
 type frontmatter = { [key: string]: any };

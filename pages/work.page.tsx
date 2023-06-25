@@ -49,20 +49,9 @@ const WorkPage: React.FC<WorkPageProps> = (props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  /**
-   * Fetch work items from db
-   */
   const workItems = await getLatestWork();
-  const workItemsSorted = workItems; /*.sort(
-    (a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
-  )*/
 
-  console.log(workItems);
-
-  /**
-   * Return work list as component prop
-   */
-  return { props: { workList: workItemsSorted }, revalidate: 600 };
+  return { props: { workList: workItems }, revalidate: 600 };
 };
 
 export default WorkPage;
