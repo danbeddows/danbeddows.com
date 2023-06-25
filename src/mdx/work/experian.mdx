@@ -11,3 +11,43 @@ techStackText: React, AWS, Node
 published: true
 draft: false
 ---
+
+import Section from "./src/components/content/Section";
+import Paragraph from "./src/components/content/Paragraph";
+import TechStack from "./src/components/content/TechStack";
+
+<Section>
+    # Overview 👀
+
+    ### About the business
+
+    Experian is a multinational enterprise operating various business
+    verticals, including consumer credit scoring, financial product lead
+    generation and background checking.
+
+    ### Work involved
+
+    - Stuff I did
+
+    ### Time Involved
+
+    {frontmatter.startDateLabel} - {frontmatter.endDateLabel}
+
+    ### Stack
+
+    <Paragraph>
+      <TechStack stack={frontmatter.techStackText} />
+    </Paragraph>
+
+    ### Personal Highlights
+
+Stuff I enjotyed
+
+</Section>
+
+<Section>
+    # The Story 📖
+
+How it came to be
+
+</Section>
