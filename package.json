@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "test": "jest"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
