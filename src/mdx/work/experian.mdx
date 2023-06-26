@@ -1,0 +1,46 @@
+---
+slug: experian
+title: "Experian"
+teaser: "The consumer credit reporting company."
+thumbUrl: "/projects/experian/thumb2.png"
+startDate: "2022/01/04"
+endDate: "2023/03/01"
+startDateLabel: "January 2022"
+endDateLabel: "March 2023"
+techStackText: React, AWS, Node, Javascript, CSS, HTML5, Docker, Jenkins, Jira
+published: true
+draft: false
+---
+
+import Section from "./src/components/content/Section";
+import Paragraph from "./src/components/content/Paragraph";
+import TechStack from "./src/components/content/TechStack";
+
+<Section>
+    # Overview 👀
+
+    ### About the business
+
+    Experian is a financial services business operating in a large amount of verticals, including consumer credit scoring, financial product lead
+    generation and background checking.
+
+    ### Work involved
+
+    Whilst at Experian I primarily worked on the credit card and loan comparison service. I regularly implemented features end to end, including:
+    - building out the UI using React and using the companies own component libraries.
+    - writing services in node.js to respond to the front end, and interact with Experian's internal API.
+    - writing a combination of unit, integration and E2E tests.
+
+    All of this involved working in a cross functional team, including with analytics, marketing, design and product.
+
+    ### Time Involved
+
+    {frontmatter.startDateLabel} - {frontmatter.endDateLabel}
+
+    ### Stack
+
+    <Paragraph>
+      <TechStack stack={frontmatter.techStackText} />
+    </Paragraph>
+
+</Section>
