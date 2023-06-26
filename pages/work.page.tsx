@@ -51,7 +51,7 @@ const WorkPage: React.FC<WorkPageProps> = (props) => {
 export const getStaticProps: GetStaticProps = async () => {
   const workItems = await getLatestWork();
 
-  return { props: { workList: workItems }, revalidate: 600 };
+  return { props: { workList: workItems } };
 };
 
 export default WorkPage;
