@@ -96,6 +96,9 @@ export const techStackList: TechStackItem[] = [
     name: "Node",
     href: "https://nodejs.org/en/",
   },
+  { icon: "docker", name: "Docker", href: "https://www.docker.com/" },
+  { icon: "jenkins", name: "Jenkins", href: "https://www.jenkins.io/" },
+  { icon: "jira", name: "Jira", href: "https://jira.atlassian.com/" },
 ];
 
 const transformTechStackText = (stack: string): string[] =>

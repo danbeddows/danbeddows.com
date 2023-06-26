@@ -17,6 +17,9 @@ import {
   faSass,
   faStripe,
   faSymfony,
+  faDocker,
+  faJenkins,
+  faJira,
 } from "@fortawesome/free-brands-svg-icons";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -39,7 +42,10 @@ library.add(
   faJs,
   faPaypal,
   faCss3,
-  faNode
+  faNode,
+  faDocker,
+  faJenkins,
+  faJira
 );
 
 const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER ?? "";
