@@ -26,6 +26,7 @@ const StyledInput = styled.input`
 `;
 
 interface InputProps {
+  children: React.ReactNode;
   className: string;
   id: string;
   value: string;
@@ -35,7 +36,7 @@ interface InputProps {
   type: string;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = ({
   children,
   className,
   id,
@@ -44,7 +45,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   disabled,
   type,
-}) => {
+}: InputProps) => {
   return (
     <StyledInput
       type={type}

@@ -2,19 +2,20 @@ import { cssVar, lighten } from "polished";
 import styled, { css } from "styled-components";
 
 interface BtnProps {
+  children: React.ReactNode;
   className?: string;
   type: "button" | "submit" | "reset";
   loading: boolean;
   disabled: boolean;
 }
 
-const Btn: React.FC<BtnProps> = ({
+const Btn = ({
   className,
   children,
   type = "button",
   loading = false,
   disabled = false,
-}) => (
+}: BtnProps) => (
   <button type={type} className={className} disabled={disabled}>
     {children}
   </button>
@@ -108,17 +109,18 @@ const StyledButton = styled(Btn)`
 `;
 
 interface ButtonProps {
+  children: React.ReactNode;
   type?: "button" | "submit" | "reset";
   loading?: boolean;
   disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   type = "button",
   loading = false,
   disabled = false,
-}) => {
+}: ButtonProps) => {
   return (
     <StyledButton type={type} loading={loading} disabled={disabled}>
       {children}

@@ -80,14 +80,14 @@ interface ItemProps {
   closeMenu: () => void;
 }
 
-const Item: React.FC<ItemProps> = ({
+const Item = ({
   isMobile,
   closeMenu,
   href,
   title,
   description,
   reduceMotion,
-}) => {
+}: ItemProps) => {
   const closeIfMobile = () => {
     if (isMobile) {
       closeMenu();

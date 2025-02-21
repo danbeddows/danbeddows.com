@@ -87,7 +87,7 @@ interface WorkCardProps {
   workItem: WorkItem;
 }
 
-const WorkCard: React.FC<WorkCardProps> = ({ workItem }) => {
+const WorkCard = ({ workItem }: WorkCardProps) => {
   if (workItem.thumbUrl == "/") {
     workItem.thumbUrl = "/projects/coming-soon.png";
   }

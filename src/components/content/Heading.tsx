@@ -9,7 +9,11 @@ const StyledHeading = styled.h3`
   text-transform: uppercase;
 `;
 
-const Heading: React.FC = ({ children }) => {
+interface HeadingProps {
+  children: React.ReactNode;
+}
+
+const Heading = ({ children }: HeadingProps) => {
   return <StyledHeading>{children}</StyledHeading>;
 };
 

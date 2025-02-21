@@ -42,11 +42,11 @@ interface MobileButtonProps {
   toggleMenu: () => void;
 }
 
-const MobileButton: React.FC<MobileButtonProps> = ({
+const MobileButton = ({
   reduceMotion,
   menuOpen,
   toggleMenu,
-}) => {
+}: MobileButtonProps) => {
   return (
     <Container>
       <Background reduceMotion={reduceMotion} />

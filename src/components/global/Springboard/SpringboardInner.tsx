@@ -37,11 +37,11 @@ interface SpringboardInnerProps {
   reduceMotion: boolean;
 }
 
-const SpringboardInner: React.FC<SpringboardInnerProps> = ({
+const SpringboardInner = ({
   closeMenu,
   isMobile,
   reduceMotion,
-}) => {
+}: SpringboardInnerProps) => {
   return (
     <Inner variants={motionVariants}>
       <Header

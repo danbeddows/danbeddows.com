@@ -14,10 +14,11 @@ import { WORKITEM_PATH, workItemFilePaths } from "./workUtils";
 import { getComponentPaths } from "src/util/mdxHelpers";
 
 interface WorkPageProps {
+  children: React.ReactNode;
   frontmatter: { [key: string]: any };
   code: string;
 }
-const WorkPage: React.FC<WorkPageProps> = ({ frontmatter, code }) => {
+const WorkPage = ({ frontmatter, code }: WorkPageProps) => {
   const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (

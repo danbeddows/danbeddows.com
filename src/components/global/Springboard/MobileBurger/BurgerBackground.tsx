@@ -76,7 +76,7 @@ interface BackgroundProps {
   reduceMotion: boolean;
 }
 
-const Background: React.FC<BackgroundProps> = ({ reduceMotion }) => {
+const Background = ({ reduceMotion }: BackgroundProps) => {
   return <StyledBackground variants={getMotionVariants(reduceMotion)} />;
 };
 

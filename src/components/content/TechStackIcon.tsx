@@ -1,4 +1,4 @@
-import { IconName } from "@fortawesome/fontawesome-svg-core";
+import { IconDefinition, IconName } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
@@ -14,26 +14,24 @@ const StyledLink = styled.a`
 `;
 
 interface StackProps {
-  icon: string;
+  icon: IconDefinition;
   title?: string;
-  href?: string | null | undefined;
+  href?: string;
 }
 
-const TechStackIcon: React.FC<StackProps> = ({
+const TechStackIcon = ({
   icon,
-  title = undefined,
-  href = undefined,
-}) => {
-  const faIcon: IconName = icon as IconName;
-
+  title,
+  href,
+}: StackProps) => {
   return (
     <>
       {href && (
-        <StyledLink href={href} target="_blank">
-          <FontAwesomeIcon icon={["fab", faIcon]} title={title} />
+        <StyledLink href={href} target="_blank" rel={"noreferrer nofollow"}>
+          <FontAwesomeIcon icon={icon} title={title} />
         </StyledLink>
       )}
-      {!href && <FontAwesomeIcon icon={["fab", faIcon]} title={title} />}
+      {!href && <FontAwesomeIcon icon={icon} title={title} />}
     </>
   );
 };

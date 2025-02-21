@@ -19,7 +19,7 @@ interface IconProps {
   icon: IconProp;
 }
 
-const Icon: React.FC<IconProps> = ({ className, icon }) => (
+const Icon = ({ className, icon }: IconProps) => (
   <FontAwesomeIcon icon={icon} className={className} />
 );
 
@@ -40,7 +40,7 @@ interface SocialLinkProps {
   type: string;
 }
 
-const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, type }) => {
+const SocialLink = ({ href, icon, type }: SocialLinkProps) => {
   return (
     <StyledLink
       href={href}

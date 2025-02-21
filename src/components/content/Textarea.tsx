@@ -26,6 +26,7 @@ const StyledTextarea = styled.textarea`
 `;
 
 interface TextareaProps {
+  children: React.ReactNode;
   className: string;
   id: string;
   value: string;
@@ -34,7 +35,7 @@ interface TextareaProps {
   disabled: boolean;
 }
 
-const Textarea: React.FC<TextareaProps> = ({
+const Textarea = ({
   children,
   className,
   id,
@@ -42,7 +43,7 @@ const Textarea: React.FC<TextareaProps> = ({
   placeholder,
   onChange,
   disabled,
-}) => {
+}: TextareaProps) => {
   return (
     <StyledTextarea
       className={className}

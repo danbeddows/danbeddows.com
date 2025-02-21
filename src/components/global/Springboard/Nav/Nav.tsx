@@ -37,7 +37,7 @@ interface NavProps {
   isMobile: boolean;
 }
 
-const Nav: React.FC<NavProps> = ({ reduceMotion, closeMenu, isMobile }) => {
+const Nav = ({ reduceMotion, closeMenu, isMobile }: NavProps) => {
   return (
     <StyledNav
       variants={motionVariants}

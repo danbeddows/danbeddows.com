@@ -24,7 +24,7 @@ interface WorkPageProps {
   workList: WorkItem[];
 }
 
-const WorkPage: React.FC<WorkPageProps> = (props) => {
+const WorkPage = ({workList}: WorkPageProps) => {
   return (
     <Page>
       <PageTitle>Work</PageTitle>
@@ -39,7 +39,7 @@ const WorkPage: React.FC<WorkPageProps> = (props) => {
         </Paragraph>
 
         <ProjectsContainer>
-          {props.workList.map((workItem, index) => (
+          {workList.map((workItem, index) => (
             <Project workItem={workItem} key={index}></Project>
           ))}
         </ProjectsContainer>

@@ -95,7 +95,7 @@ interface FooterProps {
   reduceMotion: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({ reduceMotion }) => {
+const Footer = ({ reduceMotion }: FooterProps) => {
   return (
     <Container variants={getMotionVariants(reduceMotion)}>
       <FooterSocials>

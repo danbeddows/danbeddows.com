@@ -11,9 +11,11 @@ const StyledUl = styled.ul`
   }
 `;
 
-interface UlProps {}
+interface UnorderedListProps {
+  children: React.ReactNode;
+}
 
-const UnorderedList: React.FC<UlProps> = ({ children }) => {
+const UnorderedList = ({ children }: UnorderedListProps) => {
   return <StyledUl>{children}</StyledUl>;
 };
 
