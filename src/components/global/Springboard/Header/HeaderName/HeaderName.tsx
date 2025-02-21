@@ -14,6 +14,7 @@ const Title = styled.div`
   font-weight: 700;
   text-align: center;
   font-size: 23px;
+  
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {
     margin-top: 18px;
@@ -24,12 +25,14 @@ const Title = styled.div`
 const Subtitle = styled.div`
   color: #fff;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
   font-size: 15.5px;
+  margin-left: 3px;
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {
-    font-size: 21.4px;
-    margin-top: -2px;
+    font-size: 19px;
+    text-align: left;
+    margin-left: 1px;
   }
 `;
 
