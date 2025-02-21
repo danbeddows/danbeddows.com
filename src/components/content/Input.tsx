@@ -26,7 +26,6 @@ const StyledInput = styled.input`
 `;
 
 interface InputProps {
-  children: React.ReactNode;
   className: string;
   id: string;
   value: string;
@@ -37,7 +36,6 @@ interface InputProps {
 }
 
 const Input = ({
-  children,
   className,
   id,
   value,
@@ -55,9 +53,7 @@ const Input = ({
       placeholder={placeholder}
       onChange={onChange}
       disabled={disabled}
-    >
-      {children}
-    </StyledInput>
+     />
   );
 };
 
