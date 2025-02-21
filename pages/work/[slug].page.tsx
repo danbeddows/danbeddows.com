@@ -26,6 +26,7 @@ const WorkPage = ({ frontmatter, code }: WorkPageProps) => {
       <PageTitle>{frontmatter.title}</PageTitle>
 
       <MDXComponent
+        // @ts-ignore
         components={{ p: Paragraph, h3: Heading, ul: UnorderedList, h1: Title }}
       />
     </Page>
