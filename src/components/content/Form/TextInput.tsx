@@ -1,4 +1,4 @@
-import StyledInput from "src/components/content/Input";
+import Input from "src/components/content/Input";
 import React from "react";
 
 interface TextInputProps {
@@ -19,7 +19,7 @@ const TextInput = ({
   disabled,
 }: TextInputProps) => {
   return (
-    <StyledInput
+    <Input
       type="text"
       placeholder={placeholder}
       id={id}
