@@ -8,7 +8,11 @@ const StyledSection = styled.section`
   }
 `;
 
-const Section: React.FC = ({ children }) => {
+interface SectionProps {
+  children: React.ReactNode;
+}
+
+const Section = ({ children }: SectionProps) => {
   return <StyledSection>{children}</StyledSection>;
 };
 

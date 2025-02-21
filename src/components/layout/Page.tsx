@@ -10,7 +10,11 @@ const StyledPage = styled.div`
   }
 `;
 
-const Page: React.FC = ({ children }) => {
+interface PageProps {
+  children: React.ReactNode;
+}
+
+const Page = ({ children }: PageProps) => {
   return <StyledPage>{children}</StyledPage>;
 };
 

@@ -52,16 +52,10 @@ const getMotionVariants = (prefersReducedMotion: boolean) =>
  * Define social links and related FontAwesome icon
  */
 const socialData = [
-  { href: "https://twitter.com/danbeddows", icon: faTwitter, type: "Twitter" },
   {
     href: "https://www.linkedin.com/in/danbeddows/",
     icon: faLinkedin,
     type: "LinkedIn",
-  },
-  {
-    href: "https://stackoverflow.com/users/1658795/daniel-beddows",
-    icon: faStackOverflow,
-    type: "Stackoverflow",
   },
   { href: "https://github.com/danbeddows/", icon: faGithub, type: "GitHub" },
 ];

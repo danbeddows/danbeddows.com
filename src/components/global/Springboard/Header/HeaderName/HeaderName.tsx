@@ -5,7 +5,7 @@ import styled from "styled-components";
 /**
  * Create components with styled-components
  */
-const StyledBodyLink = styled.a`
+const StyledBodyLink = styled(Link)`
   text-decoration: none;
 `;
 
@@ -49,12 +49,10 @@ const HeaderName: FC<NameProps> = ({ closeMenu, isMobile }) => {
   };
 
   return (
-    <Link href="/" passHref>
-      <StyledBodyLink onClick={closeIfMobile}>
-        <Title>Dan Beddows</Title>
-        <Subtitle>Full Stack Developer</Subtitle>
-      </StyledBodyLink>
-    </Link>
+    <StyledBodyLink href={"/"} onClick={closeIfMobile} passHref>
+      <Title>Dan Beddows</Title>
+      <Subtitle>Senior Web Engineer</Subtitle>
+    </StyledBodyLink>
   );
 };
 

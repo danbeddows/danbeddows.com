@@ -49,14 +49,15 @@ const IconArea = styled.div`
 `;
 
 interface CardProps {
+  children: React.ReactNode;
   icon?: IconProp;
   title?: string;
 }
 
-const Card: React.FC<CardProps> = ({ children, icon = null, title = null }) => {
+const Card = ({ children, icon, title }: CardProps) => {
   return (
     <StyledCard>
-      {icon != null && (
+      {icon && (
         <IconArea>
           <FontAwesomeIcon
             icon={icon}
@@ -68,7 +69,7 @@ const Card: React.FC<CardProps> = ({ children, icon = null, title = null }) => {
         </IconArea>
       )}
       <div>
-        {title != null && <CardTitle>{title}</CardTitle>}
+        {title && <CardTitle>{title}</CardTitle>}
         <CardContent>{children}</CardContent>
       </div>
     </StyledCard>

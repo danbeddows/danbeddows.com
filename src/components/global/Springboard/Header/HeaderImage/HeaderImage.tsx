@@ -6,7 +6,7 @@ import Image from "./Image";
 /**
  * Create components with styled-components
  */
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   max-width: 80px;
   margin-right: 11px;
 
@@ -37,11 +37,9 @@ const HeaderImage: FC<ImageProps> = ({ closeMenu, isMobile }) => {
   };
 
   return (
-    <Link href="/" passHref>
-      <StyledLink onClick={closeIfMobile}>
-        <Image />
-      </StyledLink>
-    </Link>
+    <StyledLink href="/" passHref onClick={closeIfMobile}>
+      <Image />
+    </StyledLink>
   );
 };
 

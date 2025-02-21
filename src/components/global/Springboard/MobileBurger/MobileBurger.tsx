@@ -1,4 +1,4 @@
-import { Lottie } from "@crello/react-lottie";
+import Lottie from "react-lottie";
 import styled from "styled-components";
 import Background from "./BurgerBackground";
 import burgerData from "./BurgerLottieJson";
@@ -60,8 +60,8 @@ const MobileButton: React.FC<MobileButtonProps> = ({
           }}
         >
           <Lottie
-            config={{ animationData: burgerData }}
-            playingState={"playing"}
+            options={{ animationData: burgerData, loop:false }}
+            isStopped={false}
             direction={menuOpen ? 1 : -1}
             speed={2}
           />

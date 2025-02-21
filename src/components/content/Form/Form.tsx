@@ -15,11 +15,12 @@ const formReducer: Reducer<any, any> = (state, data) => {
 };
 
 interface FormProps {
+  children: React.ReactNode;
   disabled: boolean;
   onSubmit: (payload: any) => Promise<void>;
 }
 
-const Form: React.FC<FormProps> = ({ children, onSubmit, disabled }) => {
+const Form = ({ children, onSubmit, disabled }: FormProps) => {
   const [childrenObjs, setChildrenObjs] = useState<ReactNode[]>([]);
   const [formData, setFormData] = useReducer(formReducer, {});
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);

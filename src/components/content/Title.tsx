@@ -4,6 +4,7 @@ import slugify from "slugify";
 import styled from "styled-components";
 
 interface TitleProps {
+  children: React.ReactNode;
   hideLink?: boolean;
 }
 
@@ -58,12 +59,10 @@ const StyledLink = styled.a`
   cursor: pointer;
 `;
 
-const Title: React.FC<TitleProps> = ({ children, hideLink }) => {
+const Title  = ({ children, hideLink = false }: TitleProps) => {
   const slug = slugify((children ?? {}).toString(), {
     lower: true,
   });
-
-  hideLink = hideLink !== undefined;
 
   return (
     <TitleContainer hideLink={hideLink}>

@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import styled from "styled-components";
 
-const StyledLink = styled.a`
+const StyledLink = styled(NextLink)`
   color: var(--dark-blue);
   font-weight: 400;
   font-size: 1rem;
@@ -13,14 +13,15 @@ const StyledLink = styled.a`
 `;
 
 interface LinkProps {
+  children: React.ReactNode;
   href: string;
 }
 
-const Link: React.FC<LinkProps> = ({ href, children }) => {
+const Link = ({ href, children }: LinkProps) => {
   return (
-    <NextLink href={href}>
-      <StyledLink>{children}</StyledLink>
-    </NextLink>
+    <StyledLink href={href}>
+      {children}
+    </StyledLink>
   );
 };
 

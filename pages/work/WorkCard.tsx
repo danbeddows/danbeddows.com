@@ -3,13 +3,16 @@ import Link from "next/link";
 import styled from "styled-components";
 import { WorkItem } from "./workUtils";
 
-const ProjectContents = styled.a`
+const ProjectLinkWrapper = styled(Link)`
+  text-decoration: none;
+`
+
+const ProjectContents = styled.div`
   width: 100%;
   height: 400px;
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  text-decoration: none;
   margin: 15px 0;
 
   @media (min-width: ${(props) => props.theme.bp.desktop}) {
@@ -44,14 +47,14 @@ const ForegroundLeft = styled.div`
   }
 `;
 
-const ProjectTitle = styled.h4`
+const ProjectTitle = styled.div`
   font-size: 20px;
   font-weight: 500;
   color: var(--coral);
   margin: 0;
 `;
 
-const ProjectTeaser = styled.p`
+const ProjectTeaser = styled.div`
   font-size: 14px;
   margin: 0;
   color: #fff;
@@ -117,9 +120,9 @@ const WorkCard: React.FC<WorkCardProps> = ({ workItem }) => {
   }
 
   return (
-    <Link href={"/work/" + workItem.slug} passHref>
+    <ProjectLinkWrapper href={"/work/" + workItem.slug} passHref>
       {cardContents}
-    </Link>
+    </ProjectLinkWrapper>
   );
 };
 

@@ -39,7 +39,11 @@ const ContentContainer = styled.div`
   }
 `;
 
-const SpringboardLayout: React.FC = ({ children }) => {
+interface SpringboardLayoutProps {
+  children: React.ReactNode;
+}
+
+const SpringboardLayout = ({ children }: SpringboardLayoutProps) => {
   return (
     <PageContainer>
       <SpringboardContainer>

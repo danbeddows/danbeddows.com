@@ -95,7 +95,7 @@ const Item: React.FC<ItemProps> = ({
   };
 
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <StyledLink
         onClick={closeIfMobile}
         variants={motionVariants(reduceMotion)}

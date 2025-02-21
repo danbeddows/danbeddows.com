@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Title = styled.h1`
   line-height: 1;
   font-weight: 700;
-  color: ${darken(0.1, String(cssVar("--dark-blue", "#293462")))};
+  color: ${darken(0.2, String(cssVar("--dark-blue", "#293462")))};
   position: relative;
   z-index: -1;
   background: var(--light-blue);
@@ -20,7 +20,11 @@ const Title = styled.h1`
   }
 `;
 
-const PageTitle: React.FC = ({ children }) => {
+interface PageTitleProps {
+  children: React.ReactNode;
+}
+
+const PageTitle = ({ children }: PageTitleProps) => {
   return <Title>{children}</Title>;
 };
 

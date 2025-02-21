@@ -68,7 +68,7 @@ const GlobalStyles = createGlobalStyle`
 const App = ({ Component, pageProps }: AppProps) => {
   const aboutUrl = "https://danbeddows.com/";
   const aboutDescription =
-    "Hi, I'm Dan Beddows, a full stack web developer. I'm available to hire for contract work.";
+    "Hi, I'm Dan Beddows, a senior web engineer.";
 
   return (
     <>

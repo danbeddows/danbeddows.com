@@ -14,24 +14,21 @@ const HomePage = () => {
     <Page>
       <PageTitle>Hello, World</PageTitle>
       <Section>
-        <Paragraph>
-          <Title hideLink>
-            I'm Dan Beddows, a Full Stack Web Developer based in Manchester, UK
-            ☔️
-          </Title>
-        </Paragraph>
+        <Title hideLink>
+          I'm Dan Beddows, a Senior Web Engineer based in Manchester, UK ☔️
+        </Title>
 
         <Card icon={faRocketLaunch} title={"I'm available for hire"}>
           <Paragraph>
             If you're looking for an contract web engineer:
-            <UnorderedList>
-              <li>experienced with production React applications</li>
-              <li>with a laser focus to UX and design</li>
-              <li>that can work with the whole stack</li>
-              <li>that understands best practices for the web</li>
-              <li>to hire remotely in the UK as a contractor</li>
-            </UnorderedList>
           </Paragraph>
+          <UnorderedList>
+            <li>experienced with production React applications</li>
+            <li>with a laser focus on UX and design</li>
+            <li>that can work across the stack</li>
+            <li>that understands best practices for the web</li>
+            <li>to hire remotely in the UK as a contractor</li>
+          </UnorderedList>
           <Paragraph>
             Then I'd love to chat and see if we can work together.
           </Paragraph>
@@ -41,13 +38,13 @@ const HomePage = () => {
         </Card>
 
         <Paragraph>
-          Web development is my passion, and over the last 10+ years I've:
+          I've been a web engineer for over 15 years, and I've:
         </Paragraph>
 
         <UnorderedList>
           <li>
             worked professionally as a software developer (most recently at
-            Experian)
+            Provenir)
           </li>
           <li>founded a couple of internet service businesses</li>
           <li>led the tech approach at digital agency Inhaus in Manchester</li>

@@ -11,7 +11,11 @@ const StyledParagraph = styled.p`
   }
 `;
 
-const Paragraph: React.FC = ({ children }) => {
+interface ParagraphProps {
+  children: React.ReactNode;
+}
+
+const Paragraph = ({ children }: ParagraphProps) => {
   return <StyledParagraph>{children}</StyledParagraph>;
 };
 
