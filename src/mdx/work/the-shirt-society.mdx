@@ -1,0 +1,81 @@
+---
+slug: the-shirt-society
+title: "The Shirt Society"
+teaser: "A subscription-based menswear startup"
+thumbUrl: "/projects/tss/thumb.jpg"
+startDate: "2019/10/01"
+endDate: "2021/03/01"
+startDateLabel: "October 2019"
+endDateLabel: "March 2021"
+techStackText: React, Symfony, Stripe, PHP, MailChimp, AWS, Font Awesome, HTML5, Sass
+published: true
+draft: false
+---
+
+import Section from "./src/components/content/Section";
+import Paragraph from "./src/components/content/Paragraph";
+import TechStack from "./src/components/content/TechStack";
+
+<Section>
+    # Overview 👀
+
+    ### About the business
+
+    The Shirt Society is an online menswear subscription. Matt, the founder, wanted to enable time-poor consumers to effectively 'set and forget' their subscription and have premium shirts, polo shirts and t-shirts delivered with little effort.
+
+    ### Work involved
+
+    - Write an API in PHP to handle products, orders, subscriptions, users, authentication, discounts and more.
+    - Build a frontend using React to consume the API.
+    - Integrate 3rd-party API's such as Stripe, Twilio and MailChimp.
+    - Provision the platform on AWS primarily using EC2, RDS, S3, CloudFront.
+    - Be the product owner. Working directly with stakeholders to plan features, work around budget constraints, prioritise features to tight deadlines and be accountable.
+
+    ### Time Involved
+
+    {frontmatter.startDateLabel} - {frontmatter.endDateLabel}
+
+    ### Stack
+
+    <Paragraph>
+      <TechStack stack={frontmatter.techStackText} />
+    </Paragraph>
+
+    ### Personal Highlights
+
+    No matter how many years I've been in web development, it's still an incredible feeling for me when real people; people that you've never met, use your app unguided, and they manage to figure everything out and it just works ✨. This project felt extra incredible as it was the most-used website I've had full accountability for; with 1000's of signups and >£100k of transactions processed.
+
+    I also really enjoyed using React Hooks on a large project (100+ components). After coming from using classes with React and occasionally AngularJS (yes, v1!) it was very freeing not having to write a lot of boilerplate.
+
+</Section>
+
+<Section>
+    # The Story 📖
+
+    ### The MVP
+
+    I started working with Matt whilst his business was at the concept stage and bootstrapped. Along with my cofounder Scott at Inhaus (a digital agency in Manchester), I worked with Matt to develop his ideas into a strategy and build an MVP.
+
+    Signups were capped to 200 customers and the MVP launched 3 weeks after we started building. The cap was met within a few days of launch. We then worked with Matt to design and build out a deck to raise a seed round. Matt closed the round in January 2020, raising a 6-figure sum.
+
+    ### Planning and build
+
+    Scott and I then got to work designing the brand as well as the UI components. We used Figma to design the landing page, account page, onboarding, product-selection and offboarding flows, paying special attention to UX throughout.
+
+    After the designs were approved, I started working on the data structures and getting an idea of how the API would be built.
+
+    I then started writing the API that the frontend would consume. The API took about two months to build, including plugging in some 3rd-party integrations such as Stripe, MailChimp and Royal Mail. We leveraged Stripe's Subscription API quite frequently to manage The Shirt Society subscriptions. The API was deployed onto an AWS EC2 Ubuntu server that was behind a load balancer, and any static assets were placed in S3 buckets and available via CloudFront.
+
+    With the API built, I got to work creating the frontend. We chose React because Matt had expressed an interest in eventually building mobile apps for customers to manage their subscription, and we could leverage React Native for that.
+
+    There were three core pillars for the frontend that I needed to create for launch:
+
+    - The website itself
+    - An admin area to add products, manage users' subscriptions, and view, cancel and ship orders
+    - A migration tool for MVP customers to transfer their data over along with their legacy pricing
+
+    All in all, from developing the business, designing the website, building the API and frontend, testing to launch, I spent about 9 months on this project.
+
+    After launch at the end of July 2020, I worked on adding new features and marketing pages until I left the project around March 2021.
+
+</Section>
