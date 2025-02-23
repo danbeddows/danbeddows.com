@@ -54,6 +54,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   });
 
+  // include
+  /*
+  <Section>
+        <Title>Gallery</Title>
+        <Gallery images={work.images} />
+      </Section>
+      */
+
   return {
     props: { code, frontmatter },
     notFound: process.env.NODE_ENV === "production" && frontmatter.draft,
