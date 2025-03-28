@@ -1,2 +1,2 @@
 export { SocialLink } from "./SocialLink";
-export type { TSocialLink } from "./types";
+export type { SocialAccount } from "./types";

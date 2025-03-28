@@ -1,5 +1,5 @@
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { SocialAccount } from "./SocialLink/types";
+import type { SocialAccount } from "./SocialLink";
 
 export const socialAccounts: SocialAccount[] = [
   {
