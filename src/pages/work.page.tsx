@@ -6,7 +6,7 @@ import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
 import Project from "src/pages/work/WorkCard";
 import { WorkItem, getLatestWork } from "./work/workUtils";
-import { PageLayout } from "src/layouts/PageLayout";
+import { StandardLayout } from "src/layouts/StandardLayout";
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const WorkPage = ({ workList }: WorkPageProps) => {
 };
 
 WorkPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <PageLayout>{page}</PageLayout>;
+  return <StandardLayout>{page}</StandardLayout>;
 };
 
 export const getStaticProps: GetStaticProps = async () => {

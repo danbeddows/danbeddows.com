@@ -5,8 +5,7 @@ import FormInput from "src/components/content/Form/FormInput";
 import PageTitle from "src/components/content/PageTitle";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
-import { Page } from "src/components/Page";
-import { PageLayout } from "src/layouts/PageLayout";
+import { StandardLayout } from "src/layouts/StandardLayout";
 
 const StyledInput = styled(FormInput)`
   width: 100%;
@@ -183,7 +182,7 @@ const ContactPage = () => {
 };
 
 ContactPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <PageLayout>{page}</PageLayout>;
+  return <StandardLayout>{page}</StandardLayout>;
 };
 
 export default ContactPage;

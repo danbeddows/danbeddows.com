@@ -11,7 +11,7 @@ import UnorderedList from "src/components/content/UnorderedList";
 import Title from "src/components/content/Title";
 import { WORKITEM_PATH, workItemFilePaths } from "./workUtils";
 import { getComponentPaths } from "src/util/mdxHelpers";
-import { PageLayout } from "src/layouts/PageLayout";
+import { StandardLayout } from "src/layouts/StandardLayout";
 
 interface WorkPageProps {
   children: React.ReactNode;
@@ -34,7 +34,7 @@ const WorkPage = ({ frontmatter, code }: WorkPageProps) => {
 };
 
 WorkPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <PageLayout>{page}</PageLayout>;
+  return <StandardLayout>{page}</StandardLayout>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

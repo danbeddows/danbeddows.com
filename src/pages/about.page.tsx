@@ -2,7 +2,7 @@ import PageTitle from "src/components/content/PageTitle";
 import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
-import { PageLayout } from "src/layouts/PageLayout";
+import { StandardLayout } from "src/layouts/StandardLayout";
 
 const AboutPage = () => {
   return (
@@ -69,7 +69,7 @@ const AboutPage = () => {
 };
 
 AboutPage.getLayout = function getLayout(page: React.ReactElement) {
-  return <PageLayout>{page}</PageLayout>;
+  return <StandardLayout>{page}</StandardLayout>;
 };
 
 export default AboutPage;

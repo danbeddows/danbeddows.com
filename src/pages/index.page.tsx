@@ -7,7 +7,7 @@ import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
 import UnorderedList from "src/components/content/UnorderedList";
-import { PageLayout } from "src/layouts/PageLayout";
+import { StandardLayout } from "src/layouts/StandardLayout";
 
 const HomePage = () => {
   return (
@@ -74,7 +74,7 @@ const HomePage = () => {
 };
 
 HomePage.getLayout = function getLayout(page: React.ReactElement) {
-  return <PageLayout>{page}</PageLayout>;
+  return <StandardLayout>{page}</StandardLayout>;
 };
 
 export default HomePage;

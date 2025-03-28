@@ -26,7 +26,6 @@ import Head from "next/head";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import fontBasier from "../components/themes/globalFontBasier";
 import { Theme, ThemeGlobals } from "../components/themes/globalTheme";
-import SpringboardLayout from "src/components/layout/SpringboardLayout";
 import { NextPage } from "next";
 
 library.add(
@@ -112,9 +111,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <ThemeGlobals />
       <FontBasierGlobalStyle />
       <ThemeProvider theme={Theme}>
-        <SpringboardLayout>
-          {getLayout(<Component {...pageProps} />)}
-        </SpringboardLayout>
+        {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </>
   );
