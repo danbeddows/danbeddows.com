@@ -5,7 +5,8 @@ import FormInput from "src/components/content/Form/FormInput";
 import PageTitle from "src/components/content/PageTitle";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
-import Page from "src/components/layout/Page";
+import { Page } from "src/components/Page";
+import { PageLayout } from "src/layouts/PageLayout";
 
 const StyledInput = styled(FormInput)`
   width: 100%;
@@ -92,9 +93,9 @@ const ContactPage = () => {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       })
         .then((response) => response.json())
         .then((response) => {
@@ -129,7 +130,7 @@ const ContactPage = () => {
   }, [formSubmitted]);
 
   return (
-    <Page>
+    <>
       <PageTitle>Contact</PageTitle>
 
       <Section>
@@ -177,8 +178,12 @@ const ContactPage = () => {
           </SuccessContainer>
         )}
       </Section>
-    </Page>
+    </>
   );
+};
+
+ContactPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <PageLayout>{page}</PageLayout>;
 };
 
 export default ContactPage;

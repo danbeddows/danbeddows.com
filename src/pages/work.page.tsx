@@ -4,9 +4,9 @@ import PageTitle from "src/components/content/PageTitle";
 import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
-import Page from "src/components/layout/Page";
 import Project from "src/pages/work/WorkCard";
 import { WorkItem, getLatestWork } from "./work/workUtils";
+import { PageLayout } from "src/layouts/PageLayout";
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -24,9 +24,9 @@ interface WorkPageProps {
   workList: WorkItem[];
 }
 
-const WorkPage = ({workList}: WorkPageProps) => {
+const WorkPage = ({ workList }: WorkPageProps) => {
   return (
-    <Page>
+    <>
       <PageTitle>Work</PageTitle>
 
       <Section>
@@ -44,8 +44,12 @@ const WorkPage = ({workList}: WorkPageProps) => {
           ))}
         </ProjectsContainer>
       </Section>
-    </Page>
+    </>
   );
+};
+
+WorkPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <PageLayout>{page}</PageLayout>;
 };
 
 export const getStaticProps: GetStaticProps = async () => {

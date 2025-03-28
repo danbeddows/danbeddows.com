@@ -2,11 +2,11 @@ import PageTitle from "src/components/content/PageTitle";
 import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
-import Page from "src/components/layout/Page";
+import { PageLayout } from "src/layouts/PageLayout";
 
 const AboutPage = () => {
   return (
-    <Page>
+    <>
       <PageTitle>About</PageTitle>
 
       <Section>
@@ -64,8 +64,12 @@ const AboutPage = () => {
 
         <Paragraph>Investing, business and consumer technology.</Paragraph>
       </Section>
-    </Page>
+    </>
   );
+};
+
+AboutPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <PageLayout>{page}</PageLayout>;
 };
 
 export default AboutPage;

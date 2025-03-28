@@ -7,11 +7,11 @@ import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
 import UnorderedList from "src/components/content/UnorderedList";
-import Page from "src/components/layout/Page";
+import { PageLayout } from "src/layouts/PageLayout";
 
 const HomePage = () => {
   return (
-    <Page>
+    <>
       <PageTitle>Hello, World</PageTitle>
       <Section>
         <Title hideLink>
@@ -19,9 +19,7 @@ const HomePage = () => {
         </Title>
 
         <Card icon={faRocketLaunch} title={"I'm available for hire"}>
-          <Paragraph>
-            If you're looking for an contract web engineer:
-          </Paragraph>
+          <Paragraph>If you're looking for an contract web engineer:</Paragraph>
           <UnorderedList>
             <li>experienced with production React applications</li>
             <li>with a laser focus on UX and design</li>
@@ -71,8 +69,12 @@ const HomePage = () => {
           My latest work <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       </Section>
-    </Page>
+    </>
   );
+};
+
+HomePage.getLayout = function getLayout(page: React.ReactElement) {
+  return <PageLayout>{page}</PageLayout>;
 };
 
 export default HomePage;

@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
-import Page from "src/components/layout/Page";
 import PageTitle from "src/components/content/PageTitle";
 import Paragraph from "src/components/content/Paragraph";
 import Heading from "src/components/content/Heading";
@@ -12,6 +11,7 @@ import UnorderedList from "src/components/content/UnorderedList";
 import Title from "src/components/content/Title";
 import { WORKITEM_PATH, workItemFilePaths } from "./workUtils";
 import { getComponentPaths } from "src/util/mdxHelpers";
+import { PageLayout } from "src/layouts/PageLayout";
 
 interface WorkPageProps {
   children: React.ReactNode;
@@ -22,15 +22,19 @@ const WorkPage = ({ frontmatter, code }: WorkPageProps) => {
   const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <Page>
+    <>
       <PageTitle>{frontmatter.title}</PageTitle>
 
       <MDXComponent
         // @ts-ignore
         components={{ p: Paragraph, h3: Heading, ul: UnorderedList, h1: Title }}
       />
-    </Page>
+    </>
   );
+};
+
+WorkPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <PageLayout>{page}</PageLayout>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -50,13 +54,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       ...getComponentPaths("Section"),
       ...getComponentPaths("Heading"),
       ...getComponentPaths("TechStack"),
-      ...getComponentPaths("TechStackIcon"),
-    },
+      ...getComponentPaths("TechStackIcon")
+    }
   });
 
   return {
     props: { code, frontmatter },
-    notFound: process.env.NODE_ENV === "production" && frontmatter.draft,
+    notFound: process.env.NODE_ENV === "production" && frontmatter.draft
   };
 };
 
@@ -67,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 };
 

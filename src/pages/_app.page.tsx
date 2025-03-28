@@ -1,6 +1,6 @@
 import {
   dom as fontAwesomeDom,
-  library,
+  library
 } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngular,
@@ -19,7 +19,7 @@ import {
   faSymfony,
   faDocker,
   faJenkins,
-  faJira,
+  faJira
 } from "@fortawesome/free-brands-svg-icons";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -27,6 +27,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import fontBasier from "../components/themes/globalFontBasier";
 import { Theme, ThemeGlobals } from "../components/themes/globalTheme";
 import SpringboardLayout from "src/components/layout/SpringboardLayout";
+import { NextPage } from "next";
 
 library.add(
   faReact,
@@ -52,6 +53,14 @@ const assetDomain = process.env.NEXT_PUBLIC_ASSET_SERVER ?? "";
 
 const FontBasierGlobalStyle = fontBasier(assetDomain);
 
+type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
 const GlobalStyles = createGlobalStyle`
   body {
 		padding: 0;
@@ -65,11 +74,13 @@ const GlobalStyles = createGlobalStyle`
 	}
 `;
 
-const App = ({ Component, pageProps }: AppProps) => {
-  const aboutUrl = "https://danbeddows.com/";
-  const aboutDescription =
-    "Hi, I'm Dan Beddows, a senior web engineer.";
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const aboutTitle = "Dan Beddows";
+  const domain = "danbeddows.com";
+  const aboutUrl = `https://${domain}/`;
+  const aboutDescription = "Hi, I'm Dan Beddows, a senior web engineer.";
 
+  const getLayout = Component.getLayout ?? ((page) => page);
   return (
     <>
       <Head>
@@ -85,14 +96,14 @@ const App = ({ Component, pageProps }: AppProps) => {
 
         <meta property="og:url" content={aboutUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Dan Beddows" />
+        <meta property="og:site_name" content={aboutTitle} />
         <meta property="og:description" content={aboutDescription} />
-        <meta property="og:title" content="Dan Beddows" />
+        <meta property="og:title" content={aboutTitle} />
         <meta property="og:image" content="" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Dan Beddows" />
-        <meta property="twitter:domain" content="danbeddows.com" />
+        <meta name="twitter:title" content={aboutTitle} />
+        <meta property="twitter:domain" content={domain} />
         <meta property="twitter:url" content={aboutUrl} />
         <meta name="twitter:description" content={aboutDescription} />
         <meta name="twitter:image" content="" />
@@ -102,7 +113,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <FontBasierGlobalStyle />
       <ThemeProvider theme={Theme}>
         <SpringboardLayout>
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </SpringboardLayout>
       </ThemeProvider>
     </>
