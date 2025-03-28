@@ -5,7 +5,7 @@ import Paragraph from "src/components/content/Paragraph";
 import Section from "src/components/content/Section";
 import Title from "src/components/content/Title";
 import Page from "src/components/layout/Page";
-import Project from "pages/work/WorkCard";
+import Project from "src/pages/work/WorkCard";
 import { WorkItem, getLatestWork } from "./work/workUtils";
 
 const ProjectsContainer = styled.div`

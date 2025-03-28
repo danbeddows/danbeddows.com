@@ -1,14 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-
-/*
- * Config AWS
- */
-const AWS = require("aws-sdk");
-AWS.config.update({
-  region: process.env.AWS_APP_REGION,
-  accessKeyId: process.env.AWS_APP_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_APP_SECRET_ACCESS_KEY,
-});
+import { SendEmailCommand } from "@aws-sdk/client-ses";
+import { awsSesClient } from "src/lib/aws/getSesClient";
 
 interface IError {
   field: string;
@@ -59,9 +51,9 @@ const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   if (!errors) {
-    const emailParams = {
+    const emailCommand = new SendEmailCommand({
       Destination: {
-        ToAddresses: [process.env.ADMIN_EMAIL],
+        ToAddresses: [process.env.ADMIN_EMAIL ?? ""],
       },
       Message: {
         Body: {
@@ -79,16 +71,16 @@ const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
           Data: "New Contact Form Submission",
         },
       },
-      Source: process.env.ADMIN_EMAIL_FROM,
-    };
+      Source: process.env.ADMIN_EMAIL_FROM ?? "",
+    });
 
-    await new AWS.SES({ apiVersion: "2010-12-01" })
-      .sendEmail(emailParams)
-      .promise()
-      .then(function (data: any) {
+    await awsSesClient
+      .send(emailCommand)
+      .then((data: any) => {
         status = "success";
       })
-      .catch(function (err: any) {
+      .catch((err: any) => {
+        console.log(err);
         addError({
           field: "internal",
           error: "An unknown error occured. Please try again later.",
