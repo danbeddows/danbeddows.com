@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { WorkItem } from "./workUtils";
 
 const ProjectLinkWrapper = styled(Link)`
+  width: 100%;
   text-decoration: none;
-`
+`;
 
 const ProjectContents = styled.div`
   width: 100%;
