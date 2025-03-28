@@ -23,9 +23,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import fontBasier from "../components/themes/globalFontBasier";
-import { Theme, ThemeGlobals } from "../components/themes/globalTheme";
+import { ThemeProvider } from "styled-components";
+import { fontBasier } from "../styles/fontBasier";
+import { theme, ThemeGlobalStyles } from "../styles/theme";
 import { NextPage } from "next";
 
 library.add(
@@ -59,19 +59,6 @@ type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
-
-const GlobalStyles = createGlobalStyle`
-  body {
-		padding: 0;
-		margin: 0;
-		text-rendering: optimizeLegibility;
-		background: #fff;
-	}
-
-	* {
-		box-sizing: border-box;
-	}
-`;
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const aboutTitle = "Dan Beddows";
@@ -107,10 +94,9 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         <meta name="twitter:description" content={aboutDescription} />
         <meta name="twitter:image" content="" />
       </Head>
-      <GlobalStyles />
-      <ThemeGlobals />
+      <ThemeGlobalStyles />
       <FontBasierGlobalStyle />
-      <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={theme}>
         {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </>

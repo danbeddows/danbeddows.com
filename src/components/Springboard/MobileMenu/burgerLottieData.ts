@@ -1,7 +1,7 @@
 /**
  * JSON data of a burger icon that has a lottie animation sequence
  */
-const jsonData = {
+export const burgerLottieData = {
   v: "5.6.5",
   fr: 30,
   ip: 0,
@@ -23,7 +23,7 @@ const jsonData = {
         r: { a: 0, k: 0, ix: 10 },
         p: { a: 0, k: [16, 16, 0], ix: 2 },
         a: { a: 0, k: [12, 12, 0], ix: 1 },
-        s: { a: 0, k: [100, 100, 100], ix: 6 },
+        s: { a: 0, k: [100, 100, 100], ix: 6 }
       },
       ao: 0,
       shapes: [
@@ -39,23 +39,23 @@ const jsonData = {
                 k: {
                   i: [
                     [0, 0],
-                    [0, 0],
+                    [0, 0]
                   ],
                   o: [
                     [0, 0],
-                    [0, 0],
+                    [0, 0]
                   ],
                   v: [
                     [6, -6],
-                    [-6, 6],
+                    [-6, 6]
                   ],
-                  c: false,
+                  c: false
                 },
-                ix: 2,
+                ix: 2
               },
               nm: "Path 1",
               mn: "ADBE Vector Shape - Group",
-              hd: false,
+              hd: false
             },
             {
               ty: "st",
@@ -67,7 +67,7 @@ const jsonData = {
               bm: 0,
               nm: "Stroke 1",
               mn: "ADBE Vector Graphic - Stroke",
-              hd: false,
+              hd: false
             },
             {
               ty: "tr",
@@ -80,11 +80,11 @@ const jsonData = {
                     t: 0,
                     s: [12, 6],
                     to: [0, 1],
-                    ti: [0, -1],
+                    ti: [0, -1]
                   },
-                  { t: 10, s: [12, 12] },
+                  { t: 10, s: [12, 12] }
                 ],
-                ix: 2,
+                ix: 2
               },
               a: { a: 0, k: [0, 0], ix: 1 },
               s: { a: 0, k: [100, 100], ix: 3 },
@@ -95,23 +95,23 @@ const jsonData = {
                     i: { x: [0.202], y: [1.082] },
                     o: { x: [0.333], y: [0] },
                     t: 10,
-                    s: [45],
+                    s: [45]
                   },
                   {
                     i: { x: [0.67], y: [3129600.967] },
                     o: { x: [0.167], y: [0] },
                     t: 45,
-                    s: [360],
+                    s: [360]
                   },
-                  { t: 59, s: [360] },
+                  { t: 59, s: [360] }
                 ],
-                ix: 6,
+                ix: 6
               },
               o: { a: 0, k: 100, ix: 7 },
               sk: { a: 0, k: 0, ix: 4 },
               sa: { a: 0, k: 0, ix: 5 },
-              nm: "Transform",
-            },
+              nm: "Transform"
+            }
           ],
           nm: "line/horizontal/top",
           np: 2,
@@ -119,7 +119,7 @@ const jsonData = {
           bm: 0,
           ix: 1,
           mn: "ADBE Vector Group",
-          hd: false,
+          hd: false
         },
         {
           ty: "gr",
@@ -133,23 +133,23 @@ const jsonData = {
                 k: {
                   i: [
                     [0, 0],
-                    [0, 0],
+                    [0, 0]
                   ],
                   o: [
                     [0, 0],
-                    [0, 0],
+                    [0, 0]
                   ],
                   v: [
                     [6, -6],
-                    [-6, 6],
+                    [-6, 6]
                   ],
-                  c: false,
+                  c: false
                 },
-                ix: 2,
+                ix: 2
               },
               nm: "Path 1",
               mn: "ADBE Vector Shape - Group",
-              hd: false,
+              hd: false
             },
             {
               ty: "st",
@@ -161,7 +161,7 @@ const jsonData = {
               bm: 0,
               nm: "Stroke 1",
               mn: "ADBE Vector Graphic - Stroke",
-              hd: false,
+              hd: false
             },
             {
               ty: "tr",
@@ -174,11 +174,11 @@ const jsonData = {
                     t: 0,
                     s: [12, 12],
                     to: [0, 0],
-                    ti: [0, 0],
+                    ti: [0, 0]
                   },
-                  { t: 10, s: [12, 12] },
+                  { t: 10, s: [12, 12] }
                 ],
-                ix: 2,
+                ix: 2
               },
               a: { a: 0, k: [0, 0], ix: 1 },
               s: { a: 0, k: [100, 100], ix: 3 },
@@ -189,23 +189,23 @@ const jsonData = {
                     i: { x: [0.202], y: [1.114] },
                     o: { x: [0.333], y: [0] },
                     t: 10,
-                    s: [45],
+                    s: [45]
                   },
                   {
                     i: { x: [0.665], y: [1933716.068] },
                     o: { x: [0.167], y: [0] },
                     t: 45,
-                    s: [270],
+                    s: [270]
                   },
-                  { t: 59, s: [270] },
+                  { t: 59, s: [270] }
                 ],
-                ix: 6,
+                ix: 6
               },
               o: { a: 0, k: 100, ix: 7 },
               sk: { a: 0, k: 0, ix: 4 },
               sa: { a: 0, k: 0, ix: 5 },
-              nm: "Transform",
-            },
+              nm: "Transform"
+            }
           ],
           nm: "line/horizontal/center",
           np: 2,
@@ -213,7 +213,7 @@ const jsonData = {
           bm: 0,
           ix: 2,
           mn: "ADBE Vector Group",
-          hd: false,
+          hd: false
         },
         {
           ty: "gr",
@@ -227,23 +227,23 @@ const jsonData = {
                 k: {
                   i: [
                     [0, 0],
-                    [0, 0],
+                    [0, 0]
                   ],
                   o: [
                     [0, 0],
-                    [0, 0],
+                    [0, 0]
                   ],
                   v: [
                     [6, -6],
-                    [-6, 6],
+                    [-6, 6]
                   ],
-                  c: false,
+                  c: false
                 },
-                ix: 2,
+                ix: 2
               },
               nm: "Path 1",
               mn: "ADBE Vector Shape - Group",
-              hd: false,
+              hd: false
             },
             {
               ty: "st",
@@ -255,7 +255,7 @@ const jsonData = {
               bm: 0,
               nm: "Stroke 1",
               mn: "ADBE Vector Graphic - Stroke",
-              hd: false,
+              hd: false
             },
             {
               ty: "tr",
@@ -268,11 +268,11 @@ const jsonData = {
                     t: 0,
                     s: [12, 18],
                     to: [0, -1],
-                    ti: [0, 1],
+                    ti: [0, 1]
                   },
-                  { t: 10, s: [12, 12] },
+                  { t: 10, s: [12, 12] }
                 ],
-                ix: 2,
+                ix: 2
               },
               a: { a: 0, k: [0, 0], ix: 1 },
               s: { a: 0, k: [100, 100], ix: 3 },
@@ -284,22 +284,22 @@ const jsonData = {
                     i: { x: [0.667], y: [1] },
                     o: { x: [0.167], y: [0] },
                     t: 0,
-                    s: [100],
+                    s: [100]
                   },
                   {
                     i: { x: [0.667], y: [1] },
                     o: { x: [0.333], y: [0] },
                     t: 9,
-                    s: [100],
+                    s: [100]
                   },
-                  { t: 10, s: [0] },
+                  { t: 10, s: [0] }
                 ],
-                ix: 7,
+                ix: 7
               },
               sk: { a: 0, k: 0, ix: 4 },
               sa: { a: 0, k: 0, ix: 5 },
-              nm: "Transform",
-            },
+              nm: "Transform"
+            }
           ],
           nm: "line/horizontal/bottom",
           np: 2,
@@ -307,16 +307,14 @@ const jsonData = {
           bm: 0,
           ix: 3,
           mn: "ADBE Vector Group",
-          hd: false,
-        },
+          hd: false
+        }
       ],
       ip: 0,
       op: 60,
       st: 0,
-      bm: 0,
-    },
+      bm: 0
+    }
   ],
-  markers: [],
+  markers: []
 };
-
-export default jsonData;

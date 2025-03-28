@@ -1,7 +1,7 @@
 import { useReducedMotion } from "framer-motion";
 import React, { useState } from "react";
-import useWindowDimensions from "src/util/hooks/useWindowDimensions";
-import MobileButton from "./MobileBurger/MobileBurger";
+import useWindowDimensions from "src/hooks/useWindowDimensions";
+import { MobileMenu } from "./MobileMenu";
 import { SpringboardContainer } from "./Springboard.styles";
 import { SpringboardContent } from "./SpringboardContent";
 
@@ -9,16 +9,16 @@ export const Springboard = () => {
   const [isDisplayMobile, setIsDisplayMobile] = useState(true);
   const isReducedMotion = useReducedMotion() ?? false;
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   let windowDimensions = useWindowDimensions();
 
   const closeMobileMenu = () => {
-    setIsMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen((isMenuOpen) => !isMenuOpen);
+    setIsMobileMenuOpen((isMenuOpen) => !isMenuOpen);
   };
 
   /**
@@ -35,19 +35,19 @@ export const Springboard = () => {
     // Only update state if the state has changed
     if (isMobile !== isDisplayMobile) {
       setIsDisplayMobile(isMobile);
-      setIsMenuOpen(!isMobile);
+      setIsMobileMenuOpen(!isMobile);
     }
   }
 
   return (
     <SpringboardContainer
       initial={false}
-      animate={isMenuOpen ? "open" : "closed"}
+      animate={isMobileMenuOpen ? "open" : "closed"}
     >
-      <MobileButton
+      <MobileMenu
         toggleMenu={toggleMenu}
-        menuOpen={isMenuOpen}
-        reduceMotion={isReducedMotion}
+        isMobileMenuOpen={isMobileMenuOpen}
+        isReducedMotion={isReducedMotion}
       />
       <SpringboardContent
         closeMenu={closeMobileMenu}

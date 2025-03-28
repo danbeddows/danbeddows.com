@@ -4,7 +4,7 @@ const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
-    height,
+    height
   };
 };
 
@@ -16,7 +16,7 @@ interface DimensionState {
 const useWindowDimensions = () => {
   const [windowDimensions, setWindowDimensions] = useState<DimensionState>({
     width: 0,
-    height: 0,
+    height: 0
   });
 
   useEffect(() => {
