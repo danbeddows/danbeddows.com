@@ -1,72 +1,59 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import React, { useState } from "react";
-import styled from "styled-components";
 import useWindowDimensions from "src/util/hooks/useWindowDimensions";
 import MobileButton from "./MobileBurger/MobileBurger";
-import ContentWrapper from "./SpringboardInner";
+import { SpringboardContainer } from "./Springboard.styles";
+import { SpringboardContent } from "./SpringboardContent";
 
-const Container = styled(motion.aside)`
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  pointer-events: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (min-width: ${(props) => props.theme.bp.desktop}) {
-    pointer-events: auto;
-    min-height: 100vh;
-  }
-`;
-
-const Springboard = () => {
+export const Springboard = () => {
   const [isDisplayMobile, setIsDisplayMobile] = useState(true);
-  const shouldReduceMotion = useReducedMotion() as boolean;
+  const isReducedMotion = useReducedMotion() ?? false;
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   let windowDimensions = useWindowDimensions();
 
   const closeMobileMenu = () => {
-    setMenuOpen(false);
+    setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setIsMenuOpen((isMenuOpen) => !isMenuOpen);
   };
 
   /**
    * Track changes to the window dimensions and update the state that tracks
-   * whether the user is on mobile or larger
+   * whether the user is on mobile or not
    *
-   * the sidebar interactions behave differently for mobile vs desktop, so we must track
-   * window size changes
+   * the sidebar interactions behave differently for mobile vs desktop, so we know behaviour to
+   * show based on the window dimensions
    */
   if (windowDimensions) {
     const mobileBreakpoint = 768;
     const isMobile = windowDimensions.width <= mobileBreakpoint;
 
-    // Only update state if the new state value has changed
-    if (isMobile != isDisplayMobile) {
+    // Only update state if the state has changed
+    if (isMobile !== isDisplayMobile) {
       setIsDisplayMobile(isMobile);
-      setMenuOpen(!isMobile);
+      setIsMenuOpen(!isMobile);
     }
   }
 
   return (
-    <Container initial={false} animate={menuOpen ? "open" : "closed"}>
+    <SpringboardContainer
+      initial={false}
+      animate={isMenuOpen ? "open" : "closed"}
+    >
       <MobileButton
         toggleMenu={toggleMenu}
-        menuOpen={menuOpen}
-        reduceMotion={shouldReduceMotion}
+        menuOpen={isMenuOpen}
+        reduceMotion={isReducedMotion}
       />
-      <ContentWrapper
+      <SpringboardContent
         closeMenu={closeMobileMenu}
         isMobile={isDisplayMobile}
-        reduceMotion={shouldReduceMotion}
+        isReducedMotion={isReducedMotion}
       />
-    </Container>
+    </SpringboardContainer>
   );
 };
-
-export default Springboard;

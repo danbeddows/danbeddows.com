@@ -1,10 +1,10 @@
-import Springboard from "src/components/global/Springboard/Springboard";
 import { Page } from "src/components/Page";
 import {
   ContentWrapper,
   PageWrapper,
   SpringboardWrapper
 } from "./StandardLayout.styles";
+import { Springboard } from "src/components/Springboard";
 
 interface StandardLayoutProps {
   children: React.ReactNode;
