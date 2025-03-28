@@ -1,16 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { SendEmailCommand } from "@aws-sdk/client-ses";
 import { awsSesClient } from "src/lib/aws/getSesClient";
+import { sleep } from "src/lib/util";
 
 interface IError {
   field: string;
   error: string;
 }
 
-/*
- * Error var helper
- */
-let errors: IError[] | undefined = undefined;
+let errors: IError[] = [];
 const addError = (error: { field: string; error: string }) => {
   if (!errors) {
     errors = [];
@@ -24,7 +22,7 @@ const addError = (error: { field: string; error: string }) => {
  * via AWS SES
  */
 const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
-  errors = undefined;
+  errors = [];
   let status = "failed";
 
   const emailAddress = req.body.email;
@@ -38,7 +36,7 @@ const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
   } else if (!emailRegex.exec(emailAddress)) {
     addError({
       field: "email",
-      error: "The email address you entered is invalid.",
+      error: "The email address you entered is invalid."
     });
   }
 
@@ -50,28 +48,28 @@ const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
     addError({ field: "message", error: "Enter your message." });
   }
 
-  if (!errors) {
+  if (errors.length === 0) {
     const emailCommand = new SendEmailCommand({
       Destination: {
-        ToAddresses: [process.env.ADMIN_EMAIL ?? ""],
+        ToAddresses: [process.env.ADMIN_EMAIL ?? ""]
       },
       Message: {
         Body: {
           Html: {
             Charset: "UTF-8",
-            Data: formatMessage(name, emailAddress, message),
+            Data: formatMessage(name, emailAddress, message)
           },
           Text: {
             Charset: "UTF-8",
-            Data: "danbeddows.com contact submission",
-          },
+            Data: "danbeddows.com contact submission"
+          }
         },
         Subject: {
           Charset: "UTF-8",
-          Data: "New Contact Form Submission",
-        },
+          Data: "New Contact Form Submission"
+        }
       },
-      Source: process.env.ADMIN_EMAIL_FROM ?? "",
+      Source: process.env.ADMIN_EMAIL_FROM ?? ""
     });
 
     await awsSesClient
@@ -83,38 +81,38 @@ const handleContactForm = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log(err);
         addError({
           field: "internal",
-          error: "An unknown error occured. Please try again later.",
+          error: "An unknown error occured. Please try again later."
         });
       });
 
-    // Add arbitary thread pause, so the request doesn't
-    // seem broken
+    // Add arbitary thread pause, so the request doesn't finish too fast
+    // and seem broken / like a message was not sent
     await sleep(2000);
   }
 
   res.json({
     status,
-    errors,
+    errors
   });
 };
 
 const formatMessage = (name: string, email: string, message: string) => {
-  return (
-    "<html><body><h1>New Contact Form Submission</h1><h2>Name</h2><p>" +
-    name +
-    "</p>" +
-    "<h2>Email</h2><p>" +
-    email +
-    "</p><h2>Message</h2><p>" +
-    message +
-    "</p></body></html>"
-  );
-};
+  return `
+      <html>
+        <body>
+          <h1>New Contact Form Submission</h1>
 
-const sleep = (ms: number) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+          <h2>Name</h2>
+          <p>${name}</p>
+
+          <h2>Email</h2>
+          <p>${email}</p>
+          
+          <h2>Message</h2>
+          <p>${message}</p>
+        </body>
+      </html>
+    `;
 };
 
 export default handleContactForm;
